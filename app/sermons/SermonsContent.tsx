@@ -135,8 +135,8 @@ export default function SermonsContent() {
                   className="glass-card overflow-hidden group cursor-pointer"
                 >
                   {/* Thumbnail */}
-                  <div className="aspect-video relative overflow-hidden">
-                    <img src={sermon.thumbnail} alt={sermon.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="relative overflow-hidden">
+                    <img src={sermon.thumbnail} alt={sermon.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <motion.div
                         whileHover={{ scale: 1.1 }}

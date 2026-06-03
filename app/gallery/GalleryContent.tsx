@@ -11,8 +11,6 @@ const categories = ['All', 'Worship', 'Events', 'Community', 'Outreach', 'Leader
 const images = [
   { src: '/images/phmi-21.jpeg', category: 'Worship', caption: 'Sunday Prophetic Service' },
   { src: '/images/phmi-22.jpeg', category: 'Events', caption: 'Annual Revival Conference 2024' },
-  { src: '/images/phmi-23.png', category: 'Community', caption: 'Community Fellowship Hour' },
-  { src: '/images/phmi-24.png', category: 'Worship', caption: 'Choir Ministry in Action' },
   { src: '/images/phmi-1.jpeg', category: 'Events', caption: 'Youth Empowerment Night' },
   { src: '/images/phmi-2.jpg', category: 'Community', caption: 'Prayer Group Session' },
   { src: '/images/phmi-4.jpeg', category: 'Outreach', caption: 'Community Outreach Program' },

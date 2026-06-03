@@ -99,11 +99,11 @@ export default function Sermons() {
             <div className="grid grid-cols-1 lg:grid-cols-5">
               {/* Thumbnail */}
               <div className="lg:col-span-3 relative overflow-hidden">
-                <div className="aspect-video lg:aspect-auto lg:h-full min-h-[260px] relative">
+                <div className="lg:aspect-auto min-h-[260px] relative">
                   <img
                     src={featured.thumbnail}
                     alt={featured.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
                     <PlayButton size="lg" />
@@ -163,11 +163,11 @@ export default function Sermons() {
               className="glass-card overflow-hidden group cursor-pointer"
             >
               {/* Thumbnail */}
-              <div className="aspect-video relative overflow-hidden">
+              <div className="relative overflow-hidden">
                 <img
                   src={sermon.thumbnail}
                   alt={sermon.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <PlayButton size="md" />

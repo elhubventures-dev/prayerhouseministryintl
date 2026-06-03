@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Play, ChevronDown, ArrowRight } from 'lucide-react'
 import { staggerContainer, heroText } from '@/lib/animations'
 
@@ -11,16 +12,22 @@ export default function Hero() {
 
       {/* ── Background layer ── */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/images/phmi-14.jpg')`,
-        }}
+        className="absolute inset-0"
         animate={{ scale: [1, 1.06, 1] }}
         transition={{ duration: 18, ease: 'linear', repeat: Infinity }}
-      />
+      >
+        <Image
+          src="/images/hero-bg.png"
+          alt="Solution Center Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/75 to-background/95" />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
 
       {/* Gold ray from top */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,168,76,0.22)_0%,transparent_65%)]" />

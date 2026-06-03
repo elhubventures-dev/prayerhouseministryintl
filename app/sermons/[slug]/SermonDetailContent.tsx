@@ -113,7 +113,7 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                     />
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-background-alt"
-                      style={{ backgroundImage: `url('${sermon.thumbnail}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                      style={{ backgroundImage: `url('${sermon.thumbnail}')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
                       <div className="absolute inset-0 bg-background/60" />
                       <div className="relative z-10 flex flex-col items-center gap-4">
                         <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-gold-lg">
@@ -252,8 +252,8 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                       href={`/sermons/${rel.slug}`}
                       className="glass-card p-4 flex gap-4 items-start group hover:border-gold/40 transition-colors"
                     >
-                      <div className="relative w-20 flex-shrink-0 aspect-video rounded-lg overflow-hidden">
-                        <img src={rel.thumbnail} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <div className="relative w-24 flex-shrink-0 rounded-lg overflow-hidden flex items-center bg-background-alt">
+                        <img src={rel.thumbnail} alt={rel.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
                         <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <Play className="w-4 h-4 text-gold fill-gold" />
                         </div>
