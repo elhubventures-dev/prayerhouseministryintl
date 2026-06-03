@@ -44,7 +44,7 @@ export default function WeeklyActivities() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-navy overflow-hidden">
+    <section id="services" className="relative py-24 lg:py-32 bg-background-alt overflow-hidden">
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -53,7 +53,7 @@ export default function WeeklyActivities() {
           backgroundSize: '60px 60px',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -68,7 +68,7 @@ export default function WeeklyActivities() {
             Weekly <span className="text-gold-gradient">Activities</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-lg mx-auto">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-lg mx-auto">
             Every service is an opportunity to encounter God, grow in faith, and build community. You are always welcome.
           </motion.p>
         </motion.div>
@@ -96,7 +96,7 @@ export default function WeeklyActivities() {
 
                 {/* Featured badge */}
                 {service.featured && (
-                  <span className="absolute top-4 right-4 font-montserrat text-[10px] text-navy-dark bg-gold px-2.5 py-1 rounded-full uppercase font-bold tracking-wider">
+                  <span className="absolute top-4 right-4 font-montserrat text-[10px] text-background bg-gold px-2.5 py-1 rounded-full uppercase font-bold tracking-wider">
                     Special
                   </span>
                 )}
@@ -114,7 +114,7 @@ export default function WeeklyActivities() {
                 <p className="font-montserrat text-[11px] text-gold uppercase tracking-[0.2em]">{service.day}</p>
 
                 {/* Service name */}
-                <h3 className="font-playfair text-xl text-ivory font-semibold leading-tight">{service.name}</h3>
+                <h3 className="font-playfair text-xl text-foreground font-semibold leading-tight">{service.name}</h3>
 
                 {/* Time */}
                 <div className="flex items-center gap-2">
@@ -123,7 +123,7 @@ export default function WeeklyActivities() {
                 </div>
 
                 {/* Description */}
-                <p className="font-inter text-silver text-sm leading-relaxed">{service.description}</p>
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed">{service.description}</p>
 
                 {/* Bottom glow on hover */}
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -139,7 +139,7 @@ export default function WeeklyActivities() {
           transition={{ delay: 0.7, duration: 0.6 }}
           className="text-center mt-12"
         >
-          <p className="font-inter text-silver/60 text-sm">
+          <p className="font-inter text-muted-foreground/60 text-sm">
             📍 Opposite Wotutu Okada Park, Mile 4 Limbe
             <span className="mx-3 text-gold/30">|</span>
             📞 <a href="tel:+237653270752" className="hover:text-gold transition-colors">653 270 752</a>

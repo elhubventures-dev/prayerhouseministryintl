@@ -33,7 +33,7 @@ export default function Header() {
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'backdrop-blur-md bg-navy-dark/90 border-b border-gold/10 shadow-glass'
+            ? 'backdrop-blur-md bg-background/90 border-b border-gold/10 shadow-glass'
             : 'bg-transparent'
         }`}
       >
@@ -41,12 +41,12 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
-                <Cross className="w-5 h-5 text-gold" strokeWidth={1.5} />
+              <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
               </div>
               <div className="leading-tight">
                 <p className="font-cinzel text-xs font-bold text-gold tracking-wider">PHMI</p>
-                <p className="font-montserrat text-[10px] text-silver tracking-widest uppercase">Solution Center</p>
+                <p className="font-montserrat text-[10px] text-muted-foreground tracking-widest uppercase">Solution Center</p>
               </div>
             </Link>
 
@@ -78,7 +78,7 @@ export default function Header() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMenuOpen(true)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-silver hover:text-gold transition-colors"
+              className="lg:hidden w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
@@ -99,7 +99,7 @@ export default function Header() {
           >
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-navy-dark/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-background/95 backdrop-blur-xl"
               onClick={() => setMenuOpen(false)}
             />
 
@@ -109,24 +109,24 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="absolute right-0 top-0 bottom-0 w-80 bg-navy/95 border-l border-gold/10 p-8 flex flex-col"
+              className="absolute right-0 top-0 bottom-0 w-80 bg-background-alt/95 border-l border-gold/10 p-8 flex flex-col"
             >
               {/* Close */}
               <button
                 onClick={() => setMenuOpen(false)}
-                className="self-end w-10 h-10 flex items-center justify-center text-silver hover:text-gold transition-colors mb-8"
+                className="self-end w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors mb-8"
               >
                 <X className="w-6 h-6" />
               </button>
 
               {/* Logo in menu */}
               <div className="flex items-center gap-3 mb-10 pb-6 border-b border-gold/10">
-                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center">
-                  <Cross className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="font-cinzel text-sm font-bold text-gold">PHMI</p>
-                  <p className="font-montserrat text-[10px] text-silver tracking-widest uppercase">Solution Center</p>
+                  <p className="font-montserrat text-[10px] text-muted-foreground tracking-widest uppercase">Solution Center</p>
                 </div>
               </div>
 
@@ -142,7 +142,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-3 py-3 px-4 rounded-lg font-montserrat text-sm font-medium text-silver hover:text-gold hover:bg-gold/5 transition-all duration-200"
+                      className="flex items-center gap-3 py-3 px-4 rounded-lg font-montserrat text-sm font-medium text-muted-foreground hover:text-gold hover:bg-gold/5 transition-all duration-200"
                     >
                       {link.label}
                     </Link>

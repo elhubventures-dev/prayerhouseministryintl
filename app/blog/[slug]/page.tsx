@@ -10,7 +10,7 @@ const posts: Record<string, any> = {
     title: 'The Secret Place: Why Your Private Prayer Life Changes Everything',
     author: 'Rev. Apostle E.S. Hugo',
     publishedAt: '2025-07-14',
-    mainImage: 'https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=1200&q=80',
+    mainImage: '/images/phmi-10.jpeg',
     categories: ['Devotional', 'Prayer Points'],
     estimatedReadingTime: 5,
     scripture: '"But when you pray, go into your room, close the door and pray to your Father, who is unseen." — Matthew 6:6',
@@ -30,8 +30,8 @@ const posts: Record<string, any> = {
       { type: 'paragraph', text: 'Your secret place is the most productive space in your life. Guard it. Invest in it. Let it become the place where heaven and earth intersect in your story.' },
     ],
     relatedPosts: [
-      { slug: '7-daily-declarations-for-breakthrough', title: '7 Daily Declarations for Supernatural Breakthrough', mainImage: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&q=80', estimatedReadingTime: 4, categories: ['Prayer Points'] },
-      { slug: 'walking-in-prophetic-purpose', title: 'Walking in Prophetic Purpose: Knowing the Season You Are In', mainImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80', estimatedReadingTime: 7, categories: ['Prophecy'] },
+      { slug: '7-daily-declarations-for-breakthrough', title: '7 Daily Declarations for Supernatural Breakthrough', mainImage: '/images/phmi-11.jpg', estimatedReadingTime: 4, categories: ['Prayer Points'] },
+      { slug: 'walking-in-prophetic-purpose', title: 'Walking in Prophetic Purpose: Knowing the Season You Are In', mainImage: '/images/phmi-13.jpeg', estimatedReadingTime: 7, categories: ['Prophecy'] },
     ],
   },
 }

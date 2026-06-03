@@ -17,7 +17,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-navy overflow-hidden">
+    <section id="contact" className="relative py-24 lg:py-32 bg-background-alt overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(201,168,76,0.07)_0%,transparent_60%)] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -33,7 +33,7 @@ export default function Contact() {
             Contact <span className="text-gold-gradient">Us</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-lg mx-auto">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-lg mx-auto">
             We'd love to hear from you. Reach out for prayer, information, or to connect with our team.
           </motion.p>
         </motion.div>
@@ -53,62 +53,62 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Full Name *</label>
+                      <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Full Name *</label>
                       <input
                         required
                         type="text"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Your full name"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Email *</label>
+                      <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email *</label>
                       <input
                         required
                         type="email"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="your@email.com"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Phone (optional)</label>
+                      <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Phone (optional)</label>
                       <input
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         placeholder="+237 6XX XXX XXX"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Subject *</label>
+                      <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Subject *</label>
                       <input
                         required
                         type="text"
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
                         placeholder="How can we help?"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Message *</label>
+                    <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Message *</label>
                     <textarea
                       required
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       rows={5}
                       placeholder="Write your message here..."
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
                     />
                   </div>
 
@@ -120,7 +120,7 @@ export default function Contact() {
                       onChange={(e) => setForm({ ...form, isPrayer: e.target.checked })}
                       className="w-4 h-4 accent-gold"
                     />
-                    <label htmlFor="prayerCheck" className="font-inter text-silver text-sm cursor-pointer">
+                    <label htmlFor="prayerCheck" className="font-inter text-muted-foreground text-sm cursor-pointer">
                       🙏 This is a prayer request — please forward to the prayer team
                     </label>
                   </div>
@@ -143,8 +143,8 @@ export default function Contact() {
                   <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-8 h-8 text-gold" />
                   </div>
-                  <h4 className="font-cinzel text-xl text-ivory font-bold mb-3">Message Sent!</h4>
-                  <p className="font-inter text-silver text-sm leading-relaxed mb-6">
+                  <h4 className="font-cinzel text-xl text-foreground font-bold mb-3">Message Sent!</h4>
+                  <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-6">
                     Thank you for reaching out to us. Our team will respond to your message within 24–48 hours.
                     God bless you!
                   </p>
@@ -192,7 +192,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-montserrat text-xs text-gold uppercase tracking-wider mb-1">{label}</p>
-                  <p className="font-inter text-silver text-sm leading-relaxed">{value}</p>
+                  <p className="font-inter text-muted-foreground text-sm leading-relaxed">{value}</p>
                 </div>
               </a>
             ))}
@@ -211,7 +211,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-montserrat text-xs text-[#25D366] uppercase tracking-wider mb-1">WhatsApp</p>
-                <p className="font-inter text-silver text-sm">Chat with us on WhatsApp</p>
+                <p className="font-inter text-muted-foreground text-sm">Chat with us on WhatsApp</p>
               </div>
             </a>
 

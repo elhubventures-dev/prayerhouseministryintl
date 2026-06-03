@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className="bg-navy-dark text-ivory antialiased">
+      <body className="bg-background text-foreground antialiased">
         {children}
         <PWARegister />
         <WhatsAppWidget />

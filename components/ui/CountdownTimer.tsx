@@ -45,12 +45,12 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       {units.map((unit, i) => (
         <div key={unit.label} className="flex items-center gap-2">
           <div className="flex flex-col items-center">
-            <div className="bg-navy border border-gold/30 rounded-lg px-3 py-2 min-w-[52px] text-center">
+            <div className="bg-background-alt border border-gold/30 rounded-lg px-3 py-2 min-w-[52px] text-center">
               <span className="font-cinzel text-xl font-bold text-gold">
                 {String(unit.value).padStart(2, '0')}
               </span>
             </div>
-            <span className="font-montserrat text-[9px] text-silver uppercase tracking-wider mt-1">
+            <span className="font-montserrat text-[9px] text-muted-foreground uppercase tracking-wider mt-1">
               {unit.label}
             </span>
           </div>

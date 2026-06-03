@@ -49,7 +49,7 @@ export default function Ministries() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 })
 
   return (
-    <section id="ministries" className="relative py-24 lg:py-32 bg-navy overflow-hidden">
+    <section id="ministries" className="relative py-24 lg:py-32 bg-background-alt overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(201,168,76,0.06)_0%,transparent_60%)] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function Ministries() {
             Our <span className="text-gold-gradient">Ministries</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-lg mx-auto">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-lg mx-auto">
             Every ministry arm is a divine expression of our mandate. Find your place, fulfill your purpose.
           </motion.p>
         </motion.div>
@@ -99,10 +99,10 @@ export default function Ministries() {
 
                 {/* Text */}
                 <div className="relative z-10 flex-1">
-                  <h3 className="font-playfair text-xl text-ivory font-semibold mb-3 group-hover:text-gold-light transition-colors">
+                  <h3 className="font-playfair text-xl text-foreground font-semibold mb-3 group-hover:text-gold-light transition-colors">
                     {ministry.name}
                   </h3>
-                  <p className="font-inter text-silver text-sm leading-relaxed">{ministry.description}</p>
+                  <p className="font-inter text-muted-foreground text-sm leading-relaxed">{ministry.description}</p>
                 </div>
 
                 {/* Learn More */}

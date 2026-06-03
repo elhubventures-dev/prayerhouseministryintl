@@ -74,10 +74,10 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-navy-dark flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
-          <p className="font-inter text-silver text-sm">Loading dashboard...</p>
+          <p className="font-inter text-muted-foreground text-sm">Loading dashboard...</p>
         </div>
       </div>
     )
@@ -92,9 +92,9 @@ export default function AdminDashboard() {
   ]
 
   return (
-    <div className="min-h-screen bg-navy-dark flex">
+    <div className="min-h-screen bg-background flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-navy border-r border-gold/10 flex flex-col fixed top-0 left-0 bottom-0 z-40">
+      <aside className="w-64 bg-background-alt border-r border-gold/10 flex flex-col fixed top-0 left-0 bottom-0 z-40">
         {/* Logo */}
         <div className="p-6 border-b border-gold/10">
           <div className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function AdminDashboard() {
             </div>
             <div>
               <p className="font-cinzel text-xs font-bold text-gold">PHMI Admin</p>
-              <p className="font-inter text-[10px] text-silver/50">Solution Center</p>
+              <p className="font-inter text-[10px] text-muted-foreground/50">Solution Center</p>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function AdminDashboard() {
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-montserrat text-xs font-semibold transition-all duration-200 ${
                 tab === id
                   ? 'bg-gold/10 text-gold border border-gold/20'
-                  : 'text-silver hover:text-gold hover:bg-gold/5'
+                  : 'text-muted-foreground hover:text-gold hover:bg-gold/5'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -128,10 +128,10 @@ export default function AdminDashboard() {
 
         {/* Links */}
         <div className="p-4 border-t border-gold/10 space-y-2">
-          <a href="/" target="_blank" className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg font-montserrat text-xs text-silver hover:text-gold hover:bg-gold/5 transition-all">
+          <a href="/" target="_blank" className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg font-montserrat text-xs text-muted-foreground hover:text-gold hover:bg-gold/5 transition-all">
             <Eye className="w-4 h-4" /> View Website
           </a>
-          <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg font-montserrat text-xs text-silver hover:text-red-400 hover:bg-red-400/5 transition-all">
+          <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg font-montserrat text-xs text-muted-foreground hover:text-red-400 hover:bg-red-400/5 transition-all">
             <LogOut className="w-4 h-4" /> Logout
           </button>
         </div>
@@ -144,8 +144,8 @@ export default function AdminDashboard() {
           {/* ── OVERVIEW ── */}
           {tab === 'overview' && (
             <motion.div key="overview" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-              <h1 className="font-cinzel text-2xl text-ivory font-bold mb-2">Dashboard Overview</h1>
-              <p className="font-inter text-silver/60 text-sm mb-8">Welcome back. Here's what's happening at Solution Center.</p>
+              <h1 className="font-cinzel text-2xl text-foreground font-bold mb-2">Dashboard Overview</h1>
+              <p className="font-inter text-muted-foreground/60 text-sm mb-8">Welcome back. Here's what's happening at Solution Center.</p>
 
               {/* Stats */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
@@ -156,10 +156,10 @@ export default function AdminDashboard() {
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
                       <div className="flex items-start justify-between mb-4">
                         <Icon className={`w-5 h-5 ${card.color}`} />
-                        <span className="font-montserrat text-[10px] text-silver/40 uppercase tracking-wider">This Month</span>
+                        <span className="font-montserrat text-[10px] text-muted-foreground/40 uppercase tracking-wider">This Month</span>
                       </div>
-                      <p className="font-cinzel text-3xl font-bold text-ivory mb-1">{card.value}</p>
-                      <p className="font-inter text-silver/60 text-xs">{card.label}</p>
+                      <p className="font-cinzel text-3xl font-bold text-foreground mb-1">{card.value}</p>
+                      <p className="font-inter text-muted-foreground/60 text-xs">{card.label}</p>
                     </div>
                   )
                 })}
@@ -181,7 +181,7 @@ export default function AdminDashboard() {
                       <div className="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
                         <Icon className="w-5 h-5 text-gold" />
                       </div>
-                      <span className="font-montserrat text-sm font-semibold text-silver group-hover:text-ivory transition-colors">{item.label}</span>
+                      <span className="font-montserrat text-sm font-semibold text-muted-foreground group-hover:text-foreground transition-colors">{item.label}</span>
                     </button>
                   )
                 })}
@@ -194,8 +194,8 @@ export default function AdminDashboard() {
             <motion.div key="announcements" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h1 className="font-cinzel text-2xl text-ivory font-bold">Announcements</h1>
-                  <p className="font-inter text-silver/60 text-sm mt-1">Manage the banner shown at the top of every page.</p>
+                  <h1 className="font-cinzel text-2xl text-foreground font-bold">Announcements</h1>
+                  <p className="font-inter text-muted-foreground/60 text-sm mt-1">Manage the banner shown at the top of every page.</p>
                 </div>
                 <button onClick={() => setShowAnnForm(!showAnnForm)} className="btn-gold text-xs flex items-center gap-2 py-2.5 px-4">
                   <Plus className="w-4 h-4" /> New Announcement
@@ -212,24 +212,24 @@ export default function AdminDashboard() {
                     <h3 className="font-cinzel text-base text-gold font-bold mb-5">Create Announcement</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <div className="md:col-span-3">
-                        <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Announcement Text *</label>
+                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Announcement Text *</label>
                         <input type="text" value={newAnn.text} onChange={(e) => setNewAnn({ ...newAnn, text: e.target.value })}
                           placeholder="e.g. 🔥 Annual Conference — August 15–17, 2025"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Link URL</label>
+                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Link URL</label>
                         <input type="text" value={newAnn.link} onChange={(e) => setNewAnn({ ...newAnn, link: e.target.value })}
                           placeholder="/events"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Link Label</label>
+                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Link Label</label>
                         <input type="text" value={newAnn.linkLabel} onChange={(e) => setNewAnn({ ...newAnn, linkLabel: e.target.value })}
                           placeholder="Learn More"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                     </div>
@@ -252,13 +252,13 @@ export default function AdminDashboard() {
                 {(data?.announcements || []).map((ann) => (
                   <div key={ann.id} className={`glass-card p-5 flex items-start gap-4 ${!ann.active ? 'opacity-50' : ''}`}>
                     <div className="flex-1 min-w-0">
-                      <p className="font-inter text-ivory text-sm mb-1">{ann.text}</p>
-                      {ann.link && <p className="font-inter text-silver/50 text-xs">Link: {ann.link} → "{ann.linkLabel}"</p>}
-                      <p className="font-inter text-silver/30 text-xs mt-1">Created {new Date(ann.createdAt).toLocaleDateString()}</p>
+                      <p className="font-inter text-foreground text-sm mb-1">{ann.text}</p>
+                      {ann.link && <p className="font-inter text-muted-foreground/50 text-xs">Link: {ann.link} → "{ann.linkLabel}"</p>}
+                      <p className="font-inter text-muted-foreground/30 text-xs mt-1">Created {new Date(ann.createdAt).toLocaleDateString()}</p>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <button onClick={() => { adminAction('toggle-announcement', { id: ann.id }); showToast(ann.active ? 'Announcement hidden' : 'Announcement shown') }}
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${ann.active ? 'bg-gold/10 text-gold hover:bg-gold/20' : 'bg-white/5 text-silver/40 hover:text-silver'}`}
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${ann.active ? 'bg-gold/10 text-gold hover:bg-gold/20' : 'bg-white/5 text-muted-foreground/40 hover:text-muted-foreground'}`}
                         title={ann.active ? 'Hide' : 'Show'}
                       >
                         {ann.active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
                 {(data?.announcements || []).length === 0 && (
                   <div className="glass-card p-10 text-center">
                     <Megaphone className="w-10 h-10 text-gold/30 mx-auto mb-3" />
-                    <p className="font-inter text-silver/50 text-sm">No announcements yet. Create one above.</p>
+                    <p className="font-inter text-muted-foreground/50 text-sm">No announcements yet. Create one above.</p>
                   </div>
                 )}
               </div>
@@ -287,8 +287,8 @@ export default function AdminDashboard() {
             <motion.div key="events" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h1 className="font-cinzel text-2xl text-ivory font-bold">Events</h1>
-                  <p className="font-inter text-silver/60 text-sm mt-1">Manage upcoming services and special events.</p>
+                  <h1 className="font-cinzel text-2xl text-foreground font-bold">Events</h1>
+                  <p className="font-inter text-muted-foreground/60 text-sm mt-1">Manage upcoming services and special events.</p>
                 </div>
                 <a href="/events" target="_blank" className="btn-glass text-xs flex items-center gap-2 py-2.5 px-4">
                   <Eye className="w-4 h-4" /> View Live Page
@@ -299,12 +299,12 @@ export default function AdminDashboard() {
                   <div key={evt.id} className="glass-card p-5 flex items-start gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <p className="font-playfair text-ivory text-base font-semibold">{evt.title}</p>
-                        <span className={`font-montserrat text-[9px] px-2 py-0.5 rounded-full uppercase font-bold ${evt.published ? 'bg-green-400/10 text-green-400' : 'bg-silver/10 text-silver/50'}`}>
+                        <p className="font-playfair text-foreground text-base font-semibold">{evt.title}</p>
+                        <span className={`font-montserrat text-[9px] px-2 py-0.5 rounded-full uppercase font-bold ${evt.published ? 'bg-green-400/10 text-green-400' : 'bg-silver/10 text-muted-foreground/50'}`}>
                           {evt.published ? 'Published' : 'Draft'}
                         </span>
                       </div>
-                      <p className="font-inter text-silver/60 text-xs">{evt.dates} · {evt.time} · {evt.location}</p>
+                      <p className="font-inter text-muted-foreground/60 text-xs">{evt.dates} · {evt.time} · {evt.location}</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button onClick={() => { adminAction('delete-event', { id: evt.id }); showToast('Event deleted') }}
@@ -318,7 +318,7 @@ export default function AdminDashboard() {
                 {(data?.events || []).length === 0 && (
                   <div className="glass-card p-10 text-center">
                     <Calendar className="w-10 h-10 text-gold/30 mx-auto mb-3" />
-                    <p className="font-inter text-silver/50 text-sm">No events. Add events through Sanity CMS for full management.</p>
+                    <p className="font-inter text-muted-foreground/50 text-sm">No events. Add events through Sanity CMS for full management.</p>
                   </div>
                 )}
               </div>
@@ -329,8 +329,8 @@ export default function AdminDashboard() {
           {tab === 'prayers' && (
             <motion.div key="prayers" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
               <div className="mb-8">
-                <h1 className="font-cinzel text-2xl text-ivory font-bold">Prayer Requests</h1>
-                <p className="font-inter text-silver/60 text-sm mt-1">Review and respond to submitted prayer requests.</p>
+                <h1 className="font-cinzel text-2xl text-foreground font-bold">Prayer Requests</h1>
+                <p className="font-inter text-muted-foreground/60 text-sm mt-1">Review and respond to submitted prayer requests.</p>
               </div>
               <div className="space-y-4">
                 {(data?.prayerRequests || []).map((prayer) => (
@@ -348,8 +348,8 @@ export default function AdminDashboard() {
                             </span>
                           )}
                         </div>
-                        <p className="font-inter text-silver text-sm leading-relaxed">{prayer.request}</p>
-                        <p className="font-inter text-silver/30 text-xs mt-2">{new Date(prayer.createdAt).toLocaleDateString()}</p>
+                        <p className="font-inter text-muted-foreground text-sm leading-relaxed">{prayer.request}</p>
+                        <p className="font-inter text-muted-foreground/30 text-xs mt-2">{new Date(prayer.createdAt).toLocaleDateString()}</p>
                       </div>
                       {!prayer.handled && (
                         <button onClick={() => { adminAction('handle-prayer', { id: prayer.id }); showToast('Marked as handled') }}
@@ -364,7 +364,7 @@ export default function AdminDashboard() {
                 {(data?.prayerRequests || []).length === 0 && (
                   <div className="glass-card p-10 text-center">
                     <Heart className="w-10 h-10 text-gold/30 mx-auto mb-3" />
-                    <p className="font-inter text-silver/50 text-sm">No prayer requests yet. They will appear here when submitted.</p>
+                    <p className="font-inter text-muted-foreground/50 text-sm">No prayer requests yet. They will appear here when submitted.</p>
                   </div>
                 )}
               </div>
@@ -382,7 +382,7 @@ export default function AdminDashboard() {
             exit={{ opacity: 0, y: 20, x: '-50%' }}
             className={`fixed bottom-6 left-1/2 z-[999] flex items-center gap-2 px-5 py-3 rounded-full font-montserrat text-xs font-semibold shadow-lg ${
               toast.type === 'success'
-                ? 'bg-gold text-navy-dark'
+                ? 'bg-gold text-background'
                 : 'bg-red-400 text-white'
             }`}
           >

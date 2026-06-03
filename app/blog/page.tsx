@@ -23,7 +23,7 @@ export default function BlogPage() {
           title="Blog &"
           highlight="Devotionals"
           subtitle="Weekly articles, devotionals, prayer points, and prophetic insights to strengthen your walk with God."
-          bgImage="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80"
+          bgImage="/images/phmi-9.jpeg"
         />
         <BlogContent />
         <Newsletter variant="section" />

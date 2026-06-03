@@ -10,14 +10,14 @@ import { staggerContainer, fadeUp } from '@/lib/animations'
 const categories = ['All', 'Worship', 'Events', 'Community', 'Outreach']
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80', category: 'Worship', caption: 'Sunday Prophetic Service' },
-  { src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80', category: 'Events', caption: 'Annual Revival Conference' },
-  { src: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=800&q=80', category: 'Community', caption: 'Community Fellowship' },
-  { src: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80', category: 'Worship', caption: 'Choir Ministry in Action' },
-  { src: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&q=80', category: 'Events', caption: 'Youth Empowerment Night' },
-  { src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80', category: 'Community', caption: 'Prayer Group Session' },
-  { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80', category: 'Outreach', caption: 'Community Outreach Program' },
-  { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80', category: 'Worship', caption: 'All Night Service Worship' },
+  { src: '/images/phmi-5.jpeg', category: 'Worship', caption: 'Sunday Prophetic Service' },
+  { src: '/images/phmi-6.jpeg', category: 'Events', caption: 'Annual Revival Conference' },
+  { src: '/images/phmi-7.jpeg', category: 'Community', caption: 'Community Fellowship' },
+  { src: '/images/phmi-8.jpeg', category: 'Worship', caption: 'Choir Ministry in Action' },
+  { src: '/images/phmi-9.jpeg', category: 'Events', caption: 'Youth Empowerment Night' },
+  { src: '/images/phmi-10.jpeg', category: 'Community', caption: 'Prayer Group Session' },
+  { src: '/images/phmi-11.jpg', category: 'Outreach', caption: 'Community Outreach Program' },
+  { src: '/images/phmi-13.jpeg', category: 'Worship', caption: 'All Night Service Worship' },
 ]
 
 export default function Gallery() {
@@ -33,7 +33,7 @@ export default function Gallery() {
   const nextImage = () => lightboxIndex !== null && setLightboxIndex((lightboxIndex + 1) % filtered.length)
 
   return (
-    <section id="gallery" className="relative py-24 lg:py-32 bg-navy-dark overflow-hidden">
+    <section id="gallery" className="relative py-24 lg:py-32 bg-background overflow-hidden">
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -62,8 +62,8 @@ export default function Gallery() {
               onClick={() => setActiveCategory(cat)}
               className={`font-montserrat text-xs font-semibold px-5 py-2 rounded-full border transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-gold text-navy-dark border-gold'
-                  : 'bg-transparent text-silver border-white/10 hover:border-gold/50 hover:text-gold'
+                  ? 'bg-gold text-background border-gold'
+                  : 'bg-transparent text-muted-foreground border-white/10 hover:border-gold/50 hover:text-gold'
               }`}
             >
               {cat}
@@ -94,12 +94,12 @@ export default function Gallery() {
                   className="w-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-navy-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2">
+                <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2">
                   <ZoomIn className="w-8 h-8 text-gold" />
-                  <p className="font-montserrat text-ivory text-xs text-center px-3 font-medium">{image.caption}</p>
+                  <p className="font-montserrat text-foreground text-xs text-center px-3 font-medium">{image.caption}</p>
                 </div>
                 {/* Category badge */}
-                <span className="absolute top-2 right-2 font-montserrat text-[9px] bg-gold/80 text-navy-dark px-2 py-0.5 rounded-full font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="absolute top-2 right-2 font-montserrat text-[9px] bg-gold/80 text-background px-2 py-0.5 rounded-full font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity">
                   {image.category}
                 </span>
               </motion.div>
@@ -125,7 +125,7 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-dark/95 backdrop-blur-xl p-4"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-background/95 backdrop-blur-xl p-4"
             onClick={closeLightbox}
           >
             <motion.div
@@ -140,18 +140,18 @@ export default function Gallery() {
                 alt={filtered[lightboxIndex].caption}
                 className="w-full max-h-[80vh] object-contain rounded-2xl"
               />
-              <p className="text-center font-playfair text-ivory/80 italic mt-4 text-sm">
+              <p className="text-center font-playfair text-foreground/80 italic mt-4 text-sm">
                 {filtered[lightboxIndex].caption}
               </p>
 
               {/* Controls */}
-              <button onClick={closeLightbox} className="absolute -top-12 right-0 text-silver hover:text-gold transition-colors">
+              <button onClick={closeLightbox} className="absolute -top-12 right-0 text-muted-foreground hover:text-gold transition-colors">
                 <X className="w-7 h-7" />
               </button>
-              <button onClick={prevImage} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 w-10 h-10 bg-navy border border-gold/20 rounded-full flex items-center justify-center text-silver hover:text-gold transition-colors">
+              <button onClick={prevImage} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 w-10 h-10 bg-background-alt border border-gold/20 rounded-full flex items-center justify-center text-muted-foreground hover:text-gold transition-colors">
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button onClick={nextImage} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 w-10 h-10 bg-navy border border-gold/20 rounded-full flex items-center justify-center text-silver hover:text-gold transition-colors">
+              <button onClick={nextImage} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 w-10 h-10 bg-background-alt border border-gold/20 rounded-full flex items-center justify-center text-muted-foreground hover:text-gold transition-colors">
                 <ChevronRight className="w-5 h-5" />
               </button>
             </motion.div>

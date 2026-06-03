@@ -37,7 +37,7 @@ export default function EventsPage() {
           title="Upcoming"
           highlight="Events"
           subtitle="Don't miss what God is doing at Solution Center. Every gathering is a divine appointment."
-          bgImage="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80"
+          bgImage="/images/phmi-20.jpeg"
         />
         <EventsContent />
       </main>

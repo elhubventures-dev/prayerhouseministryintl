@@ -31,7 +31,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-navy-dark/90 backdrop-blur-xl"
+          className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-background/90 backdrop-blur-xl"
           onClick={handleClose}
         >
           <motion.div
@@ -44,7 +44,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
           >
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent rounded-t-2xl" />
 
-            <button onClick={handleClose} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-silver hover:text-gold transition-colors">
+            <button onClick={handleClose} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors">
               <X className="w-5 h-5" />
             </button>
 
@@ -52,8 +52,8 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
               <>
                 <div className="text-center mb-8">
                   <div className="text-3xl mb-3">🙏</div>
-                  <h3 className="font-cinzel text-xl text-ivory font-bold mb-2">Submit a Prayer Request</h3>
-                  <p className="font-inter text-silver text-sm">
+                  <h3 className="font-cinzel text-xl text-foreground font-bold mb-2">Submit a Prayer Request</h3>
+                  <p className="font-inter text-muted-foreground text-sm">
                     Our prayer team will stand in agreement with you. Your request is kept confidential.
                   </p>
                 </div>
@@ -67,7 +67,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                       onChange={(e) => setForm({ ...form, anonymous: e.target.checked })}
                       className="w-4 h-4 accent-gold"
                     />
-                    <label htmlFor="anonymous" className="font-inter text-silver text-sm cursor-pointer">
+                    <label htmlFor="anonymous" className="font-inter text-muted-foreground text-sm cursor-pointer">
                       Submit anonymously
                     </label>
                   </div>
@@ -75,37 +75,37 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                   {!form.anonymous && (
                     <>
                       <div>
-                        <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Your Name</label>
+                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Your Name</label>
                         <input
                           type="text"
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           placeholder="Enter your name"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Email (optional)</label>
+                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email (optional)</label>
                         <input
                           type="email"
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
                           placeholder="your@email.com"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                     </>
                   )}
 
                   <div>
-                    <label className="font-montserrat text-xs text-silver uppercase tracking-wider mb-2 block">Your Prayer Request</label>
+                    <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Your Prayer Request</label>
                     <textarea
                       required
                       value={form.request}
                       onChange={(e) => setForm({ ...form, request: e.target.value })}
                       rows={5}
                       placeholder="Share your prayer need with us..."
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
                     />
                   </div>
 
@@ -141,8 +141,8 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                 >
                   <CheckCircle2 className="w-8 h-8 text-gold" />
                 </motion.div>
-                <h4 className="font-cinzel text-xl text-ivory font-bold mb-3">Prayer Received!</h4>
-                <p className="font-inter text-silver text-sm leading-relaxed mb-6">
+                <h4 className="font-cinzel text-xl text-foreground font-bold mb-3">Prayer Received!</h4>
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-6">
                   Our prayer team has received your request and will be standing in agreement with you.
                   God hears every prayer. Stay expectant for your breakthrough!
                 </p>

@@ -10,6 +10,7 @@ const leaders = [
     title: 'Senior Apostle & Founder',
     bio: 'Rev. Apostle E.S. Hugo is the founding visionary of Prayer House Ministry International. Carrying a prophetic and apostolic mandate, he has devoted his life to building a house of prayer that transforms communities and raises godly generations across Cameroon and beyond.',
     initial: 'AH',
+    image: '/images/leader-hugo.png',
     accentColor: 'from-gold/30 to-gold/5',
   },
   {
@@ -17,6 +18,7 @@ const leaders = [
     title: 'Prophetess & Co-Leader',
     bio: "Prophetess Ekwalla Calista moves in a powerful prophetic anointing, ministering healing, deliverance, and divine direction to the body of Christ. Her ministry of intercession and worship has been a cornerstone of the Solution Center's spiritual atmosphere.",
     initial: 'EC',
+    image: '/images/leader-calista.png',
     accentColor: 'from-blue-400/20 to-gold/10',
   },
 ]
@@ -25,7 +27,7 @@ export default function Leadership() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="leadership" className="relative py-24 lg:py-32 bg-navy-dark overflow-hidden">
+    <section id="leadership" className="relative py-24 lg:py-32 bg-background overflow-hidden">
       {/* Radial glow backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,168,76,0.07)_0%,transparent_70%)] pointer-events-none" />
 
@@ -40,7 +42,7 @@ export default function Leadership() {
           <motion.p variants={fadeUp} className="section-label mb-3">Anointed Leadership</motion.p>
           <motion.h2 variants={fadeUp} className="section-title">Meet The <span className="text-gold-gradient">Leadership</span></motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-xl mx-auto leading-relaxed">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-xl mx-auto leading-relaxed">
             Under the anointed covering of our apostolic and prophetic leadership, Solution Center has grown
             into a house of power, prayer, and transformation.
           </motion.p>
@@ -68,8 +70,12 @@ export default function Leadership() {
 
               {/* Avatar circle */}
               <div className="relative z-10 mb-6">
-                <div className="w-28 h-28 rounded-full bg-gradient-to-br from-gold/20 to-navy border-2 border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors duration-300 shadow-gold">
-                  <span className="font-cinzel text-2xl font-bold text-gold">{leader.initial}</span>
+                <div className="relative w-28 h-28 rounded-full bg-gradient-to-br from-gold/20 to-navy border-2 border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors duration-300 shadow-gold overflow-hidden">
+                  {leader.image ? (
+                    <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="font-cinzel text-2xl font-bold text-gold">{leader.initial}</span>
+                  )}
                 </div>
                 {/* Glow ring */}
                 <motion.div
@@ -80,10 +86,10 @@ export default function Leadership() {
               </div>
 
               <div className="relative z-10">
-                <h3 className="font-playfair text-xl font-bold text-ivory mb-1">{leader.name}</h3>
+                <h3 className="font-playfair text-xl font-bold text-foreground mb-1">{leader.name}</h3>
                 <p className="font-montserrat text-xs text-gold uppercase tracking-[0.2em] mb-5">{leader.title}</p>
                 <div className="w-10 h-0.5 bg-gold/40 mx-auto mb-5" />
-                <p className="font-inter text-silver text-sm leading-relaxed">{leader.bio}</p>
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed">{leader.bio}</p>
               </div>
             </motion.div>
           ))}
@@ -94,7 +100,7 @@ export default function Leadership() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-center font-garamond text-silver/50 italic mt-12 text-sm"
+          className="text-center font-garamond text-muted-foreground/50 italic mt-12 text-sm"
         >
           "Where there is no vision, the people perish." — Proverbs 29:18
         </motion.p>

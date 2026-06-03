@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-navy-dark flex items-center justify-center">
+    <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="flex flex-col items-center gap-6">
         {/* Animated cross */}
         <div className="relative w-16 h-16">
@@ -14,7 +14,7 @@ export default function Loading() {
           <p className="font-cinzel text-gold text-sm tracking-widest uppercase animate-pulse">
             Solution Center
           </p>
-          <p className="font-inter text-silver/40 text-xs mt-1">Loading...</p>
+          <p className="font-inter text-muted-foreground/40 text-xs mt-1">Loading...</p>
         </div>
       </div>
     </div>

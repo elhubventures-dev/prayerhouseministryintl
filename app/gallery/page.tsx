@@ -22,7 +22,7 @@ export default function GalleryPage() {
           title="Our"
           highlight="Gallery"
           subtitle="A glimpse into our community — moments of worship, fellowship, outreach, and the power of God moving among His people."
-          bgImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80"
+          bgImage="/images/phmi-10.jpeg"
         />
         <GalleryContent />
       </main>

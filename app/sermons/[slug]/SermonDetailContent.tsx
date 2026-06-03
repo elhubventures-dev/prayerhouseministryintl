@@ -52,10 +52,10 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
   if (!sermon) {
     return (
-      <div className="min-h-screen bg-navy-dark flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <p className="font-cinzel text-4xl text-gold/30 mb-4">404</p>
-          <h2 className="font-playfair text-2xl text-ivory mb-4">Sermon Not Found</h2>
+          <h2 className="font-playfair text-2xl text-foreground mb-4">Sermon Not Found</h2>
           <Link href="/sermons" className="btn-gold text-sm">← Back to Sermons</Link>
         </div>
       </div>
@@ -73,9 +73,9 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
   }
 
   return (
-    <div className="bg-navy-dark min-h-screen">
+    <div className="bg-background min-h-screen">
       {/* Video hero */}
-      <div className="relative bg-navy-dark pt-20">
+      <div className="relative bg-background pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,168,76,0.12)_0%,transparent_60%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
@@ -83,7 +83,7 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-xs font-inter text-silver/50 mb-8"
+            className="flex items-center gap-2 text-xs font-inter text-muted-foreground/50 mb-8"
           >
             <Link href="/" className="hover:text-gold transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
@@ -112,14 +112,14 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-navy"
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-background-alt"
                       style={{ backgroundImage: `url('${sermon.thumbnail}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                      <div className="absolute inset-0 bg-navy-dark/60" />
+                      <div className="absolute inset-0 bg-background/60" />
                       <div className="relative z-10 flex flex-col items-center gap-4">
                         <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-gold-lg">
-                          <Play className="w-8 h-8 text-navy-dark fill-navy-dark ml-1" />
+                          <Play className="w-8 h-8 text-background fill-navy-dark ml-1" />
                         </div>
-                        <p className="font-inter text-silver text-sm">Video coming soon</p>
+                        <p className="font-inter text-muted-foreground text-sm">Video coming soon</p>
                       </div>
                     </div>
                   )}
@@ -127,15 +127,15 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
                 {/* Series badge + title */}
                 <motion.div variants={fadeUp}>
-                  <span className="font-montserrat text-[11px] bg-gold text-navy-dark px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                  <span className="font-montserrat text-[11px] bg-gold text-background px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                     {sermon.series}
                   </span>
-                  <h1 className="font-cinzel text-2xl lg:text-3xl text-ivory font-bold mt-4 mb-3 leading-snug">
+                  <h1 className="font-cinzel text-2xl lg:text-3xl text-foreground font-bold mt-4 mb-3 leading-snug">
                     {sermon.title}
                   </h1>
 
                   {/* Meta row */}
-                  <div className="flex flex-wrap items-center gap-5 text-sm text-silver mb-4">
+                  <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground mb-4">
                     <span className="font-inter font-medium text-gold">{sermon.speaker}</span>
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-gold/60" />
@@ -149,16 +149,16 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
                   {/* Scripture */}
                   <div className="glass-card p-5 border-l-2 border-gold/60 rounded-l-none mb-5">
-                    <p className="font-garamond italic text-ivory text-base leading-relaxed">{sermon.scripture}</p>
+                    <p className="font-garamond italic text-foreground text-base leading-relaxed">{sermon.scripture}</p>
                   </div>
 
-                  <p className="font-inter text-silver leading-relaxed">{sermon.description}</p>
+                  <p className="font-inter text-muted-foreground leading-relaxed">{sermon.description}</p>
                 </motion.div>
 
                 {/* Tags */}
                 <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
                   {sermon.tags.map((tag) => (
-                    <span key={tag} className="font-montserrat text-[10px] border border-gold/20 text-silver/70 px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span key={tag} className="font-montserrat text-[10px] border border-gold/20 text-muted-foreground/70 px-3 py-1 rounded-full uppercase tracking-wider">
                       {tag}
                     </span>
                   ))}
@@ -166,12 +166,12 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
                 {/* Share row */}
                 <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2 border-t border-white/5">
-                  <span className="font-montserrat text-xs text-silver/50 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="font-montserrat text-xs text-muted-foreground/50 uppercase tracking-wider flex items-center gap-1.5">
                     <Share2 className="w-3.5 h-3.5" /> Share this message
                   </span>
                   <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-silver hover:text-gold transition-colors bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
+                    className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-muted-foreground hover:text-gold transition-colors bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
                   >
                     {copied ? <><CheckCheck className="w-3.5 h-3.5 text-gold" /> Copied!</> : <><Copy className="w-3.5 h-3.5" /> Copy Link</>}
                   </button>
@@ -199,8 +199,8 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                         onClick={() => setActiveTab(tab)}
                         className={`font-montserrat text-xs font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 capitalize ${
                           activeTab === tab
-                            ? 'bg-gold text-navy-dark'
-                            : 'text-silver hover:text-ivory'
+                            ? 'bg-gold text-background'
+                            : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
                         {tab === 'notes' ? '📝 Sermon Notes' : '📄 Transcript'}
@@ -214,7 +214,7 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                         <div key={i} className="glass-card p-6 relative">
                           <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-gradient-to-b from-gold to-transparent rounded-l-2xl" />
                           <h4 className="font-playfair text-base text-gold font-semibold mb-3">{note.heading}</h4>
-                          <p className="font-inter text-silver text-sm leading-relaxed">{note.body}</p>
+                          <p className="font-inter text-muted-foreground text-sm leading-relaxed">{note.body}</p>
                         </div>
                       ))}
                       <button className="flex items-center gap-2 font-montserrat text-xs font-semibold text-gold hover:text-gold-light transition-colors">
@@ -226,8 +226,8 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                   {activeTab === 'transcript' && (
                     <div className="glass-card p-8 text-center">
                       <BookOpen className="w-10 h-10 text-gold/40 mx-auto mb-4" />
-                      <p className="font-inter text-silver/60 text-sm">Full transcript coming soon.</p>
-                      <p className="font-inter text-silver/40 text-xs mt-2">Subscribe to our newsletter to be notified when transcripts are available.</p>
+                      <p className="font-inter text-muted-foreground/60 text-sm">Full transcript coming soon.</p>
+                      <p className="font-inter text-muted-foreground/40 text-xs mt-2">Subscribe to our newsletter to be notified when transcripts are available.</p>
                     </div>
                   )}
                 </motion.div>
@@ -254,14 +254,14 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                     >
                       <div className="relative w-20 flex-shrink-0 aspect-video rounded-lg overflow-hidden">
                         <img src={rel.thumbnail} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <Play className="w-4 h-4 text-gold fill-gold" />
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-playfair text-sm text-ivory font-semibold leading-snug group-hover:text-gold-light transition-colors line-clamp-2">{rel.title}</p>
-                        <p className="font-inter text-silver/60 text-xs mt-1">{rel.speaker}</p>
-                        <p className="font-inter text-silver/40 text-xs flex items-center gap-1 mt-0.5"><Clock className="w-3 h-3" /> {rel.duration}</p>
+                        <p className="font-playfair text-sm text-foreground font-semibold leading-snug group-hover:text-gold-light transition-colors line-clamp-2">{rel.title}</p>
+                        <p className="font-inter text-muted-foreground/60 text-xs mt-1">{rel.speaker}</p>
+                        <p className="font-inter text-muted-foreground/40 text-xs flex items-center gap-1 mt-0.5"><Clock className="w-3 h-3" /> {rel.duration}</p>
                       </div>
                     </Link>
                   ))}
@@ -280,8 +280,8 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
               >
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
                 <div className="text-3xl mb-3">🙏</div>
-                <h4 className="font-cinzel text-base text-ivory font-bold mb-2">Need Prayer?</h4>
-                <p className="font-inter text-silver text-xs leading-relaxed mb-5">
+                <h4 className="font-cinzel text-base text-foreground font-bold mb-2">Need Prayer?</h4>
+                <p className="font-inter text-muted-foreground text-xs leading-relaxed mb-5">
                   This message touched your heart? Our prayer team is here for you.
                 </p>
                 <a href="/#prayer-request" className="btn-gold text-xs px-6 py-3 block text-center">
@@ -299,9 +299,9 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
                 <div className="flex items-center gap-2 mb-3">
                   <Youtube className="w-5 h-5 text-[#FF0000]" />
-                  <h4 className="font-cinzel text-sm text-ivory font-bold">Subscribe for More</h4>
+                  <h4 className="font-cinzel text-sm text-foreground font-bold">Subscribe for More</h4>
                 </div>
-                <p className="font-inter text-silver text-xs leading-relaxed mb-4">
+                <p className="font-inter text-muted-foreground text-xs leading-relaxed mb-4">
                   Never miss a message. Subscribe to our YouTube channel for weekly sermons.
                 </p>
                 <a href="#" target="_blank" rel="noopener noreferrer"

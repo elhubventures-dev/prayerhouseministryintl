@@ -24,7 +24,7 @@ export default function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-navy atmos-bg overflow-hidden">
+    <section id="about" className="relative py-24 lg:py-32 bg-background-alt atmos-bg overflow-hidden">
       {/* Background cross watermark */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.025] pointer-events-none select-none">
         <span className="font-cinzel text-[30vw] text-gold leading-none">✝</span>
@@ -46,16 +46,16 @@ export default function About() {
             </motion.h2>
             <motion.div variants={fadeLeft} className="w-12 h-0.5 bg-gold mb-8" />
 
-            <motion.p variants={fadeLeft} className="font-inter text-silver leading-relaxed mb-5">
-              Prayer House Ministry International — known as the <strong className="text-ivory">Solution Center</strong> — is a prophetic revival ministry
+            <motion.p variants={fadeLeft} className="font-inter text-muted-foreground leading-relaxed mb-5">
+              Prayer House Ministry International — known as the <strong className="text-foreground">Solution Center</strong> — is a prophetic revival ministry
               established in Limbe, Cameroon, under the apostolic leadership of Rev. Apostle E.S. Hugo and
               Prophetess Ekwalla Calista.
             </motion.p>
-            <motion.p variants={fadeLeft} className="font-inter text-silver leading-relaxed mb-5">
+            <motion.p variants={fadeLeft} className="font-inter text-muted-foreground leading-relaxed mb-5">
               Our mandate is to raise up a generation of Spirit-filled believers who walk in the fullness of God's
               power — transformed by the Word, sustained by prayer, and sent forth in worship and service.
             </motion.p>
-            <motion.p variants={fadeLeft} className="font-inter text-silver leading-relaxed mb-8">
+            <motion.p variants={fadeLeft} className="font-inter text-muted-foreground leading-relaxed mb-8">
               We believe every person who enters these walls carries a divine solution, and our ministry exists
               to unlock that potential through encounter, discipleship, and community.
             </motion.p>
@@ -65,7 +65,7 @@ export default function About() {
               {highlights.map((h) => (
                 <motion.li key={h} variants={fadeLeft} className="flex items-center gap-3">
                   <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
-                  <span className="font-inter text-silver text-sm">{h}</span>
+                  <span className="font-inter text-muted-foreground text-sm">{h}</span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -103,7 +103,7 @@ export default function About() {
                 >
                   {stat.value}
                 </motion.p>
-                <p className="font-montserrat text-xs text-silver uppercase tracking-wider">{stat.label}</p>
+                <p className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</p>
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-b-2xl" />
               </motion.div>
             ))}
@@ -114,7 +114,7 @@ export default function About() {
               className="glass-card col-span-2 p-8 text-center relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
-              <p className="font-garamond text-ivory/90 text-lg italic leading-relaxed">
+              <p className="font-garamond text-foreground/90 text-lg italic leading-relaxed">
                 "My house shall be called a house of prayer"
               </p>
               <p className="font-montserrat text-gold/70 text-xs mt-3 tracking-widest uppercase">— Matthew 21:13</p>

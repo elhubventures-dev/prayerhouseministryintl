@@ -114,7 +114,7 @@ export default function MinistriesContent() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
 
   return (
-    <section className="py-24 lg:py-32 bg-navy atmos-bg">
+    <section className="py-24 lg:py-32 bg-background-alt atmos-bg">
       <div ref={ref} className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
         <motion.div
           variants={staggerContainer}
@@ -127,7 +127,7 @@ export default function MinistriesContent() {
             Find Your <span className="text-gold-gradient">Ministry Home</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-xl mx-auto">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-xl mx-auto">
             Every believer has a gift. Every gift has a home. Explore our ministry arms and find where you belong.
           </motion.p>
         </motion.div>
@@ -153,7 +153,7 @@ export default function MinistriesContent() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-cinzel text-gold text-base font-bold mb-1">{ministry.name}</h3>
-                  <p className="font-montserrat text-silver/60 text-[10px] uppercase tracking-wider">{ministry.tagline}</p>
+                  <p className="font-montserrat text-muted-foreground/60 text-[10px] uppercase tracking-wider">{ministry.tagline}</p>
                 </div>
               </div>
 
@@ -161,9 +161,9 @@ export default function MinistriesContent() {
               <div className="lg:col-span-4 p-8 lg:p-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-2">
-                    <p className="font-inter text-silver leading-relaxed mb-5">{ministry.description}</p>
+                    <p className="font-inter text-muted-foreground leading-relaxed mb-5">{ministry.description}</p>
                     <div className="glass-card p-5 bg-gold/5 border-gold/20">
-                      <p className="font-garamond text-ivory/80 italic text-sm">{ministry.joinText}</p>
+                      <p className="font-garamond text-foreground/80 italic text-sm">{ministry.joinText}</p>
                     </div>
                   </div>
                   <div>
@@ -172,12 +172,12 @@ export default function MinistriesContent() {
                       {ministry.activities.map((act) => (
                         <li key={act} className="flex items-start gap-2.5">
                           <div className="w-1.5 h-1.5 rounded-full bg-gold/60 mt-1.5 flex-shrink-0" />
-                          <span className="font-inter text-silver text-sm leading-snug">{act}</span>
+                          <span className="font-inter text-muted-foreground text-sm leading-snug">{act}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-5 pt-5 border-t border-white/5">
-                      <p className="font-montserrat text-xs text-silver/50 uppercase tracking-wider mb-1">Overseen By</p>
+                      <p className="font-montserrat text-xs text-muted-foreground/50 uppercase tracking-wider mb-1">Overseen By</p>
                       <p className="font-inter text-gold text-sm font-medium">{ministry.leader}</p>
                     </div>
                   </div>
@@ -196,10 +196,10 @@ export default function MinistriesContent() {
         >
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
           <p className="section-label mb-3">Ready to Serve?</p>
-          <h3 className="font-cinzel text-2xl text-ivory font-bold mb-4">
+          <h3 className="font-cinzel text-2xl text-foreground font-bold mb-4">
             Join a <span className="text-gold-gradient">Ministry Team</span>
           </h3>
-          <p className="font-inter text-silver mb-8 max-w-lg mx-auto">
+          <p className="font-inter text-muted-foreground mb-8 max-w-lg mx-auto">
             Contact us to indicate which ministry you'd like to serve in. We'll connect you with the right leader and get you started.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

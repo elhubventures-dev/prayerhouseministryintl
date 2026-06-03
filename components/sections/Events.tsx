@@ -14,7 +14,7 @@ const featuredEvent = {
   location: 'Solution Center, Mile 4 Limbe',
   description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will join us for this transformational conference.',
   targetDate: new Date('2025-08-15T18:00:00'),
-  image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80',
+  image: '/images/phmi-4.jpeg',
 }
 
 const upcomingEvents = [
@@ -48,7 +48,7 @@ export default function Events() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 })
 
   return (
-    <section id="events" className="relative py-24 lg:py-32 bg-navy-dark overflow-hidden">
+    <section id="events" className="relative py-24 lg:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(201,168,76,0.06)_0%,transparent_60%)] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -81,19 +81,19 @@ export default function Events() {
                 alt={featuredEvent.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/80 lg:from-transparent to-navy-dark/20" />
-              <div className="absolute inset-0 bg-navy-dark/30" />
-              <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-navy-dark px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
+              <div className="absolute inset-0 bg-gradient-to-r from-background/80 lg:from-transparent to-background/20" />
+              <div className="absolute inset-0 bg-background/30" />
+              <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-background px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
                 🔥 Featured Event
               </span>
             </div>
 
             {/* Content */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <h3 className="font-cinzel text-xl lg:text-2xl text-ivory font-bold leading-snug mb-4">
+              <h3 className="font-cinzel text-xl lg:text-2xl text-foreground font-bold leading-snug mb-4">
                 {featuredEvent.title}
               </h3>
-              <div className="flex flex-wrap gap-4 text-sm text-silver mb-5">
+              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-5">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-gold" /> {featuredEvent.date}
                 </span>
@@ -104,7 +104,7 @@ export default function Events() {
                   <MapPin className="w-4 h-4 text-gold" /> {featuredEvent.location}
                 </span>
               </div>
-              <p className="font-inter text-silver text-sm leading-relaxed mb-6">
+              <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-6">
                 {featuredEvent.description}
               </p>
 
@@ -147,11 +147,11 @@ export default function Events() {
               </div>
 
               <div className="flex-1 min-w-0">
-                <h4 className="font-playfair text-base text-ivory font-semibold mb-1.5 leading-snug group-hover:text-gold-light transition-colors">
+                <h4 className="font-playfair text-base text-foreground font-semibold mb-1.5 leading-snug group-hover:text-gold-light transition-colors">
                   {event.title}
                 </h4>
-                <p className="font-inter text-silver text-xs leading-relaxed mb-3">{event.description}</p>
-                <div className="flex flex-wrap gap-3 text-xs text-silver">
+                <p className="font-inter text-muted-foreground text-xs leading-relaxed mb-3">{event.description}</p>
+                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-gold" /> {event.time}
                   </span>

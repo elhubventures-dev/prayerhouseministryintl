@@ -315,7 +315,7 @@ export default function WhatsAppWidget() {
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 border-2 border-navy-dark flex items-center justify-center"
+              className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 border-2 border-muted-dark flex items-center justify-center"
             >
               <span className="font-montserrat text-[8px] text-white font-bold">1</span>
             </motion.span>

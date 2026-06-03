@@ -62,7 +62,7 @@ export default function Testimonials() {
   const testimonial = testimonials[current]
 
   return (
-    <section id="testimonials" className="relative py-24 lg:py-32 bg-navy overflow-hidden">
+    <section id="testimonials" className="relative py-24 lg:py-32 bg-background-alt overflow-hidden">
       {/* Gold glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,168,76,0.08)_0%,transparent_70%)] pointer-events-none" />
 
@@ -108,12 +108,12 @@ export default function Testimonials() {
                 className="flex flex-col items-center gap-6"
               >
                 {/* Avatar */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold/30 to-navy border-2 border-gold/40 flex items-center justify-center shadow-gold">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold/30 to-background-alt border-2 border-gold/40 flex items-center justify-center shadow-gold">
                   <span className="font-cinzel text-lg font-bold text-gold">{testimonial.initials}</span>
                 </div>
 
                 {/* Text */}
-                <blockquote className="font-playfair text-xl lg:text-2xl text-ivory italic leading-relaxed max-w-2xl">
+                <blockquote className="font-playfair text-xl lg:text-2xl text-foreground italic leading-relaxed max-w-2xl">
                   "{testimonial.testimony}"
                 </blockquote>
 
@@ -121,7 +121,7 @@ export default function Testimonials() {
                 <div className="flex flex-col items-center gap-1">
                   <div className="w-8 h-0.5 bg-gold/50 mb-2" />
                   <p className="font-montserrat text-sm font-semibold text-gold">{testimonial.name}</p>
-                  <p className="font-inter text-silver/60 text-xs">{testimonial.role}</p>
+                  <p className="font-inter text-muted-foreground/60 text-xs">{testimonial.role}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -131,7 +131,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-6 mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-silver hover:text-gold hover:border-gold/50 transition-all duration-200"
+              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-silver hover:text-gold hover:border-gold/50 transition-all duration-200"
+              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />

@@ -16,7 +16,7 @@ export default function Give() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="give" className="relative py-24 lg:py-32 bg-navy-dark overflow-hidden">
+    <section id="give" className="relative py-24 lg:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,168,76,0.1)_0%,transparent_65%)] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
@@ -31,7 +31,7 @@ export default function Give() {
             Give <span className="text-gold-gradient">Online</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-garamond text-xl text-silver italic max-w-2xl mb-12 leading-relaxed">
+          <motion.p variants={fadeUp} className="font-garamond text-xl text-muted-foreground italic max-w-2xl mb-12 leading-relaxed">
             "Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap." — Luke 6:38
           </motion.p>
 
@@ -48,8 +48,8 @@ export default function Give() {
               >
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
                 <span className="text-2xl">{tier.emoji}</span>
-                <h4 className="font-playfair text-base text-ivory font-semibold group-hover:text-gold-light transition-colors">{tier.name}</h4>
-                <p className="font-inter text-silver text-xs leading-relaxed">{tier.description}</p>
+                <h4 className="font-playfair text-base text-foreground font-semibold group-hover:text-gold-light transition-colors">{tier.name}</h4>
+                <p className="font-inter text-muted-foreground text-xs leading-relaxed">{tier.description}</p>
               </motion.button>
             ))}
           </motion.div>

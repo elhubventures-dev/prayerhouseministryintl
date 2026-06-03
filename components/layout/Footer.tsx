@@ -19,7 +19,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-dark border-t border-gold/10">
+    <footer className="bg-background border-t border-gold/10">
       {/* Gold top bar */}
       <div className="h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
@@ -29,15 +29,15 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center">
-                <Cross className="w-6 h-6 text-gold" strokeWidth={1.5} />
+              <div className="w-14 h-14 flex items-center justify-center">
+                <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="font-cinzel text-sm font-bold text-gold">PHMI</p>
-                <p className="font-montserrat text-[10px] text-silver tracking-widest uppercase">Solution Center</p>
+                <p className="font-montserrat text-[10px] text-muted-foreground tracking-widest uppercase">Solution Center</p>
               </div>
             </div>
-            <p className="font-garamond text-silver text-sm leading-relaxed mb-6 italic">
+            <p className="font-garamond text-muted-foreground text-sm leading-relaxed mb-6 italic">
               "Raising Lives Through Prayer, Worship & The Word"
             </p>
             {/* Social icons */}
@@ -51,7 +51,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-silver hover:text-gold hover:border-gold/50 hover:bg-gold/10 transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 hover:bg-gold/10 transition-all duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -70,8 +70,8 @@ export default function Footer() {
                   <p className="font-montserrat text-[11px] text-gold uppercase tracking-wider mb-0.5">
                     {s.day}
                   </p>
-                  <p className="font-playfair text-ivory text-sm">{s.service}</p>
-                  <p className="font-inter text-silver text-xs mt-0.5">{s.time}</p>
+                  <p className="font-playfair text-foreground text-sm">{s.service}</p>
+                  <p className="font-inter text-muted-foreground text-xs mt-0.5">{s.time}</p>
                 </li>
               ))}
             </ul>
@@ -87,7 +87,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-inter text-silver text-sm hover:text-gold transition-colors duration-200 flex items-center gap-2 group"
+                    className="font-inter text-muted-foreground text-sm hover:text-gold transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gold/40 group-hover:bg-gold transition-colors" />
                     {link.label}
@@ -121,7 +121,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-                <p className="font-inter text-silver text-sm leading-relaxed">
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed">
                   Opposite Wotutu Okada Park,<br />Mile 4 Limbe, Cameroon
                 </p>
               </li>
@@ -129,7 +129,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="tel:+237653270752"
-                  className="font-inter text-silver text-sm hover:text-gold transition-colors"
+                  className="font-inter text-muted-foreground text-sm hover:text-gold transition-colors"
                 >
                   653 270 752
                 </a>
@@ -138,7 +138,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="mailto:info@prayerhouseministryintl.org"
-                  className="font-inter text-silver text-sm hover:text-gold transition-colors"
+                  className="font-inter text-muted-foreground text-sm hover:text-gold transition-colors"
                 >
                   info@prayerhouseministryintl.org
                 </a>
@@ -163,10 +163,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-inter text-silver/50 text-xs text-center md:text-left">
+          <p className="font-inter text-muted-foreground/50 text-xs text-center md:text-left">
             © {new Date().getFullYear()} Prayer House Ministry International. All rights reserved.
           </p>
-          <p className="font-garamond text-silver/40 text-xs italic text-center">
+          <p className="font-garamond text-muted-foreground/40 text-xs italic text-center">
             "The LORD is my strength and my song" — Exodus 15:2
           </p>
         </div>

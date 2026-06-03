@@ -48,7 +48,7 @@ export default function Home() {
       {/* Floating Prayer Request Button */}
       <button
         onClick={() => setPrayerModalOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bg-gold text-navy-dark font-montserrat text-xs font-bold px-5 py-3 rounded-full shadow-gold-lg flex items-center gap-2 hover:shadow-gold hover:scale-105 transition-all duration-200 animate-glow-pulse"
+        className="fixed bottom-6 right-6 z-40 bg-gold text-background font-montserrat text-xs font-bold px-5 py-3 rounded-full shadow-gold-lg flex items-center gap-2 hover:shadow-gold hover:scale-105 transition-all duration-200 animate-glow-pulse"
         aria-label="Request Prayer"
       >
         🙏 Request Prayer

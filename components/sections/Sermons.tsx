@@ -13,7 +13,7 @@ const sermons = [
     date: 'July 14, 2025',
     duration: '52 min',
     series: 'Prayer & Power',
-    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
+    thumbnail: '/images/phmi-16.jpeg',
     featured: true,
   },
   {
@@ -22,7 +22,7 @@ const sermons = [
     date: 'July 7, 2025',
     duration: '45 min',
     series: 'Prophetic Series',
-    thumbnail: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80',
+    thumbnail: '/images/phmi-17.png',
     featured: false,
   },
   {
@@ -31,7 +31,7 @@ const sermons = [
     date: 'June 30, 2025',
     duration: '48 min',
     series: 'Revival Season',
-    thumbnail: 'https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=600&q=80',
+    thumbnail: '/images/phmi-18.jpeg',
     featured: false,
   },
   {
@@ -40,7 +40,7 @@ const sermons = [
     date: 'June 22, 2025',
     duration: '39 min',
     series: 'Healing & Miracles',
-    thumbnail: 'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80',
+    thumbnail: '/images/phmi-19.jpeg',
     featured: false,
   },
 ]
@@ -53,7 +53,7 @@ function PlayButton({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
       whileHover={{ scale: 1.1 }}
       className={`${dims[size]} rounded-full bg-gold flex items-center justify-center shadow-gold cursor-pointer flex-shrink-0`}
     >
-      <Play className={`${iconDims[size]} text-navy-dark fill-navy-dark ml-0.5`} />
+      <Play className={`${iconDims[size]} text-background fill-navy-dark ml-0.5`} />
     </motion.div>
   )
 }
@@ -64,7 +64,7 @@ export default function Sermons() {
   const rest = sermons.slice(1)
 
   return (
-    <section id="sermons" className="relative py-24 lg:py-32 bg-navy-dark overflow-hidden">
+    <section id="sermons" className="relative py-24 lg:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(201,168,76,0.07)_0%,transparent_60%)] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -80,7 +80,7 @@ export default function Sermons() {
             Watch <span className="text-gold-gradient">Sermons</span>
           </motion.h2>
           <motion.div variants={fadeUp} className="gold-divider" />
-          <motion.p variants={fadeUp} className="font-inter text-silver max-w-lg mx-auto">
+          <motion.p variants={fadeUp} className="font-inter text-muted-foreground max-w-lg mx-auto">
             Be strengthened, edified, and transformed by anointed messages from our pulpit.
           </motion.p>
         </motion.div>
@@ -105,15 +105,15 @@ export default function Sermons() {
                     alt={featured.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
                     <PlayButton size="lg" />
                   </div>
                   {/* Series badge */}
-                  <span className="absolute top-4 left-4 font-montserrat text-[10px] bg-gold text-navy-dark px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                  <span className="absolute top-4 left-4 font-montserrat text-[10px] bg-gold text-background px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                     {featured.series}
                   </span>
                   {/* Featured badge */}
-                  <span className="absolute top-4 right-4 font-montserrat text-[10px] bg-white/10 backdrop-blur text-ivory px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+                  <span className="absolute top-4 right-4 font-montserrat text-[10px] bg-white/10 backdrop-blur text-foreground px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
                     Featured
                   </span>
                 </div>
@@ -122,10 +122,10 @@ export default function Sermons() {
               {/* Content */}
               <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center">
                 <p className="font-montserrat text-[11px] text-gold uppercase tracking-widest mb-3">Latest Message</p>
-                <h3 className="font-playfair text-2xl lg:text-3xl text-ivory font-bold leading-tight mb-4">
+                <h3 className="font-playfair text-2xl lg:text-3xl text-foreground font-bold leading-tight mb-4">
                   {featured.title}
                 </h3>
-                <div className="flex flex-wrap items-center gap-4 mb-6 text-silver text-sm">
+                <div className="flex flex-wrap items-center gap-4 mb-6 text-muted-foreground text-sm">
                   <span className="font-inter">{featured.speaker}</span>
                   <span className="flex items-center gap-1.5 font-inter">
                     <Calendar className="w-3.5 h-3.5 text-gold" /> {featured.date}
@@ -134,7 +134,7 @@ export default function Sermons() {
                     <Clock className="w-3.5 h-3.5 text-gold" /> {featured.duration}
                   </span>
                 </div>
-                <p className="font-inter text-silver text-sm leading-relaxed mb-8">
+                <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-8">
                   In this powerful message, be inspired to take your prayer life to a new level. Discover the biblical
                   keys to answered prayer and supernatural breakthrough.
                 </p>
@@ -169,20 +169,20 @@ export default function Sermons() {
                   alt={sermon.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <PlayButton size="md" />
                 </div>
-                <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-navy-dark px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-background px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
                   {sermon.series}
                 </span>
               </div>
 
               {/* Card body */}
               <div className="p-6">
-                <h4 className="font-playfair text-lg text-ivory font-semibold mb-3 leading-snug group-hover:text-gold-light transition-colors">
+                <h4 className="font-playfair text-lg text-foreground font-semibold mb-3 leading-snug group-hover:text-gold-light transition-colors">
                   {sermon.title}
                 </h4>
-                <div className="flex flex-wrap gap-3 text-xs text-silver">
+                <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
                   <span className="font-inter">{sermon.speaker}</span>
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-gold" /> {sermon.duration}

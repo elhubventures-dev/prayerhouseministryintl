@@ -23,7 +23,7 @@ export default function AboutPage() {
           title="About Prayer House"
           highlight="Ministry International"
           subtitle="A Spirit-filled prophetic ministry established in Limbe, Cameroon, raising lives through prayer, worship, and the Word of God."
-          bgImage="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80"
+          bgImage="/images/phmi-1.jpeg"
         />
         <AboutContent />
         <Newsletter variant="section" />
