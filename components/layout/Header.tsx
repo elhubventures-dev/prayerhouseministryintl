@@ -61,12 +61,7 @@ export default function Header() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link
-                href="/#prayer-request"
-                className="btn-glass text-sm px-5 py-2.5 rounded-lg"
-              >
-                Request Prayer
-              </Link>
+
               <Link
                 href="/#contact"
                 className="btn-gold text-sm px-5 py-2.5 rounded-lg"
@@ -152,13 +147,7 @@ export default function Header() {
 
               {/* Mobile CTAs */}
               <div className="flex flex-col gap-3 pt-6 border-t border-gold/10">
-                <Link
-                  href="/#prayer-request"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-glass text-sm text-center py-3 rounded-lg"
-                >
-                  Request Prayer
-                </Link>
+
                 <Link
                   href="/#contact"
                   onClick={() => setMenuOpen(false)}

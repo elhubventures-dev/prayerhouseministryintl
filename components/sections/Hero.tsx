@@ -119,16 +119,7 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Ghost */}
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/#prayer-request"
-                className="font-montserrat text-sm font-semibold text-muted-foreground/80 hover:text-gold transition-colors flex items-center gap-2 py-4 px-4"
-              >
-                🙏 Request Prayer
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </motion.div>
+
           </motion.div>
 
           {/* Scripture tag */}
