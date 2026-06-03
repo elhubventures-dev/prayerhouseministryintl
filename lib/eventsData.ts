@@ -86,7 +86,7 @@ export function getDynamicEvents() {
       time: '9:00 AM',
       location: 'Solution Center',
       description: "Experience the prophetic anointing. Receive a fresh word and encounter God's power.",
-      image: '/images/phmi-12.jpeg',
+      image: '/images/phmi-6.jpeg',
       tags: ['Prophetic', 'Sunday'],
     },
     {
