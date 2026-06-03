@@ -72,7 +72,7 @@ export function getDynamicEvents() {
       time: '4:00 PM',
       location: 'Solution Center',
       description: "Preparing hearts and voices to usher in God's presence through worship.",
-      image: '/images/phmi-15.jpeg',
+      image: '/images/phmi-19.jpeg',
       tags: ['Worship', 'Music'],
     },
     {
