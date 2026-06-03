@@ -132,15 +132,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
-        animate={{ y: [0, 8, 0], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <span className="font-montserrat text-[10px] text-muted-foreground/50 tracking-widest uppercase">Scroll</span>
-        <ChevronDown className="w-5 h-5 text-gold/60" />
-      </motion.div>
+
     </section>
   )
 }
