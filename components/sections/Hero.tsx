@@ -16,12 +16,21 @@ export default function Hero() {
         animate={{ scale: [1, 1.06, 1] }}
         transition={{ duration: 18, ease: 'linear', repeat: Infinity }}
       >
+        {/* Desktop Image */}
         <Image
           src="/images/hero-bg.png"
           alt="Solution Center Background"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center hidden md:block"
+        />
+        {/* Mobile Image */}
+        <Image
+          src="/images/4.png"
+          alt="Solution Center Background Mobile"
+          fill
+          priority
+          className="object-cover object-center block md:hidden"
         />
       </motion.div>
 
