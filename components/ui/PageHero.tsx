@@ -29,16 +29,17 @@ export default function PageHero({ label, title, highlight, subtitle, bgImage }:
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,168,76,0.18)_0%,transparent_65%)]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-8 flex flex-col items-center text-center">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="max-w-3xl"
+          className="max-w-4xl flex flex-col items-center"
         >
-          <motion.div variants={heroText} className="flex items-center gap-3 mb-4">
+          <motion.div variants={heroText} className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-0.5 bg-gold" />
             <span className="section-label">{label}</span>
+            <div className="w-8 h-0.5 bg-gold" />
           </motion.div>
           <motion.h1 variants={heroText} className="font-cinzel text-4xl md:text-5xl lg:text-6xl text-foreground font-bold leading-tight mb-6">
             {title}
@@ -49,11 +50,11 @@ export default function PageHero({ label, title, highlight, subtitle, bgImage }:
             )}
           </motion.h1>
           {subtitle && (
-            <motion.p variants={heroText} className="font-playfair text-muted-foreground italic text-lg lg:text-xl leading-relaxed max-w-2xl">
+            <motion.p variants={heroText} className="font-playfair text-muted-foreground italic text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
               {subtitle}
             </motion.p>
           )}
-          <motion.div variants={heroText} className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent mt-8" />
+          <motion.div variants={heroText} className="w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mt-8" />
         </motion.div>
       </div>
     </section>
