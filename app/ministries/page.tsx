@@ -22,7 +22,6 @@ export default function MinistriesPage() {
           title="Our"
           highlight="Ministries"
           subtitle="Every ministry arm is a divine expression of our mandate. Find your place, discover your gifts, and fulfill your God-given purpose."
-          bgImage="/images/phmi-11.jpg"
         />
         <MinistriesContent />
       </main>

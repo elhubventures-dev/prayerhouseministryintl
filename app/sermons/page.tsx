@@ -22,7 +22,6 @@ export default function SermonsPage() {
           title="Sermons &"
           highlight="Messages"
           subtitle="Be strengthened, edified, and transformed by anointed messages from our pulpit. Faith comes by hearing the Word of God."
-          bgImage="/images/phmi-13.jpeg"
         />
         <SermonsContent />
       </main>

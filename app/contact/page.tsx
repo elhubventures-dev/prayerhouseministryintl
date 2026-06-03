@@ -23,7 +23,6 @@ export default function ContactPage() {
           title="Contact"
           highlight="Solution Center"
           subtitle="We would love to hear from you. Reach out for prayer, directions, ministry inquiries, or simply to say hello."
-          bgImage="/images/phmi-14.jpg"
         />
         <Contact />
         <Newsletter variant="section" />

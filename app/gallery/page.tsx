@@ -22,7 +22,6 @@ export default function GalleryPage() {
           title="Our"
           highlight="Gallery"
           subtitle="A glimpse into our community — moments of worship, fellowship, outreach, and the power of God moving among His people."
-          bgImage="/images/phmi-10.jpeg"
         />
         <GalleryContent />
       </main>
