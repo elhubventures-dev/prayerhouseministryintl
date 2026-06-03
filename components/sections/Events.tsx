@@ -17,35 +17,16 @@ const featuredEvent = {
   image: '/images/phmi-4.jpeg',
 }
 
-const upcomingEvents = [
-  {
-    month: 'JUL',
-    day: '25',
-    title: 'All-Night Prayer & Praise',
-    description: 'Last Friday of the month. Come for a night of intercession and breakthrough.',
-    time: '9:00 PM',
-    location: 'Solution Center',
-  },
-  {
-    month: 'AUG',
-    day: '03',
-    title: 'Youth Sunday & Commissioning',
-    description: 'A special service celebrating and commissioning our youth for God\'s service.',
-    time: '9:00 AM',
-    location: 'Solution Center',
-  },
-  {
-    month: 'AUG',
-    day: '10',
-    title: 'Women\'s Empowerment Seminar',
-    description: 'A powerful day of teaching, testimony, and fellowship for the women of PHMI.',
-    time: '10:00 AM',
-    location: 'Solution Center Hall',
-  },
-]
+import { useState, useEffect } from 'react'
+import { getDynamicEvents } from '@/lib/eventsData'
 
 export default function Events() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 })
+  const [upcomingEvents, setUpcomingEvents] = useState<any[]>([])
+
+  useEffect(() => {
+    setUpcomingEvents(getDynamicEvents().slice(0, 3))
+  }, [])
 
   return (
     <section id="events" className="relative py-24 lg:py-32 bg-background overflow-hidden">

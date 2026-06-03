@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Calendar, Clock, MapPin, Users } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 import CountdownTimer from '@/components/ui/CountdownTimer'
+import { getDynamicEvents } from '@/lib/eventsData'
 
 const upcomingEvents = [
   {
@@ -21,55 +22,17 @@ const upcomingEvents = [
     image: '/images/phmi-16.jpeg',
     featured: true,
     tags: ['Revival', 'Prophetic', 'Conference'],
-  },
-  {
-    id: 2,
-    title: 'All-Night Prayer & Praise',
-    type: 'Monthly Service',
-    dates: 'July 25, 2025',
-    time: '9:00 PM – Dawn',
-    location: 'Solution Center',
-    description: 'The last Friday of every month. Come for a night of intense intercession, worship, and supernatural breakthrough. Expect God to show up in power.',
-    targetDate: new Date('2025-07-25T21:00:00'),
-    capacity: 'Open to all',
-    image: '/images/phmi-17.png',
-    featured: false,
-    tags: ['Prayer', 'All-Night'],
-  },
-  {
-    id: 3,
-    title: 'Youth Sunday & Commissioning Service',
-    type: 'Special Service',
-    dates: 'August 3, 2025',
-    time: '9:00 AM',
-    location: 'Solution Center',
-    description: 'A special Sunday service dedicated to celebrating and commissioning our youth generation. Youth-led worship, testimonies, and a powerful word for the next generation.',
-    targetDate: new Date('2025-08-03T09:00:00'),
-    capacity: 'Open to all',
-    image: '/images/phmi-18.jpeg',
-    featured: false,
-    tags: ['Youth', 'Special Service'],
-  },
-  {
-    id: 4,
-    title: 'Women\'s Empowerment Seminar',
-    type: 'Seminar',
-    dates: 'August 10, 2025',
-    time: '10:00 AM – 4:00 PM',
-    location: 'Solution Center Hall',
-    description: 'A powerful full-day event for the women of PHMI and invited guests. Teaching, testimony, prayer, and fellowship centered on purpose, identity, and spiritual empowerment.',
-    targetDate: new Date('2025-08-10T10:00:00'),
-    capacity: 'Women only',
-    image: '/images/phmi-19.jpeg',
-    featured: false,
-    tags: ['Women', 'Seminar'],
-  },
+  }
 ]
 
 export default function EventsContent() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
   const featured = upcomingEvents[0]
-  const rest = upcomingEvents.slice(1)
+  const [rest, setRest] = useState<any[]>([])
+
+  useEffect(() => {
+    setRest(getDynamicEvents())
+  }, [])
 
   return (
     <>
