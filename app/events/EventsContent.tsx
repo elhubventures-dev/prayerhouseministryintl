@@ -10,9 +10,9 @@ import CountdownTimer from '@/components/ui/CountdownTimer'
 const upcomingEvents = [
   {
     id: 1,
-    title: 'Annual Revival & Prophetic Conference 2025',
+    title: 'Annual Revival & Prophetic Conference 2026',
     type: 'Conference',
-    dates: 'August 15–17, 2025',
+    dates: 'October 15–17, 2026',
     time: '6:00 PM daily',
     location: 'Solution Center, Mile 4 Limbe',
     description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will minister under a fresh prophetic anointing. Come expecting transformation.',

@@ -10,7 +10,7 @@ let adminData = {
   announcements: [
     {
       id: 'revival-2025',
-      text: '🔥 Annual Revival & Prophetic Conference — August 15–17, 2025 at Solution Center',
+      text: '🔥 Annual Revival & Prophetic Conference — October 15–17, 2026 at Solution Center',
       link: '/events',
       linkLabel: 'Learn More',
       active: true,
@@ -20,9 +20,9 @@ let adminData = {
   events: [
     {
       id: 'evt-001',
-      title: 'Annual Revival & Prophetic Conference 2025',
+      title: 'Annual Revival & Prophetic Conference 2026',
       type: 'Conference',
-      dates: 'August 15–17, 2025',
+      dates: 'October 15–17, 2026',
       time: '6:00 PM daily',
       location: 'Solution Center, Mile 4 Limbe',
       description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough.',

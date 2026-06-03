@@ -8,8 +8,8 @@ import { staggerContainer, fadeUp, fadeLeft, fadeRight } from '@/lib/animations'
 import CountdownTimer from '@/components/ui/CountdownTimer'
 
 const featuredEvent = {
-  title: 'Annual Revival & Prophetic Conference 2025',
-  date: 'August 15–17, 2025',
+  title: 'Annual Revival & Prophetic Conference 2026',
+  date: 'October 15–17, 2026',
   time: '6:00 PM daily',
   location: 'Solution Center, Mile 4 Limbe',
   description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will join us for this transformational conference.',

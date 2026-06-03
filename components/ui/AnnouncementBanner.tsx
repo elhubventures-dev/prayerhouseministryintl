@@ -8,7 +8,7 @@ import Link from 'next/link'
 const announcements = [
   {
     id: 'revival-2025',
-    text: '🔥 Annual Revival & Prophetic Conference — August 15–17, 2025 at Solution Center',
+    text: '🔥 Annual Revival & Prophetic Conference — October 15–17, 2026 at Solution Center',
     link: '/events',
     linkLabel: 'Learn More',
   },

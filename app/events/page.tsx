@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'application/ld+json': JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Event',
-      name: 'Annual Revival & Prophetic Conference 2025',
+      name: 'Annual Revival & Prophetic Conference 2026',
       startDate: '2025-08-15',
       endDate: '2025-08-17',
       location: {
