@@ -13,7 +13,7 @@ const featuredEvent = {
   time: '6:00 PM daily',
   location: 'Solution Center, Mile 4 Limbe',
   description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will join us for this transformational conference.',
-  targetDate: new Date('2025-08-15T18:00:00'),
+  targetDate: new Date('2026-10-15T18:00:00'),
   image: '/images/phmi-4.jpeg',
 }
 
@@ -117,9 +117,9 @@ export default function Events() {
               </div>
 
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <button className="btn-gold text-sm w-fit flex items-center gap-2">
+                <a href="https://wa.me/237653270752?text=I%20want%20to%20register%20for%20the%20upcoming%20event" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm w-fit flex items-center gap-2">
                   Register Now <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </motion.div>
             </div>
           </div>

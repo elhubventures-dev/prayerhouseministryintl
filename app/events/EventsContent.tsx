@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Calendar, Clock, MapPin, Users, X, CheckCircle2 } from 'lucide-react'
+import { Calendar, Clock, MapPin, Users } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 import CountdownTimer from '@/components/ui/CountdownTimer'
 
@@ -16,7 +16,7 @@ const upcomingEvents = [
     time: '6:00 PM daily',
     location: 'Solution Center, Mile 4 Limbe',
     description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will minister under a fresh prophetic anointing. Come expecting transformation.',
-    targetDate: new Date('2025-08-15T18:00:00'),
+    targetDate: new Date('2026-10-15T18:00:00'),
     capacity: 'Open to all',
     image: '/images/phmi-16.jpeg',
     featured: true,
@@ -66,99 +66,7 @@ const upcomingEvents = [
   },
 ]
 
-interface RegistrationModalProps {
-  event: typeof upcomingEvents[0]
-  onClose: () => void
-}
-
-function RegistrationModal({ event, onClose }: RegistrationModalProps) {
-  const [form, setForm] = useState({ name: '', phone: '', email: '' })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-background/90 backdrop-blur-xl"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="glass-card w-full max-w-md p-8 relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent rounded-t-2xl" />
-        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-gold transition-colors">
-          <X className="w-5 h-5" />
-        </button>
-
-        {!submitted ? (
-          <>
-            <div className="mb-6">
-              <p className="section-label mb-2">Register for Event</p>
-              <h3 className="font-cinzel text-lg text-foreground font-bold leading-snug">{event.title}</h3>
-              <div className="flex flex-wrap gap-3 text-xs text-muted-foreground mt-3">
-                <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-gold" /> {event.dates}</span>
-                <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-gold" /> {event.time}</span>
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Full Name *</label>
-                <input required type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Your full name"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Phone Number *</label>
-                <input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="+237 6XX XXX XXX"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email (optional)</label>
-                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="your@email.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
-                />
-              </div>
-              <button type="submit" className="btn-gold w-full text-sm mt-2">
-                Confirm Registration
-              </button>
-            </form>
-          </>
-        ) : (
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-6">
-            <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold flex items-center justify-center mx-auto mb-5">
-              <CheckCircle2 className="w-7 h-7 text-gold" />
-            </div>
-            <h4 className="font-cinzel text-xl text-foreground font-bold mb-3">You're Registered!</h4>
-            <p className="font-inter text-muted-foreground text-sm leading-relaxed mb-6">
-              Thank you! Your spot is confirmed for <strong className="text-foreground">{event.title}</strong>. We look forward to seeing you!
-            </p>
-            <p className="font-garamond italic text-gold/70 text-sm mb-6">"Where two or three gather in my name, I am there." — Matthew 18:20</p>
-            <button onClick={onClose} className="btn-gold text-sm px-8">Close</button>
-          </motion.div>
-        )}
-      </motion.div>
-    </motion.div>
-  )
-}
-
 export default function EventsContent() {
-  const [registering, setRegistering] = useState<typeof upcomingEvents[0] | null>(null)
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
   const featured = upcomingEvents[0]
   const rest = upcomingEvents.slice(1)
@@ -200,9 +108,9 @@ export default function EventsContent() {
                   <p className="font-montserrat text-xs text-gold/70 uppercase tracking-wider mb-3">Event starts in:</p>
                   <CountdownTimer targetDate={featured.targetDate} />
                 </div>
-                <button onClick={() => setRegistering(featured)} className="btn-gold text-sm w-fit">
+                <a href="https://wa.me/237653270752?text=I%20want%20to%20register%20for%20the%20upcoming%20event" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm w-fit inline-block">
                   Register Now →
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -228,12 +136,12 @@ export default function EventsContent() {
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-gold" /> {event.time}</span>
                   </div>
                   <p className="font-inter text-muted-foreground/70 text-xs leading-relaxed line-clamp-2">{event.description}</p>
-                  <button
-                    onClick={() => setRegistering(event)}
-                    className="btn-glass text-xs py-2.5 mt-1 w-full text-center"
+                  <a
+                    href="https://wa.me/237653270752?text=I%20want%20to%20register%20for%20the%20upcoming%20event" target="_blank" rel="noopener noreferrer"
+                    className="btn-glass text-xs py-2.5 mt-1 w-full text-center block"
                   >
                     Register →
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -241,9 +149,7 @@ export default function EventsContent() {
         </div>
       </section>
 
-      <AnimatePresence>
-        {registering && <RegistrationModal event={registering} onClose={() => setRegistering(null)} />}
-      </AnimatePresence>
+
     </>
   )
 }
