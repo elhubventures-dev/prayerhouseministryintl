@@ -175,6 +175,7 @@ export default function AboutContent() {
                 name: 'Rev. Apostle E.S. Hugo',
                 title: 'Senior Apostle & Founder',
                 initial: 'AH',
+                image: '/images/leader-hugo.png',
                 bio: [
                   'Rev. Apostle E.S. Hugo is the founding visionary and Senior Apostle of Prayer House Ministry International. With a burning passion for souls and a deep prophetic anointing, he has dedicated his life to building a house of prayer that transforms communities and raises godly generations.',
                   'His ministry spans over fifteen years of faithful service in Limbe and the surrounding regions of Cameroon. Under his apostolic leadership, the Solution Center has grown from a small gathering of believers into a thriving church community with six ministry arms and a growing online presence reaching believers across Cameroon and in the diaspora.',
@@ -186,6 +187,7 @@ export default function AboutContent() {
                 name: 'Prophetess Ekwalla Calista',
                 title: 'Prophetess & Co-Leader',
                 initial: 'EC',
+                image: '/images/leader-calista.png',
                 bio: [
                   'Prophetess Ekwalla Calista moves in a distinctive prophetic anointing, characterized by accuracy, compassion, and the authentic power of the Holy Spirit. Her ministry has brought breakthrough, healing, and divine direction to countless lives across Cameroon.',
                   'As co-leader of the Solution Center, she brings a nurturing spiritual presence and a powerful intercessory foundation that undergirds every department of the ministry. Her leadership in the Women\'s Ministry has been particularly transformative, helping women discover their God-given identity and purpose.',
@@ -205,8 +207,12 @@ export default function AboutContent() {
                 <div className={`lg:col-span-2 ${leader.side === 'right' ? 'lg:order-last' : ''}`}>
                   <div className="glass-card p-10 flex flex-col items-center text-center relative overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gold/20 to-background-alt border-2 border-gold/40 flex items-center justify-center mb-6 shadow-gold">
-                      <span className="font-cinzel text-3xl font-bold text-gold">{leader.initial}</span>
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gold/20 to-background-alt border-2 border-gold/40 flex items-center justify-center mb-6 shadow-gold overflow-hidden">
+                      {leader.image ? (
+                        <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="font-cinzel text-3xl font-bold text-gold">{leader.initial}</span>
+                      )}
                     </div>
                     <h3 className="font-playfair text-xl text-foreground font-bold mb-1">{leader.name}</h3>
                     <p className="font-montserrat text-xs text-gold uppercase tracking-widest">{leader.title}</p>
