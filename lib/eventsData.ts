@@ -100,7 +100,7 @@ export function getDynamicEvents() {
       time: '9:00 PM',
       location: 'Solution Center',
       description: 'A night of intense intercession, worship, and breakthrough. Come expecting a miracle.',
-      image: '/images/phmi-17.png',
+      image: '/images/phmi-22.jpeg',
       tags: ['Prayer', 'Special'],
     }
   ].sort((a, b) => a.dateObj.getTime() - b.dateObj.getTime())
