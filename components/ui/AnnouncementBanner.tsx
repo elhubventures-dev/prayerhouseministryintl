@@ -15,6 +15,7 @@ const announcements = [
 ]
 
 export default function AnnouncementBanner() {
+  return null
   const [visible, setVisible] = useState(false)
   const announcement = announcements[0]
 
