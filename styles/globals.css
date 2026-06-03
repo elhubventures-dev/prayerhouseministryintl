@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0A0F2C;
+  --navy-dark: #06091A;
+  --gold: #C9A84C;
+  --gold-light: #F4A832;
+  --ivory: #F5F0E8;
+  --silver: #A8A8C0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #06091A;
+  color: #F5F0E8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06091A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: #F5F0E8;
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(201, 168, 76, 0.5);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 168, 76, 0.15);
+    transform: translateY(-6px);
+  }
+
+  /* Gold Button */
+  .btn-gold {
+    @apply relative overflow-hidden bg-gold text-navy-dark font-montserrat font-semibold px-8 py-4 rounded-lg transition-all duration-300;
+    background: linear-gradient(135deg, #C9A84C 0%, #F4A832 50%, #C9A84C 100%);
+    background-size: 200% auto;
+  }
+  .btn-gold:hover {
+    background-position: right center;
+    box-shadow: 0 0 40px rgba(201, 168, 76, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Glass Button */
+  .btn-glass {
+    @apply font-montserrat font-semibold px-8 py-4 rounded-lg transition-all duration-300;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 168, 76, 0.5);
+    color: #C9A84C;
+    backdrop-filter: blur(10px);
+  }
+  .btn-glass:hover {
+    background: rgba(201, 168, 76, 0.15);
+    border-color: #C9A84C;
+    box-shadow: 0 0 25px rgba(201, 168, 76, 0.2);
+  }
+
+  /* Section Label */
+  .section-label {
+    @apply font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-gold;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply font-cinzel text-3xl md:text-4xl lg:text-5xl text-ivory leading-tight;
+  }
+
+  /* Gold Divider */
+  .gold-divider {
+    @apply w-16 h-0.5 bg-gold mx-auto my-6;
+  }
+
+  /* Gold line top card accent */
+  .card-gold-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* Floating orb */
+  .orb {
+    @apply absolute rounded-full blur-3xl pointer-events-none;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply font-montserrat text-sm font-medium text-silver transition-colors duration-200 relative;
+  }
+  .nav-link:hover {
+    color: #C9A84C;
+  }
+  .nav-link.active {
+    color: #C9A84C;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #C9A84C;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+}
+
+/* Gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A84C, #F4A832, #C9A84C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cinematic vignette overlay */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(6, 9, 26, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Atmospheric glow background */
+.atmos-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(18, 24, 74, 0.8) 0%, transparent 50%),
+    #06091A;
+}
