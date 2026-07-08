@@ -19,7 +19,7 @@ const upcomingEvents = [
     description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will minister under a fresh prophetic anointing. Come expecting transformation.',
     targetDate: new Date('2026-10-15T18:00:00'),
     capacity: 'Open to all',
-    image: '/images/phmi-16.jpeg',
+    image: '/images/phmi-26.jpeg',
     featured: true,
     tags: ['Revival', 'Prophetic', 'Conference'],
   }
@@ -47,7 +47,7 @@ export default function EventsContent() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative overflow-hidden min-h-[300px]">
-                <img src={featured.image} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={featured.image} alt={featured.title} className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-background/50" />
                 <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-background px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
                   🔥 Featured Event

@@ -7,9 +7,9 @@ import { Play, Clock, Calendar, Search, Youtube, Facebook } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 
 const allSermons = [
-  { title: 'The Power of Prevailing Prayer', speaker: 'Rev. Apostle E.S. Hugo', date: 'July 14, 2025', duration: '52 min', series: 'Prayer & Power', thumbnail: '/images/phmi-14.jpg' },
-  { title: 'Walking in Prophetic Authority', speaker: 'Prophetess Ekwalla Calista', date: 'July 7, 2025', duration: '45 min', series: 'Prophetic Series', thumbnail: '/images/phmi-16.jpeg' },
-  { title: 'Revival Fire — Are You Ready?', speaker: 'Rev. Apostle E.S. Hugo', date: 'June 30, 2025', duration: '48 min', series: 'Revival Season', thumbnail: '/images/phmi-17.png' },
+  { title: 'The Power of Prevailing Prayer', speaker: 'Rev. Apostle E.S. Hugo', date: 'July 14, 2025', duration: '52 min', series: 'Prayer & Power', thumbnail: '/images/phmi-26.jpeg' },
+  { title: 'Walking in Prophetic Authority', speaker: 'Prophetess Ekwalla Calista', date: 'July 7, 2025', duration: '45 min', series: 'Prophetic Series', thumbnail: '/images/phmi-47.jpg', thumbnailPosition: '60% 28%' },
+  { title: 'Revival Fire — Are You Ready?', speaker: 'Rev. Apostle E.S. Hugo', date: 'June 30, 2025', duration: '48 min', series: 'Revival Season', thumbnail: '/images/phmi-29.jpeg', thumbnailPosition: 'center 8%' },
   { title: 'The Healing Virtue of Christ', speaker: 'Prophetess Ekwalla Calista', date: 'June 22, 2025', duration: '39 min', series: 'Healing & Miracles', thumbnail: '/images/phmi-18.jpeg' },
   { title: 'Kingdom Keys — Unlocking Destiny', speaker: 'Rev. Apostle E.S. Hugo', date: 'June 15, 2025', duration: '55 min', series: 'Kingdom Series', thumbnail: '/images/phmi-19.jpeg' },
   { title: 'Hearing the Voice of God', speaker: 'Prophetess Ekwalla Calista', date: 'June 8, 2025', duration: '41 min', series: 'Prophetic Series', thumbnail: '/images/phmi-20.jpeg' },
@@ -93,18 +93,18 @@ export default function SermonsContent() {
           <select
             value={selectedSpeaker}
             onChange={(e) => setSelectedSpeaker(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-muted-foreground text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
+            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
           >
-            {speakers.map((s) => <option key={s} value={s} className="bg-background-alt text-muted-foreground">{s}</option>)}
+            {speakers.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
 
           {/* Series filter */}
           <select
             value={selectedSeries}
             onChange={(e) => setSelectedSeries(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-muted-foreground text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
+            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
           >
-            {series.map((s) => <option key={s} value={s} className="bg-background-alt text-muted-foreground">{s}</option>)}
+            {series.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
         </motion.div>
 
@@ -135,8 +135,8 @@ export default function SermonsContent() {
                   className="glass-card overflow-hidden group cursor-pointer"
                 >
                   {/* Thumbnail */}
-                  <div className="relative overflow-hidden">
-                    <img src={sermon.thumbnail} alt={sermon.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-500" />
+                  <div className="relative overflow-hidden aspect-video">
+                    <img src={sermon.thumbnail} alt={sermon.title} style={{ objectPosition: (sermon as { thumbnailPosition?: string }).thumbnailPosition ?? 'center 30%' }} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <motion.div
                         whileHover={{ scale: 1.1 }}

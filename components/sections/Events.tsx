@@ -14,7 +14,7 @@ const featuredEvent = {
   location: 'Solution Center, Mile 4 Limbe',
   description: 'Three nights of powerful worship, prophetic ministry, healing, and breakthrough. Speakers from across Cameroon and beyond will join us for this transformational conference.',
   targetDate: new Date('2026-10-15T18:00:00'),
-  image: '/images/phmi-4.jpeg',
+  image: '/images/phmi-26.jpeg',
 }
 
 import { useState, useEffect } from 'react'
@@ -60,7 +60,7 @@ export default function Events() {
               <img
                 src={featuredEvent.image}
                 alt={featuredEvent.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-background/80 lg:from-transparent to-background/20" />
               <div className="absolute inset-0 bg-background/30" />

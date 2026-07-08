@@ -152,6 +152,12 @@ body {
   }
 }
 
+/* Native select dropdown options — OS menus use a light background */
+select option {
+  background-color: #ffffff;
+  color: #0A0F2C;
+}
+
 /* Gradient text */
 .text-gold-gradient {
   background: linear-gradient(135deg, #C9A84C, #F4A832, #C9A84C);

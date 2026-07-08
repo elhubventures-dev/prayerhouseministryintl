@@ -35,8 +35,10 @@ export default function Hero() {
       </motion.div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background/90" />
+      {/* Center scrim — darkens background logo & watermark text for readability */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_42%,rgba(6,9,26,0.92)_0%,rgba(6,9,26,0.55)_45%,transparent_75%)]" />
 
       {/* Gold ray from top */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(201,168,76,0.22)_0%,transparent_65%)]" />
@@ -72,7 +74,7 @@ export default function Hero() {
           {/* Main headline */}
           <motion.h1
             variants={heroText}
-            className="font-cinzel text-4xl md:text-5xl lg:text-7xl text-foreground leading-[1.15] font-bold"
+            className="font-cinzel text-4xl md:text-5xl lg:text-7xl text-foreground leading-[1.15] font-bold drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]"
           >
             Raising Lives<br />
             <span className="text-gold-gradient">Through Prayer,</span><br />
@@ -85,7 +87,7 @@ export default function Hero() {
           {/* Subtext */}
           <motion.p
             variants={heroText}
-            className="font-playfair text-muted-foreground text-lg md:text-xl italic max-w-2xl leading-relaxed"
+            className="font-playfair text-foreground/90 text-lg md:text-xl italic max-w-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             Experience the power of God's presence at Solution Center.
             Join a community of believers seeking revival, healing, and transformation.

@@ -13,7 +13,7 @@ const sermons = [
     date: 'July 14, 2025',
     duration: '52 min',
     series: 'Prayer & Power',
-    thumbnail: '/images/phmi-16.jpeg',
+    thumbnail: '/images/phmi-26.jpeg',
     featured: true,
   },
   {
@@ -22,7 +22,8 @@ const sermons = [
     date: 'July 7, 2025',
     duration: '45 min',
     series: 'Prophetic Series',
-    thumbnail: '/images/phmi-17.png',
+    thumbnail: '/images/phmi-47.jpg',
+    thumbnailPosition: '60% 28%',
     featured: false,
   },
   {
@@ -31,7 +32,8 @@ const sermons = [
     date: 'June 30, 2025',
     duration: '48 min',
     series: 'Revival Season',
-    thumbnail: '/images/phmi-18.jpeg',
+    thumbnail: '/images/phmi-29.jpeg',
+    thumbnailPosition: 'center 8%',
     featured: false,
   },
   {
@@ -163,11 +165,12 @@ export default function Sermons() {
               className="glass-card overflow-hidden group cursor-pointer"
             >
               {/* Thumbnail */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden aspect-video">
                 <img
                   src={sermon.thumbnail}
                   alt={sermon.title}
-                  className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
+                  style={{ objectPosition: (sermon as { thumbnailPosition?: string }).thumbnailPosition ?? 'center 30%' }}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <PlayButton size="md" />
