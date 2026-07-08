@@ -18,7 +18,7 @@ export default function Hero() {
       >
         {/* Desktop Image */}
         <Image
-          src="/images/hero-bg.png"
+          src="/images/hero-stage.png"
           alt="Solution Center Background"
           fill
           priority
@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background/90" />
-      {/* Center scrim — darkens background logo & watermark text for readability */}
+      {/* Center scrim — keeps hero text readable over the background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_42%,rgba(6,9,26,0.92)_0%,rgba(6,9,26,0.55)_45%,transparent_75%)]" />
 
       {/* Gold ray from top */}

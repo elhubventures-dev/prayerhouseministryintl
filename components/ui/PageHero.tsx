@@ -13,7 +13,7 @@ interface PageHeroProps {
 }
 
 export default function PageHero({ label, title, highlight, subtitle, bgImage }: PageHeroProps) {
-  const bgUrl = bgImage || '/images/hero-bg.png'
+  const bgUrl = bgImage || '/images/hero-stage.png'
 
   return (
     <section className="relative min-h-[52vh] flex items-end pb-16 overflow-hidden">
