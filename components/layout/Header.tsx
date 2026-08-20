@@ -8,10 +8,11 @@ import { Menu, X, Cross } from 'lucide-react'
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
+  { label: 'Visit', href: '/visit' },
   { label: 'Ministries', href: '/ministries' },
   { label: 'Sermons', href: '/sermons' },
   { label: 'Events', href: '/events' },
-  { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -42,7 +43,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
+                <img src="/images/logo.png" alt="Prayer House Ministry International logo" className="w-full h-full object-contain" />
               </div>
               <div className="leading-tight">
                 <p className="font-cinzel text-xs font-bold text-gold tracking-wider">PHMI</p>
@@ -51,7 +52,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="nav-link">
                   {link.label}
@@ -123,7 +124,7 @@ export default function Header() {
               {/* Logo in menu */}
               <div className="flex items-center gap-3 mb-10 pb-6 border-b border-gold/10">
                 <div className="w-12 h-12 flex items-center justify-center">
-                  <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
+                  <img src="/images/logo.png" alt="Prayer House Ministry International logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="font-cinzel text-sm font-bold text-gold">PHMI</p>

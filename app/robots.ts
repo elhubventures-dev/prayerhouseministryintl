@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -13,8 +14,14 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/admin/', '/api/'],
       },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Applebot-Extended', allow: '/' },
     ],
-    sitemap: 'https://prayerhouseministryintl.org/sitemap.xml',
-    host: 'https://prayerhouseministryintl.org',
+    sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   }
 }

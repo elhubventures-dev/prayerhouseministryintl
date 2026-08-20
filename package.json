@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "seo:audit": "node scripts/seo-audit.js",
     "sanity": "cd sanity && sanity start",
     "sanity:deploy": "cd sanity && sanity deploy"
   },

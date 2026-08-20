@@ -1,0 +1,4 @@
+# Disavow file
+# No live backlink crawl was performed. Do not upload an empty or speculative
+# disavow file to Google Search Console.
+# Add domains here only after a real toxic-link review.

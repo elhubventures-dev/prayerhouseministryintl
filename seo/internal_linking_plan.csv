@@ -1,0 +1,23 @@
+From Page,To Page,Anchor Text,Priority
+/,/visit,Join us this Sunday in Limbe,High
+/,/sermons,Watch sermons from Solution Center,High
+/,/about,About Prayer House Ministry International,High
+/,/ministries,Explore our ministries,Medium
+/,/faq,Church FAQ,Medium
+/,/contact,Request prayer,High
+/visit,/faq,Church FAQ,High
+/visit,/contact,Contact the church,High
+/visit,/about,Our story,Medium
+/about,/visit,Plan your visit,High
+/about,/glossary,Ministry glossary,Medium
+/about,/ministries,Ministry arms,Medium
+/ministries,/visit,Serve after you visit,Medium
+/ministries,/contact,Talk to a ministry leader,Medium
+/sermons,/blog,Read devotionals,Medium
+/blog,/sermons,Related sermons,High
+/blog,/glossary,What we mean by house of prayer,Medium
+/faq,/visit,Plan your visit,High
+/glossary,/about,About this house,High
+/contact,/visit,Directions to Mile 4,High
+Footer,/blog,Blog & Devotionals,Medium
+Footer,/glossary,Glossary,Low

@@ -1,0 +1,14 @@
+{
+  "validatedAt": "2026-08-20",
+  "method": "Static review of JSON-LD builders in lib/schema.ts. Live Rich Results Test must be re-run after deploy.",
+  "pages": [
+    { "url": "/", "types": ["Church", "WebSite", "ImageObject"], "errors": [], "warnings": ["Confirm logo dimensions in Search Console"] },
+    { "url": "/faq", "types": ["FAQPage", "BreadcrumbList"], "errors": [], "warnings": [] },
+    { "url": "/visit", "types": ["FAQPage", "BreadcrumbList"], "errors": [], "warnings": [] },
+    { "url": "/glossary", "types": ["DefinedTermSet", "BreadcrumbList"], "errors": [], "warnings": ["DefinedTermSet is not a Google rich result type; still useful for AI parse"] },
+    { "url": "/about", "types": ["Person", "BreadcrumbList"], "errors": [], "warnings": [] },
+    { "url": "/events", "types": ["Event", "BreadcrumbList"], "errors": [], "warnings": ["Event startDate is a representative Sunday; replace with CMS dates"] },
+    { "url": "/blog/the-secret-place-of-prayer", "types": ["BlogPosting", "BreadcrumbList"], "errors": [], "warnings": [] },
+    { "url": "/sermons/the-power-of-prevailing-prayer", "types": ["BreadcrumbList"], "errors": [], "warnings": ["VideoObject omitted until a real YouTube ID replaces the placeholder"] }
+  ]
+}

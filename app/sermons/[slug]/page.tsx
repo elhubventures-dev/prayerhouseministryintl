@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import AnnouncementBanner from '@/components/ui/AnnouncementBanner'
 import SermonDetailContent from './SermonDetailContent'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMetadata } from '@/lib/seo'
+import { breadcrumbSchema, videoObjectSchema } from '@/lib/schema'
 
 // Fallback static sermon data (replace with Sanity fetch in production)
 const sermonData: Record<string, any> = {
@@ -32,26 +35,60 @@ const sermonData: Record<string, any> = {
 
 type Props = { params: { slug: string } }
 
+const sermonTitles: Record<string, string> = {
+  'the-power-of-prevailing-prayer': 'The Power of Prevailing Prayer',
+  'walking-in-prophetic-authority': 'Walking in Prophetic Authority',
+  'revival-fire-are-you-ready': 'Revival Fire — Are You Ready?',
+  'the-healing-virtue-of-christ': 'The Healing Virtue of Christ',
+  'kingdom-keys-unlocking-destiny': 'Kingdom Keys: Unlocking Destiny',
+  'hearing-the-voice-of-god': 'Hearing the Voice of God',
+  'breaking-every-chain': 'Breaking Every Chain',
+  'the-woman-of-great-worth': 'The Woman of Great Worth',
+  'when-god-shows-up': 'When God Shows Up',
+}
+
+export function generateStaticParams() {
+  return Object.keys(sermonTitles).map((slug) => ({ slug }))
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // In production: const sermon = await getSermonBySlug(params.slug)
-  const sermon = sermonData[params.slug] || { title: 'Sermon', description: 'Watch this message from Solution Center.' }
-  return {
-    title: `${sermon.title} | PHMI Sermons`,
-    description: sermon.description,
-    openGraph: {
-      title: sermon.title,
-      description: sermon.description,
-      images: [sermon.thumbnail || '/images/og-image.jpg'],
-      type: 'video.other',
-    },
-  }
+  const sermon = sermonData[params.slug]
+  const title = sermon?.title || sermonTitles[params.slug] || 'Sermon'
+  const description =
+    sermon?.description ||
+    `Listen to “${title}” from Prayer House Ministry International, Solution Center, Limbe.`
+  return pageMetadata({
+    title: title.slice(0, 52),
+    description: description.slice(0, 160),
+    path: `/sermons/${params.slug}`,
+    image: sermon?.thumbnail,
+  })
 }
 
 export default function SermonDetailPage({ params }: Props) {
   const sermon = sermonData[params.slug]
+  const videoLd =
+    sermon &&
+    videoObjectSchema({
+      name: sermon.title,
+      description: sermon.description,
+      thumbnail: sermon.thumbnail,
+      uploadDate: sermon.publishedAt,
+      youtubeId: sermon.youtubeId || '',
+    })
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Sermons', path: '/sermons' },
+            { name: sermon?.title || sermonTitles[params.slug] || 'Sermon', path: `/sermons/${params.slug}` },
+          ]),
+          ...(videoLd ? [videoLd] : []),
+        ]}
+      />
       <AnnouncementBanner />
       <Header />
       <main>

@@ -19,7 +19,7 @@ export default function Hero() {
         {/* Desktop Image */}
         <Image
           src="/images/hero-stage.png"
-          alt="Solution Center Background"
+          alt="Congregation at Prayer House Ministry International Solution Center, Limbe Cameroon"
           fill
           priority
           className="object-cover object-center hidden md:block"
@@ -27,7 +27,7 @@ export default function Hero() {
         {/* Mobile Image */}
         <Image
           src="/images/4.png"
-          alt="Solution Center Background Mobile"
+          alt="Worship gathering at Solution Center church in Limbe"
           fill
           priority
           className="object-cover object-center block md:hidden"

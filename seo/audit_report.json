@@ -1,0 +1,43 @@
+{
+  "site": "https://www.prayerhouseministryintl.org",
+  "auditedAt": "2026-08-20",
+  "stack": "Next.js 14 App Router",
+  "findings": {
+    "critical": [
+      "Root layout previously emitted a site-wide canonical to the homepage, which would collapse all URLs in search.",
+      "Canonical host (apex) disagreed with the production 301 to www.",
+      "Homepage was a client page with no route-level metadata of its own.",
+      "robots.txt did not allow GPTBot, ClaudeBot, PerplexityBot, or Google-Extended.",
+      "No llms.txt, FAQ hub, glossary, or visit landing page.",
+      "Events JSON-LD was stuffed into a meta `other` field instead of a JSON-LD script.",
+      "Google Fonts CSS import blocked rendering; GA4 helper existed in env example but was not wired."
+    ],
+    "high": [
+      "Sitemap used hardcoded sermon/blog slugs and ignored Sanity when configured.",
+      "Only one blog post and one sermon had full body content; other sitemap URLs were thin or 404 at detail level.",
+      "Admin routes had no robots noindex.",
+      "Duplicate WhatsApp widget on homepage + layout.",
+      "Social profile hrefs in the footer are placeholders (#), so sameAs was omitted from schema."
+    ],
+    "medium": [
+      "HSTS was missing from security headers.",
+      "Internal nav omitted Blog, Visit, FAQ, and Glossary.",
+      "Hero image alt text was generic.",
+      "No GSC verification meta slot."
+    ]
+  },
+  "indexableRoutesAfterFix": [
+    "/",
+    "/about",
+    "/visit",
+    "/ministries",
+    "/sermons",
+    "/events",
+    "/gallery",
+    "/contact",
+    "/blog",
+    "/faq",
+    "/glossary"
+  ],
+  "noindexRoutes": ["/admin", "/admin/login", "/admin/dashboard", "/api/*"]
+}

@@ -11,9 +11,13 @@ const serviceSchedule = [
 
 const quickLinks = [
   { label: 'About Us', href: '/about' },
+  { label: 'Plan Your Visit', href: '/visit' },
   { label: 'Our Ministries', href: '/ministries' },
   { label: 'Sermons', href: '/sermons' },
   { label: 'Upcoming Events', href: '/events' },
+  { label: 'Blog & Devotionals', href: '/blog' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Glossary', href: '/glossary' },
   { label: 'Photo Gallery', href: '/gallery' },
   { label: 'Contact Us', href: '/contact' },
 ]
@@ -39,7 +43,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-14 h-14 flex items-center justify-center">
-                <img src="/images/logo.png" alt="PHMI Logo" className="w-full h-full object-contain" />
+                <img src="/images/logo.png" alt="Prayer House Ministry International logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="font-cinzel text-sm font-bold text-gold">PHMI</p>

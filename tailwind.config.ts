@@ -28,11 +28,11 @@ const config: Config = {
         silver: '#A8A8C0',
       },
       fontFamily: {
-        cinzel: ['"Cinzel Decorative"', 'serif'],
-        playfair: ['"Playfair Display"', 'serif'],
-        inter: ['Inter', 'sans-serif'],
-        garamond: ['"EB Garamond"', 'serif'],
-        montserrat: ['Montserrat', 'sans-serif'],
+        cinzel: ['var(--font-cinzel)', 'serif'],
+        playfair: ['var(--font-playfair)', 'serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
+        garamond: ['var(--font-garamond)', 'serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #F4A832 50%, #C9A84C 100%)',

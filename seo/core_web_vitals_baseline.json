@@ -1,0 +1,21 @@
+{
+  "capturedAt": "2026-08-20",
+  "method": "Code and stack review — live Lighthouse not run in this session (no authenticated PSI run against production).",
+  "notes": [
+    "next/image already serves AVIF/WebP with priority on hero.",
+    "Fonts moved to next/font with display swap.",
+    "Hero images are preloaded on the homepage.",
+    "HSTS added. Third-party font CSS removed.",
+    "INP risk remains: framer-motion on header and many sections; WhatsApp widget is deferred to layout.",
+    "Re-run PageSpeed Insights after deploy and paste scores here."
+  ],
+  "targets": { "lcp_ms": 2500, "inp_ms": 200, "cls": 0.1 },
+  "baseline": {
+    "homepage": { "lcp_ms": null, "inp_ms": null, "cls": null, "ttfb_ms": null, "fcp_ms": null, "tbt_ms": null },
+    "visit": { "lcp_ms": null, "inp_ms": null, "cls": null },
+    "about": { "lcp_ms": null, "inp_ms": null, "cls": null },
+    "sermons": { "lcp_ms": null, "inp_ms": null, "cls": null },
+    "contact": { "lcp_ms": null, "inp_ms": null, "cls": null },
+    "faq": { "lcp_ms": null, "inp_ms": null, "cls": null }
+  }
+}

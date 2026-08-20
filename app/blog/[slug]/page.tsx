@@ -4,6 +4,9 @@ import Footer from '@/components/layout/Footer'
 import AnnouncementBanner from '@/components/ui/AnnouncementBanner'
 import Newsletter from '@/components/ui/Newsletter'
 import BlogDetailContent from './BlogDetailContent'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMetadata } from '@/lib/seo'
+import { articleSchema, breadcrumbSchema } from '@/lib/schema'
 
 const posts: Record<string, any> = {
   'the-secret-place-of-prayer': {
@@ -38,20 +41,92 @@ const posts: Record<string, any> = {
 
 type Props = { params: { slug: string } }
 
+const listingMeta: Record<string, { title: string; excerpt: string; image: string; author: string; date: string }> = {
+  'the-secret-place-of-prayer': {
+    title: 'The Secret Place: Why Your Private Prayer Life Changes Everything',
+    excerpt: 'Jesus withdrew to pray before every major moment. Your public fruit is rooted in private communion with the Father.',
+    image: '/images/phmi-10.jpeg',
+    author: 'Rev. Apostle E.S. Hugo',
+    date: '2025-07-14',
+  },
+  'walking-in-prophetic-purpose': {
+    title: 'Walking in Prophetic Purpose: Knowing the Season You Are In',
+    excerpt: 'Discerning your season is the difference between striving and flowing. A prophetic believer understands time.',
+    image: '/images/phmi-13.jpeg',
+    author: 'Prophetess Ekwalla Calista',
+    date: '2025-07-07',
+  },
+  'from-broken-to-blessed': {
+    title: 'From Broken to Blessed: My Testimony of Restoration',
+    excerpt: 'A testimony of restoration from Solution Center in Limbe — how the house of prayer became a birthplace of destiny.',
+    image: '/images/phmi-5.jpeg',
+    author: 'PHMI Editorial Team',
+    date: '2025-06-30',
+  },
+  '7-daily-declarations-for-breakthrough': {
+    title: '7 Daily Declarations for Supernatural Breakthrough',
+    excerpt: 'Seven Scripture-rooted declarations you can pray each morning to shape the atmosphere of your life.',
+    image: '/images/phmi-6.jpeg',
+    author: 'Prophetess Ekwalla Calista',
+    date: '2025-06-22',
+  },
+  'understanding-the-tithe': {
+    title: 'Understanding the Tithe: Kingdom Economics That Work',
+    excerpt: 'Tithing is a kingdom partnership, not a religious tax. Learn how PHMI teaches generous, biblical giving.',
+    image: '/images/phmi-7.jpeg',
+    author: 'Rev. Apostle E.S. Hugo',
+    date: '2025-06-15',
+  },
+  'raising-spirit-filled-children': {
+    title: 'Raising Spirit-Filled Children in a Digital World',
+    excerpt: 'A practical biblical framework for parents who want children who love God in a noisy digital age.',
+    image: '/images/phmi-8.jpeg',
+    author: 'PHMI Editorial Team',
+    date: '2025-06-08',
+  },
+}
+
+export function generateStaticParams() {
+  return Object.keys(listingMeta).map((slug) => ({ slug }))
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = posts[params.slug]
-  if (!post) return { title: 'Article Not Found | PHMI Blog' }
-  return {
-    title: `${post.title} | PHMI Blog`,
-    description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, images: [post.mainImage], type: 'article' },
-  }
+  const full = posts[params.slug]
+  const listing = listingMeta[params.slug]
+  if (!full && !listing) return { title: 'Article not found', robots: { index: false, follow: false } }
+  return pageMetadata({
+    title: (full?.title || listing?.title || '').slice(0, 48),
+    description: (full?.excerpt || listing?.excerpt || '').slice(0, 160),
+    path: `/blog/${params.slug}`,
+    ogType: 'article',
+    image: full?.mainImage || listing?.image,
+    publishedTime: full?.publishedAt || listing?.date,
+  })
 }
 
 export default function BlogDetailPage({ params }: Props) {
   const post = posts[params.slug]
   return (
     <>
+      {post && (
+        <JsonLd
+          data={[
+            breadcrumbSchema([
+              { name: 'Home', path: '/' },
+              { name: 'Blog', path: '/blog' },
+              { name: post.title, path: `/blog/${params.slug}` },
+            ]),
+            articleSchema({
+              title: post.title,
+              description: post.excerpt,
+              path: `/blog/${params.slug}`,
+              image: post.mainImage,
+              author: post.author,
+              datePublished: post.publishedAt,
+            }),
+          ]}
+        />
+      )}
       <AnnouncementBanner />
       <Header />
       <main>

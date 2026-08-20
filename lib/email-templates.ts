@@ -1,4 +1,5 @@
 import { escapeHtml } from '@/lib/resend'
+import { SITE } from '@/lib/site'
 
 const NAVY = '#06091A'
 const GOLD = '#C9A84C'
@@ -8,7 +9,7 @@ const MUTED = '#A8A8C0'
 const CARD = '#0E1228'
 
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_BASE_URL || 'https://prayerhouseministryintl.org').replace(/\/$/, '')
+  return SITE.url
 }
 
 function getLogoUrl() {
