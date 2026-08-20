@@ -17,6 +17,14 @@ const quickLinks = [
   { label: 'Contact Us', href: '/contact' },
 ]
 
+const publicEmailRaw = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim()
+const publicEmail =
+  publicEmailRaw &&
+  publicEmailRaw !== 'your.email@gmail.com' &&
+  !publicEmailRaw.toLowerCase().includes('info@prayerhouseministryintl.org')
+    ? publicEmailRaw
+    : null
+
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-gold/10">
@@ -134,15 +142,17 @@ export default function Footer() {
                   653 270 752
                 </a>
               </li>
-              <li className="flex gap-3">
-                <Mail className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-                <a
-                  href="mailto:info@prayerhouseministryintl.org"
-                  className="font-inter text-muted-foreground text-sm hover:text-gold transition-colors"
-                >
-                  info@prayerhouseministryintl.org
-                </a>
-              </li>
+              {publicEmail && (
+                <li className="flex gap-3">
+                  <Mail className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                  <a
+                    href={`mailto:${publicEmail}`}
+                    className="font-inter text-muted-foreground text-sm hover:text-gold transition-colors"
+                  >
+                    {publicEmail}
+                  </a>
+                </li>
+              )}
             </ul>
             {/* WhatsApp CTA */}
             <a

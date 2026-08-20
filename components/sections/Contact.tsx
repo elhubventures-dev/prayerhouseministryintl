@@ -3,17 +3,63 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { MapPin, Phone, Mail, Send, CheckCircle2 } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, CheckCircle2, Loader2 } from 'lucide-react'
 import { staggerContainer, fadeUp, fadeLeft, fadeRight } from '@/lib/animations'
+import { postForm } from '@/lib/submit-form'
+
+const publicEmailRaw = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim()
+const publicEmail =
+  publicEmailRaw &&
+  publicEmailRaw !== 'your.email@gmail.com' &&
+  !publicEmailRaw.toLowerCase().includes('info@prayerhouseministryintl.org')
+    ? publicEmailRaw
+    : null
+
+const contactCards = [
+  {
+    icon: MapPin,
+    label: 'Visit Us',
+    value: 'Opposite Wotutu Okada Park, Mile 4 Limbe, Cameroon',
+    href: 'https://maps.google.com/?q=Mile+4+Limbe+Cameroon',
+  },
+  {
+    icon: Phone,
+    label: 'Call Us',
+    value: '653 270 752',
+    href: 'tel:+237653270752',
+  },
+  ...(publicEmail
+    ? [
+        {
+          icon: Mail,
+          label: 'Email Us',
+          value: publicEmail,
+          href: `mailto:${publicEmail}`,
+        },
+      ]
+    : []),
+]
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '', isPrayer: false })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+    setSubmitting(true)
+    try {
+      await postForm('/api/contact', form)
+      setSubmitted(true)
+      setForm({ name: '', email: '', phone: '', subject: '', message: '', isPrayer: false })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not send your message. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -125,13 +171,22 @@ export default function Contact() {
                     </label>
                   </div>
 
+                  {error && (
+                    <p role="alert" className="font-inter text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+                      {error}
+                    </p>
+                  )}
+
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.97 }}
+                    whileHover={submitting ? undefined : { scale: 1.02 }}
+                    whileTap={submitting ? undefined : { scale: 0.97 }}
                     type="submit"
-                    className="btn-gold w-full flex items-center justify-center gap-2 text-sm font-semibold"
+                    disabled={submitting}
+                    aria-busy={submitting}
+                    className="btn-gold w-full flex items-center justify-center gap-2 text-sm font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" /> Send Message
+                    {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                    {submitting ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </form>
               ) : (
@@ -164,26 +219,7 @@ export default function Contact() {
             className="lg:col-span-2 flex flex-col gap-6"
           >
             {/* Info cards */}
-            {[
-              {
-                icon: MapPin,
-                label: 'Visit Us',
-                value: 'Opposite Wotutu Okada Park, Mile 4 Limbe, Cameroon',
-                href: 'https://maps.google.com/?q=Mile+4+Limbe+Cameroon',
-              },
-              {
-                icon: Phone,
-                label: 'Call Us',
-                value: '653 270 752',
-                href: 'tel:+237653270752',
-              },
-              {
-                icon: Mail,
-                label: 'Email Us',
-                value: 'info@prayerhouseministryintl.org',
-                href: 'mailto:info@prayerhouseministryintl.org',
-              },
-            ].map(({ icon: Icon, label, value, href }) => (
+            {contactCards.map(({ icon: Icon, label, value, href }) => (
               <a key={label} href={href} target={label === 'Visit Us' ? '_blank' : undefined} rel="noopener noreferrer"
                 className="glass-card p-6 flex items-start gap-4 group hover:border-gold/40 transition-colors"
               >

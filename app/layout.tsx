@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: 'Solution Center',
-    startupImage: ['/icons/apple-splash-2048-2732.jpg'],
   },
   formatDetection: { telephone: true, email: true, address: true },
   openGraph: {
@@ -51,10 +50,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icons/icon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
-    apple: [{ url: '/icons/icon-192x192.png' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
     shortcut: '/favicon.ico',
   },
   alternates: { canonical: BASE_URL },
@@ -67,6 +68,8 @@ const jsonLd = {
   alternateName: 'Solution Center',
   description: 'A Spirit-filled prophetic ministry in Limbe, Cameroon dedicated to prayer, worship, and the Word.',
   url: BASE_URL,
+  logo: `${BASE_URL}/images/logo.png`,
+  image: `${BASE_URL}/og-image.jpg`,
   telephone: '+237653270752',
   address: {
     '@type': 'PostalAddress',

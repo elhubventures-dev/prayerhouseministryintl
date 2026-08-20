@@ -38,6 +38,8 @@ Copy .env.example → .env.local and fill in:
 - ADMIN_PASSWORD (change before launch!)
 - SESSION_SECRET (random 64-char string)
 - RESEND_API_KEY (for email delivery)
+- RESEND_FROM_EMAIL (use beth.t@example.com until the domain is verified)
+- RESEND_TO_EMAIL (inbox that receives contact and prayer emails)
 
 ## Deployment
 ```bash
@@ -50,7 +52,7 @@ npx vercel   # zero-config, free
 - [ ] Set ADMIN_PASSWORD to a strong password
 - [ ] Add /public/og-image.jpg (1200x630)
 - [ ] Add PWA icons in /public/icons/
-- [ ] Connect Resend for emails
+- [ ] Paste RESEND_API_KEY in .env.local and verify the sending domain in Resend
 - [ ] Connect Sanity for CMS
 - [ ] Wire Paystack payment link
 

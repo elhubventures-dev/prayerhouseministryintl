@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ZoomIn, X, ChevronLeft, ChevronRight, Send, CheckCircle2 } from 'lucide-react'
-import { staggerContainer, fadeUp } from '@/lib/animations'
+import { ZoomIn, X, ChevronLeft, ChevronRight, Send, CheckCircle2, Loader2 } from 'lucide-react'
+import { postForm } from '@/lib/submit-form'
 
 const categories = ['All', 'Worship', 'Events', 'Community', 'Outreach', 'Leadership']
 
@@ -46,8 +46,10 @@ const images = [
 export default function GalleryContent() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [testimonyForm, setTestimonyForm] = useState({ name: '', testimony: '' })
+  const [testimonyForm, setTestimonyForm] = useState({ name: '', email: '', testimony: '' })
   const [testimonySubmitted, setTestimonySubmitted] = useState(false)
+  const [testimonySubmitting, setTestimonySubmitting] = useState(false)
+  const [testimonyError, setTestimonyError] = useState('')
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
 
   const filtered = activeCategory === 'All' ? images : images.filter((img) => img.category === activeCategory)
@@ -56,6 +58,21 @@ export default function GalleryContent() {
   const closeLightbox = () => setLightboxIndex(null)
   const prevImage = () => lightboxIndex !== null && setLightboxIndex((lightboxIndex - 1 + filtered.length) % filtered.length)
   const nextImage = () => lightboxIndex !== null && setLightboxIndex((lightboxIndex + 1) % filtered.length)
+
+  const handleTestimonySubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setTestimonyError('')
+    setTestimonySubmitting(true)
+    try {
+      await postForm('/api/testimony', testimonyForm)
+      setTestimonySubmitted(true)
+      setTestimonyForm({ name: '', email: '', testimony: '' })
+    } catch (err) {
+      setTestimonyError(err instanceof Error ? err.message : 'Could not submit your testimony. Please try again.')
+    } finally {
+      setTestimonySubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -127,7 +144,7 @@ export default function GalleryContent() {
 
           {!testimonySubmitted ? (
             <form
-              onSubmit={(e) => { e.preventDefault(); setTestimonySubmitted(true) }}
+              onSubmit={handleTestimonySubmit}
               className="glass-card p-8 text-left space-y-5 relative"
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent rounded-t-2xl" />
@@ -137,8 +154,21 @@ export default function GalleryContent() {
                   type="text"
                   value={testimonyForm.name}
                   onChange={(e) => setTestimonyForm({ ...testimonyForm, name: e.target.value })}
+                  disabled={testimonySubmitting}
                   placeholder="First name or initials"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
+                />
+              </div>
+              <div>
+                <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={testimonyForm.email}
+                  onChange={(e) => setTestimonyForm({ ...testimonyForm, email: e.target.value })}
+                  disabled={testimonySubmitting}
+                  placeholder="your@email.com"
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
                 />
               </div>
               <div>
@@ -146,14 +176,27 @@ export default function GalleryContent() {
                 <textarea
                   required
                   rows={6}
+                  minLength={20}
                   value={testimonyForm.testimony}
                   onChange={(e) => setTestimonyForm({ ...testimonyForm, testimony: e.target.value })}
+                  disabled={testimonySubmitting}
                   placeholder="Share what God has done in your life..."
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none disabled:opacity-60"
                 />
               </div>
-              <button type="submit" className="btn-gold w-full flex items-center justify-center gap-2 text-sm">
-                <Send className="w-4 h-4" /> Submit Testimony
+              {testimonyError && (
+                <p role="alert" className="font-inter text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+                  {testimonyError}
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={testimonySubmitting}
+                aria-busy={testimonySubmitting}
+                className="btn-gold w-full flex items-center justify-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {testimonySubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                {testimonySubmitting ? 'Submitting...' : 'Submit Testimony'}
               </button>
             </form>
           ) : (

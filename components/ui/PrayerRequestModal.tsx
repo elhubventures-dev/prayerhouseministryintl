@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Send, CheckCircle2 } from 'lucide-react'
+import { X, Send, CheckCircle2, Loader2 } from 'lucide-react'
+import { postForm } from '@/lib/submit-form'
 
 interface PrayerRequestModalProps {
   isOpen: boolean
@@ -12,14 +13,26 @@ interface PrayerRequestModalProps {
 export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestModalProps) {
   const [form, setForm] = useState({ name: '', email: '', request: '', anonymous: false })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+    setSubmitting(true)
+    try {
+      await postForm('/api/prayer', form)
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not submit your request. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const handleClose = () => {
     setSubmitted(false)
+    setError('')
     setForm({ name: '', email: '', request: '', anonymous: false })
     onClose()
   }
@@ -73,29 +86,32 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                   </div>
 
                   {!form.anonymous && (
-                    <>
-                      <div>
-                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Your Name</label>
-                        <input
-                          type="text"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          placeholder="Enter your name"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email (optional)</label>
-                        <input
-                          type="email"
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          placeholder="your@email.com"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
-                        />
-                      </div>
-                    </>
+                    <div>
+                      <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Your Name</label>
+                      <input
+                        type="text"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        placeholder="Enter your name"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                      />
+                    </div>
                   )}
+
+                  <div>
+                    <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Email *</label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="your@email.com"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                    />
+                    <p className="font-inter text-[11px] text-muted-foreground/70 mt-2">
+                      We will send a confirmation to this address. {form.anonymous ? 'It will not be shown to the prayer team.' : ''}
+                    </p>
+                  </div>
 
                   <div>
                     <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Your Prayer Request</label>
@@ -109,9 +125,21 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                     />
                   </div>
 
+                  {error && (
+                    <p role="alert" className="font-inter text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+                      {error}
+                    </p>
+                  )}
+
                   <div className="flex gap-3">
-                    <button type="submit" className="btn-gold flex-1 flex items-center justify-center gap-2 text-sm">
-                      <Send className="w-4 h-4" /> Submit Prayer Request
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      aria-busy={submitting}
+                      className="btn-gold flex-1 flex items-center justify-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                      {submitting ? 'Submitting...' : 'Submit Prayer Request'}
                     </button>
                     <a
                       href={`https://wa.me/237653270752?text=Prayer%20Request:%20${encodeURIComponent(form.request)}`}
