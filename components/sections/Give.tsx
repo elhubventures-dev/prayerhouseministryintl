@@ -1,12 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Heart } from 'lucide-react'
+import { ArrowRight, Heart } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
-import MomoGiveCard from '@/components/ui/MomoGiveCard'
-import BankGiveCard from '@/components/ui/BankGiveCard'
-import { BANK_WHATSAPP_MESSAGE, MOMO_WHATSAPP_MESSAGE } from '@/lib/giving'
+import GiveModal from '@/components/ui/GiveModal'
+import { MOMO_WHATSAPP_MESSAGE } from '@/lib/giving'
 
 const givingTiers = [
   { emoji: '🌱', name: 'Seed Offering', description: 'Plant a seed of faith and trust God for a supernatural harvest.' },
@@ -17,6 +17,7 @@ const givingTiers = [
 
 export default function Give() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  const [giveOpen, setGiveOpen] = useState(false)
 
   return (
     <section id="give" className="relative py-24 lg:py-32 bg-background overflow-hidden">
@@ -57,31 +58,32 @@ export default function Give() {
             ))}
           </motion.div>
 
-          <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-8">
-            <MomoGiveCard />
-            <BankGiveCard />
-          </motion.div>
-
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4 justify-center">
-            <a
-              href={`https://wa.me/237653270752?text=${encodeURIComponent(MOMO_WHATSAPP_MESSAGE)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-glass text-sm flex items-center gap-2"
-            >
-              <Heart className="w-4 h-4" /> Confirm MoMo on WhatsApp
-            </a>
-            <a
-              href={`https://wa.me/237653270752?text=${encodeURIComponent(BANK_WHATSAPP_MESSAGE)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-glass text-sm flex items-center gap-2"
-            >
-              Confirm bank transfer on WhatsApp
-            </a>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <button
+                type="button"
+                onClick={() => setGiveOpen(true)}
+                className="btn-gold flex items-center gap-2 text-sm"
+              >
+                <Heart className="w-4 h-4 fill-navy-dark" /> Give Now
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <a
+                href={`https://wa.me/237653270752?text=${encodeURIComponent(MOMO_WHATSAPP_MESSAGE)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-glass text-sm flex items-center gap-2"
+              >
+                Give via WhatsApp
+              </a>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
+
+      <GiveModal isOpen={giveOpen} onClose={() => setGiveOpen(false)} />
     </section>
   )
 }
