@@ -1,14 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import { getResendApiKey, notifyAdminAndUser } from '@/lib/resend'
 import { testimonyConfirmationEmail, testimonyStaffEmail } from '@/lib/email-templates'
+import { jsonResponse, optionsResponse } from '@/lib/api-cors'
+import { formApiError } from '@/lib/form-api-error'
+
+export async function OPTIONS(req: NextRequest) {
+  return optionsResponse(req)
+}
 
 export async function POST(req: NextRequest) {
   try {
     if (!getResendApiKey()) {
       console.error('Testimony API: RESEND_API_KEY is missing')
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Email is temporarily unavailable. Please try again later.' },
-        { status: 503 }
+        503
       )
     }
 
@@ -16,16 +23,18 @@ export async function POST(req: NextRequest) {
     const { name, testimony, email } = body
 
     if (!testimony || testimony.trim().length < 20) {
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Please share a little more detail in your testimony.' },
-        { status: 400 }
+        400
       )
     }
 
     if (!email) {
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Please provide an email so we can send your confirmation.' },
-        { status: 400 }
+        400
       )
     }
 
@@ -48,15 +57,12 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json(
-      { success: true, message: 'Testimony received. To God be all the glory!' },
-      { status: 200 }
-    )
+    return jsonResponse(req, {
+      success: true,
+      message: 'Testimony received. To God be all the glory!',
+    })
   } catch (error) {
     console.error('Testimony API error:', error)
-    return NextResponse.json(
-      { error: 'Could not submit your testimony. Please try again.' },
-      { status: 500 }
-    )
+    return formApiError(req, error)
   }
 }

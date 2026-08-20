@@ -1,14 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import { getResendApiKey, notifyAdminAndUser } from '@/lib/resend'
 import { prayerConfirmationEmail, prayerStaffEmail } from '@/lib/email-templates'
+import { jsonResponse, optionsResponse } from '@/lib/api-cors'
+import { formApiError } from '@/lib/form-api-error'
+
+export async function OPTIONS(req: NextRequest) {
+  return optionsResponse(req)
+}
 
 export async function POST(req: NextRequest) {
   try {
     if (!getResendApiKey()) {
       console.error('Prayer API: RESEND_API_KEY is missing')
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Email is temporarily unavailable. Please WhatsApp us or try again later.' },
-        { status: 503 }
+        503
       )
     }
 
@@ -16,16 +23,14 @@ export async function POST(req: NextRequest) {
     const { name, email, request, anonymous } = body
 
     if (!request || request.trim().length < 10) {
-      return NextResponse.json(
-        { error: 'Please provide a prayer request.' },
-        { status: 400 }
-      )
+      return jsonResponse(req, { error: 'Please provide a prayer request.' }, 400)
     }
 
     if (!email) {
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Please provide an email so we can send your confirmation.' },
-        { status: 400 }
+        400
       )
     }
 
@@ -49,15 +54,12 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json(
-      { success: true, message: 'Prayer request received. Our team is standing in agreement with you.' },
-      { status: 200 }
-    )
+    return jsonResponse(req, {
+      success: true,
+      message: 'Prayer request received. Our team is standing in agreement with you.',
+    })
   } catch (error) {
     console.error('Prayer API error:', error)
-    return NextResponse.json(
-      { error: 'Could not submit your request. Please try again or WhatsApp us directly.' },
-      { status: 500 }
-    )
+    return formApiError(req, error)
   }
 }

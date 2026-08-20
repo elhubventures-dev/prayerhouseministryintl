@@ -1,14 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getResendApiKey, notifyAdminAndUser } from '@/lib/resend'
 import { contactConfirmationEmail, contactStaffEmail } from '@/lib/email-templates'
+import { jsonResponse, optionsResponse } from '@/lib/api-cors'
+import { formApiError } from '@/lib/form-api-error'
+
+export async function OPTIONS(req: NextRequest) {
+  return optionsResponse(req)
+}
 
 export async function POST(req: NextRequest) {
   try {
     if (!getResendApiKey()) {
       console.error('Contact API: RESEND_API_KEY is missing')
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Email is temporarily unavailable. Please WhatsApp us or try again later.' },
-        { status: 503 }
+        503
       )
     }
 
@@ -16,10 +23,7 @@ export async function POST(req: NextRequest) {
     const { name, email, phone, subject, message, isPrayer } = body
 
     if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
+      return jsonResponse(req, { error: 'Missing required fields' }, 400)
     }
 
     const emailLabel = isPrayer ? 'Prayer Request' : 'Contact Form'
@@ -37,15 +41,12 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json(
-      { success: true, message: 'Message received. We will be in touch soon.' },
-      { status: 200 }
-    )
+    return jsonResponse(req, {
+      success: true,
+      message: 'Message received. We will be in touch soon.',
+    })
   } catch (error) {
     console.error('Contact API error:', error)
-    return NextResponse.json(
-      { error: 'Could not send your message. Please try again.' },
-      { status: 500 }
-    )
+    return formApiError(req, error)
   }
 }

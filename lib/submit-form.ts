@@ -1,5 +1,16 @@
+export function resolveApiUrl(url: string) {
+  if (typeof window === 'undefined' || url.startsWith('http')) return url
+
+  const { protocol, hostname } = window.location
+  if (hostname === 'prayerhouseministryintl.org') {
+    return `${protocol}//www.prayerhouseministryintl.org${url}`
+  }
+
+  return url
+}
+
 export async function postForm(url: string, body: unknown) {
-  const res = await fetch(url, {
+  const res = await fetch(resolveApiUrl(url), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),

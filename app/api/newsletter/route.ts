@@ -1,16 +1,23 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import { getResendApiKey, getResendClient, notifyAdminAndUser } from '@/lib/resend'
 import { newsletterStaffEmail, newsletterWelcomeEmail } from '@/lib/email-templates'
+import { jsonResponse, optionsResponse } from '@/lib/api-cors'
+import { formApiError } from '@/lib/form-api-error'
 
 const subscribers = new Set<string>()
+
+export async function OPTIONS(req: NextRequest) {
+  return optionsResponse(req)
+}
 
 export async function POST(req: NextRequest) {
   try {
     if (!getResendApiKey()) {
       console.error('Newsletter API: RESEND_API_KEY is missing')
-      return NextResponse.json(
+      return jsonResponse(
+        req,
         { error: 'Email is temporarily unavailable. Please try again later.' },
-        { status: 503 }
+        503
       )
     }
 
@@ -19,16 +26,16 @@ export async function POST(req: NextRequest) {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!email || !emailRegex.test(email)) {
-      return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 })
+      return jsonResponse(req, { error: 'Please provide a valid email address.' }, 400)
     }
 
     const normalizedEmail = email.toLowerCase().trim()
 
     if (subscribers.has(normalizedEmail)) {
-      return NextResponse.json(
-        { success: true, message: 'You are already subscribed. God bless you!' },
-        { status: 200 }
-      )
+      return jsonResponse(req, {
+        success: true,
+        message: 'You are already subscribed. God bless you!',
+      })
     }
 
     subscribers.add(normalizedEmail)
@@ -61,19 +68,16 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json(
-      { success: true, message: 'You are now subscribed! Welcome to the family.' },
-      { status: 200 }
-    )
+    return jsonResponse(req, {
+      success: true,
+      message: 'You are now subscribed! Welcome to the family.',
+    })
   } catch (error) {
     console.error('Newsletter API error:', error)
-    return NextResponse.json(
-      { error: 'Could not subscribe. Please try again.' },
-      { status: 500 }
-    )
+    return formApiError(req, error)
   }
 }
 
-export async function GET() {
-  return NextResponse.json({ count: subscribers.size })
+export async function GET(req: NextRequest) {
+  return jsonResponse(req, { count: subscribers.size })
 }

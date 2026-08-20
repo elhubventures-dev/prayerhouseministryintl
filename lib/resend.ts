@@ -126,19 +126,19 @@ export async function notifyAdminAndUser({ admin, user }: DualNotificationInput)
   const jobs: Array<{ kind: 'admin' | 'user'; run: Promise<unknown> }> = []
   const adminInbox = getOfficialContactEmail()
 
-  if (adminInbox) {
-    jobs.push({
-      kind: 'admin',
-      run: sendResendEmail({
-        to: [adminInbox],
-        replyTo: admin.replyTo,
-        subject: admin.subject,
-        html: admin.html,
-      }),
-    })
-  } else {
-    console.warn('Admin Gmail is not configured yet. Staff notification skipped.')
+  if (!adminInbox) {
+    throw new Error('ADMIN_EMAIL_MISSING')
   }
+
+  jobs.push({
+    kind: 'admin',
+    run: sendResendEmail({
+      to: [adminInbox],
+      replyTo: admin.replyTo,
+      subject: admin.subject,
+      html: admin.html,
+    }),
+  })
 
   if (user?.to) {
     jobs.push({

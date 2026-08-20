@@ -41,6 +41,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'prayerhouseministryintl.org' }],
+        destination: 'https://www.prayerhouseministryintl.org/:path*',
+        permanent: true,
+      },
       { source: '/admin', destination: '/admin/login', permanent: false },
       { source: '/give', destination: '/#give', permanent: false },
       { source: '/prayer', destination: '/#prayer-request', permanent: false },
