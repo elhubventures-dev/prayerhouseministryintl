@@ -37,7 +37,15 @@ export const metadata: Metadata = {
     url: BASE_URL,
     title: 'Prayer House Ministry International | Solution Center',
     description: 'Experience the power of God\'s presence. A Spirit-filled prophetic ministry in Limbe, Cameroon.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Prayer House Ministry International' }],
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Prayer House Ministry International',
+        type: 'image/jpeg',
+      },
+    ],
     locale: 'en_US',
     siteName: 'Prayer House Ministry International',
   },
@@ -45,18 +53,17 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Prayer House Ministry International | Limbe',
     description: 'Raising Lives Through Prayer, Worship & The Word.',
-    images: ['/og-image.jpg'],
+    images: ['/images/og-image.jpg'],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icons/icon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/logo.png', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '192x192', type: 'image/png' },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-    shortcut: '/favicon.ico',
+    apple: [{ url: '/images/logo.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/images/logo.png',
   },
   alternates: { canonical: BASE_URL },
 }
@@ -69,7 +76,7 @@ const jsonLd = {
   description: 'A Spirit-filled prophetic ministry in Limbe, Cameroon dedicated to prayer, worship, and the Word.',
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo.png`,
-  image: `${BASE_URL}/og-image.jpg`,
+  image: `${BASE_URL}/images/og-image.jpg`,
   telephone: '+237653270752',
   address: {
     '@type': 'PostalAddress',
@@ -95,6 +102,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="canonical" href={BASE_URL} />
+        <link rel="icon" href="/images/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

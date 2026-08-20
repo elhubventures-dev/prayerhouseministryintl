@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: sermon.title,
       description: sermon.description,
-      images: [sermon.thumbnail || '/og-image.jpg'],
+      images: [sermon.thumbnail || '/images/og-image.jpg'],
       type: 'video.other',
     },
   }
