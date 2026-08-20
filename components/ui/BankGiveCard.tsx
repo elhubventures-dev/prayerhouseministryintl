@@ -2,22 +2,14 @@
 
 import { useState } from 'react'
 import { Building2, Check, Copy } from 'lucide-react'
-import {
-  BANK_ACCOUNT_NAME,
-  BANK_ACCOUNT_NOTE,
-  BANK_ACCOUNT_NUMBER,
-  BANK_NAME,
-} from '@/lib/giving'
+import { BANK_ACCOUNT_NUMBER, BANK_NAME } from '@/lib/giving'
 
 export default function BankGiveCard() {
   const [copied, setCopied] = useState(false)
-  const isPlaceholder = BANK_ACCOUNT_NUMBER.includes('X')
 
   const copyAccount = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `${BANK_NAME}\n${BANK_ACCOUNT_NAME}\n${BANK_ACCOUNT_NUMBER}`
-      )
+      await navigator.clipboard.writeText(`${BANK_NAME}\n${BANK_ACCOUNT_NUMBER}`)
       setCopied(true)
       window.setTimeout(() => setCopied(false), 2000)
     } catch {
@@ -42,20 +34,9 @@ export default function BankGiveCard() {
           <dl className="space-y-2">
             <div>
               <dt className="font-montserrat text-[10px] uppercase tracking-wider text-muted-foreground">
-                Account name
-              </dt>
-              <dd className="font-inter text-sm text-foreground">{BANK_ACCOUNT_NAME}</dd>
-            </div>
-            <div>
-              <dt className="font-montserrat text-[10px] uppercase tracking-wider text-muted-foreground">
                 Account number
               </dt>
               <dd className="font-cinzel text-xl text-gold tracking-widest">{BANK_ACCOUNT_NUMBER}</dd>
-              {isPlaceholder && (
-                <p className="font-inter text-[11px] text-muted-foreground/70 mt-1">
-                  {BANK_ACCOUNT_NOTE}
-                </p>
-              )}
             </div>
           </dl>
         </div>

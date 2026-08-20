@@ -1,10 +1,12 @@
 from pathlib import Path
+import shutil
 
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 LOGO_PATH = ROOT / "public" / "images" / "logo.png"
 PUBLIC = ROOT / "public"
+IMAGES = PUBLIC / "images"
 ICONS = PUBLIC / "icons"
 APP = ROOT / "app"
 
@@ -100,5 +102,13 @@ center_text("PRAYER HOUSE MINISTRY INTERNATIONAL", 400, font_title, GOLD)
 center_text("Solution Center  ·  Mile 4 Limbe, Cameroon", 450, font_sub, MUTED)
 center_text("Raising Lives Through Prayer, Worship & The Word", 500, font_tag, CREAM)
 
-og_rgba.convert("RGB").save(PUBLIC / "og-image.jpg", "JPEG", quality=92, optimize=True)
+og_path = PUBLIC / "og-image.jpg"
+og_rgba.convert("RGB").save(og_path, "JPEG", quality=92, optimize=True)
+
+# Site metadata and manifest reference /images/* paths
+IMAGES.mkdir(parents=True, exist_ok=True)
+square_icon(192, 0.16).save(IMAGES / "icon-192.png", "PNG")
+favicon_src.save(IMAGES / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+shutil.copy2(og_path, IMAGES / "og-image.jpg")
+
 print("Generated favicon, PWA icons, apple icons, and og-image.jpg")
