@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Heart, ArrowRight } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
+import MomoGiveCard from '@/components/ui/MomoGiveCard'
+import BankGiveCard from '@/components/ui/BankGiveCard'
+import { BANK_WHATSAPP_MESSAGE, MOMO_WHATSAPP_MESSAGE } from '@/lib/giving'
 
 const givingTiers = [
   { emoji: '🌱', name: 'Seed Offering', description: 'Plant a seed of faith and trust God for a supernatural harvest.' },
@@ -40,7 +43,7 @@ export default function Give() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full mb-12"
           >
             {givingTiers.map((tier) => (
-              <motion.button
+              <motion.div
                 key={tier.name}
                 variants={fadeUp}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
@@ -50,27 +53,32 @@ export default function Give() {
                 <span className="text-2xl">{tier.emoji}</span>
                 <h4 className="font-playfair text-base text-foreground font-semibold group-hover:text-gold-light transition-colors">{tier.name}</h4>
                 <p className="font-inter text-muted-foreground text-xs leading-relaxed">{tier.description}</p>
-              </motion.button>
+              </motion.div>
             ))}
           </motion.div>
 
+          <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-8">
+            <MomoGiveCard />
+            <BankGiveCard />
+          </motion.div>
+
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <button className="btn-gold flex items-center gap-2 text-sm">
-                <Heart className="w-4 h-4 fill-navy-dark" /> Give Now
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <a
-                href="https://wa.me/237653270752?text=I%20would%20like%20to%20give%20to%20PHMI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-glass text-sm flex items-center gap-2"
-              >
-                Give via WhatsApp
-              </a>
-            </motion.div>
+            <a
+              href={`https://wa.me/237653270752?text=${encodeURIComponent(MOMO_WHATSAPP_MESSAGE)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-glass text-sm flex items-center gap-2"
+            >
+              <Heart className="w-4 h-4" /> Confirm MoMo on WhatsApp
+            </a>
+            <a
+              href={`https://wa.me/237653270752?text=${encodeURIComponent(BANK_WHATSAPP_MESSAGE)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-glass text-sm flex items-center gap-2"
+            >
+              Confirm bank transfer on WhatsApp
+            </a>
           </motion.div>
         </motion.div>
       </div>

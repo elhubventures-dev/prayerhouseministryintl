@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Cross, MapPin, Phone, Mail, Facebook, Youtube, Instagram } from 'lucide-react'
+import { MOMO_DISPLAY, MOMO_NETWORK, BANK_NAME } from '@/lib/giving'
 
 const serviceSchedule = [
   { day: 'Wednesday', service: 'Bible Study', time: '6:00 PM' },
@@ -117,6 +118,12 @@ export default function Footer() {
                 >
                   ❤️ Give Online
                 </Link>
+                <p className="font-inter text-muted-foreground text-xs mt-1">
+                  {MOMO_NETWORK}: <span className="text-gold">{MOMO_DISPLAY}</span>
+                </p>
+                <p className="font-inter text-muted-foreground text-xs mt-1 leading-relaxed">
+                  Bank: <span className="text-gold">{BANK_NAME}</span>
+                </p>
               </li>
             </ul>
           </div>

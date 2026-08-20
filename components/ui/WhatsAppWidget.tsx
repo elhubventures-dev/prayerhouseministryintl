@@ -58,7 +58,7 @@ const contextMessages: Array<{
   {
     match: (p) => p.startsWith('/give') || p.includes('give'),
     label: 'About giving',
-    message: `Hello Solution Center 💛 I'd like to make a contribution to your ministry. Can you guide me on how to give?`,
+    message: `Hello Solution Center 💛 I'd like to give. I can send via MTN MoMo: 653270752 or bank transfer to FINASDDEE CREDIT LINE CAMEROON S. A. Please confirm.`,
   },
   // Prayer request shortcut
   {
@@ -70,6 +70,8 @@ const contextMessages: Array<{
 
 // Quick-reply chip messages — always shown
 const quickReplies = [
+  { label: '💛 Give / MoMo', message: `Hello PHMI 💛 I would like to give. I will send via MTN MoMo: 653270752. Please confirm.` },
+  { label: '🏦 Bank transfer', message: `Hello PHMI 💛 I would like to give by bank transfer to FINASDDEE CREDIT LINE CAMEROON S. A. Please confirm the account number.` },
   { label: '🙏 Prayer Request', message: `Hello PHMI — I have a prayer request I'd like to share. Please pray with me.` },
   { label: '📅 Service Times', message: `Hello Solution Center — Can you tell me your weekly service schedule and location?` },
   { label: '📺 Watch Live', message: `Hello PHMI — How can I watch your services online? Do you livestream?` },

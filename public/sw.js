@@ -1,9 +1,9 @@
 // Service Worker — Prayer House Ministry International
 // Caches key assets for offline access
 
-const CACHE_NAME = 'phmi-v3'
-const STATIC_CACHE = 'phmi-static-v3'
-const DYNAMIC_CACHE = 'phmi-dynamic-v3'
+const CACHE_NAME = 'phmi-v4'
+const STATIC_CACHE = 'phmi-static-v4'
+const DYNAMIC_CACHE = 'phmi-dynamic-v4'
 
 // Assets to cache immediately on install
 const STATIC_ASSETS = [

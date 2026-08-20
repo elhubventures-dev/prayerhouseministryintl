@@ -63,6 +63,12 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-3">
 
               <Link
+                href="/#give"
+                className="btn-glass text-sm px-5 py-2.5 rounded-lg"
+              >
+                Give
+              </Link>
+              <Link
                 href="/#contact"
                 className="btn-gold text-sm px-5 py-2.5 rounded-lg"
               >
@@ -147,7 +153,13 @@ export default function Header() {
 
               {/* Mobile CTAs */}
               <div className="flex flex-col gap-3 pt-6 border-t border-gold/10">
-
+                <Link
+                  href="/#give"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-glass text-sm text-center py-3 rounded-lg"
+                >
+                  Give — MTN MoMo 653 270 752
+                </Link>
                 <Link
                   href="/#contact"
                   onClick={() => setMenuOpen(false)}
