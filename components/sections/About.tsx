@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { staggerContainer, fadeLeft, fadeRight, fadeUp } from '@/lib/animations'
 
 const stats = [
-  { value: '15+', label: 'Years of Ministry' },
+  { value: '2024', label: 'Founded' },
   { value: '500+', label: 'Souls Transformed' },
   { value: '4', label: 'Weekly Services' },
   { value: '6', label: 'Ministry Arms' },
@@ -48,7 +48,7 @@ export default function About() {
 
             <motion.p variants={fadeLeft} className="font-inter text-muted-foreground leading-relaxed mb-5">
               Prayer House Ministry International — known as the <strong className="text-foreground">Solution Center</strong> — is a prophetic revival ministry
-              established in Limbe, Cameroon, under the apostolic leadership of Rev. Apostle E.S. Hugo and
+              established in Limbe, Cameroon, in 2024, under the apostolic leadership of Rev. Apostle E.S. Hugo and
               Prophetess Ekwalla Calista.
             </motion.p>
             <motion.p variants={fadeLeft} className="font-inter text-muted-foreground leading-relaxed mb-5">

@@ -15,12 +15,11 @@ const values = [
 ]
 
 const milestones = [
-  { year: '2009', event: 'Prayer House Ministry International founded by Rev. Apostle E.S. Hugo in Limbe.' },
-  { year: '2012', event: 'First annual revival conference draws believers from across the South West Region.' },
-  { year: '2015', event: 'Six ministry arms officially launched — marking a new season of structured growth.' },
-  { year: '2018', event: 'Prophetess Ekwalla Calista officially joins co-leadership, bringing prophetic depth.' },
-  { year: '2021', event: 'Online ministry launched, reaching members across Cameroon and the diaspora.' },
-  { year: '2024', event: 'Groundbreaking for the Solution Center expansion — a new season of building begins.' },
+  { year: '2024', event: 'Prayer House Ministry International founded by Rev. Apostle E.S. Hugo in Limbe.' },
+  { year: '2024', event: 'Solution Center established at Mile 4, Limbe — the house opens for worship and prayer.' },
+  { year: '2024', event: 'Prophetess Ekwalla Calista joins co-leadership, bringing prophetic depth.' },
+  { year: '2024', event: 'Six ministry arms officially launched — Prayer, Worship, Youth, Women, Outreach, and Choir.' },
+  { year: '2025', event: 'Online ministry launched, reaching members across Cameroon and the diaspora.' },
 ]
 
 export default function AboutContent() {
@@ -89,9 +88,8 @@ export default function AboutContent() {
                 community, and generation. Our ministry exists to unlock that potential.
               </motion.p>
               <motion.p variants={fadeRight} className="font-inter text-muted-foreground leading-relaxed mb-5">
-                Founded in Limbe, Cameroon, under the apostolic leadership of Rev. Apostle E.S. Hugo, PHMI has
-                grown from a small prayer group into a vibrant, multi-ministry church that impacts the lives of
-                hundreds of families across the South West Region and beyond.
+                Founded in Limbe, Cameroon, in 2024, under the apostolic leadership of Rev. Apostle E.S. Hugo, PHMI is
+                a vibrant, multi-ministry church impacting the lives of families across the South West Region and beyond.
               </motion.p>
               <motion.p variants={fadeRight} className="font-inter text-muted-foreground leading-relaxed mb-8">
                 We are a prophetic house, a house of healing, a house of worship, and a family. Whatever season

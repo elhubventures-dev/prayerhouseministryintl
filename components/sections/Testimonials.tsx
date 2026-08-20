@@ -9,19 +9,19 @@ import { staggerContainer, fadeUp } from '@/lib/animations'
 const testimonials = [
   {
     name: 'Sister Grace Ambe',
-    role: 'Member since 2019',
+    role: 'Member since 2024',
     initials: 'GA',
     testimony: 'I came to Solution Center broken and without hope. After three months of prayer and the Word, God completely restored my marriage and my health. This church is truly a house of miracles.',
   },
   {
     name: 'Brother Emmanuel Fokum',
-    role: 'Member since 2021',
+    role: 'Member since 2025',
     initials: 'EF',
     testimony: 'The prophetic ministry here changed my life direction. I had been jobless for two years. After a word was spoken over me and I stood in faith, doors opened supernaturally within weeks.',
   },
   {
     name: 'Pastor Rebecca Ngale',
-    role: 'Member since 2018',
+    role: 'Member since 2024',
     initials: 'RN',
     testimony: 'What strikes me most about PHMI is the authentic atmosphere of prayer and worship. This is not a performance church — it is a house where God genuinely moves and speaks.',
   },
@@ -33,7 +33,7 @@ const testimonials = [
   },
   {
     name: 'Sister Patience Njoh',
-    role: 'Member since 2020',
+    role: 'Member since 2024',
     initials: 'PN',
     testimony: 'I was told by doctors I could never have children. Rev. Apostle Hugo prayed over me and declared life. Today I am holding my miracle baby. To God be all the glory!',
   },

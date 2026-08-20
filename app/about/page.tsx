@@ -49,7 +49,7 @@ export default function AboutPage() {
         />
         <AnswerCapsule>
           <p>
-            Prayer House Ministry International was founded in Limbe in 2009 by Rev. Apostle
+            Prayer House Ministry International was founded in Limbe in 2024 by Rev. Apostle
             E.S. Hugo. Today the Solution Center is a prophetic, Bible-teaching church family
             co-led with Prophetess Ekwalla Calista, serving Mile 4 and the South West Region
             through prayer, worship, and the Word.

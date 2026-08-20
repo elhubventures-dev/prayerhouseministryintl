@@ -27,7 +27,7 @@ const visitFaqs = [
   {
     question: 'Is Prayer House Ministry International the same as the Canadian charity of that name?',
     answer:
-      'No. This Solution Center is a local church in Limbe, Cameroon, founded in 2009 by Rev. Apostle E.S. Hugo. It is not the Canada-registered charity that shares a similar name.',
+      'No. This Solution Center is a local church in Limbe, Cameroon, founded in 2024 by Rev. Apostle E.S. Hugo. It is not the Canada-registered charity that shares a similar name.',
   },
 ]
 
