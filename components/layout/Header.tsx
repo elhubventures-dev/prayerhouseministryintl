@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Cross } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -62,7 +63,7 @@ export default function Header() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-
+              <ThemeToggle />
               <Link
                 href="/#give"
                 className="btn-glass text-sm px-5 py-2.5 rounded-lg"
@@ -77,14 +78,17 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors"
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+            {/* Mobile controls */}
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setMenuOpen(true)}
+                className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -154,6 +158,10 @@ export default function Header() {
 
               {/* Mobile CTAs */}
               <div className="flex flex-col gap-3 pt-6 border-t border-gold/10">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider">Appearance</span>
+                  <ThemeToggle />
+                </div>
                 <Link
                   href="/#give"
                   onClick={() => setMenuOpen(false)}

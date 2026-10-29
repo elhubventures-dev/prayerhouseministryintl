@@ -110,7 +110,7 @@ function NewsletterForm({
           onChange={(e) => setEmail(e.target.value)}
           disabled={submitting}
           placeholder="Enter your email address"
-          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/40 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
+          className="flex-1 bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/40 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
         />
         <motion.button
           whileHover={submitting ? undefined : { scale: 1.03 }}

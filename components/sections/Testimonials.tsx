@@ -131,7 +131,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-6 mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
+              className="w-10 h-10 rounded-full bg-surface border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
+              className="w-10 h-10 rounded-full bg-surface border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all duration-200"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />

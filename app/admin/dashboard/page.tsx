@@ -215,21 +215,21 @@ export default function AdminDashboard() {
                         <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Announcement Text *</label>
                         <input type="text" value={newAnn.text} onChange={(e) => setNewAnn({ ...newAnn, text: e.target.value })}
                           placeholder="e.g. 🔥 Annual Conference — August 15–17, 2025"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                       <div>
                         <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Link URL</label>
                         <input type="text" value={newAnn.link} onChange={(e) => setNewAnn({ ...newAnn, link: e.target.value })}
                           placeholder="/events"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                       <div>
                         <label className="font-montserrat text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Link Label</label>
                         <input type="text" value={newAnn.linkLabel} onChange={(e) => setNewAnn({ ...newAnn, linkLabel: e.target.value })}
                           placeholder="Learn More"
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                          className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                         />
                       </div>
                     </div>
@@ -258,7 +258,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <button onClick={() => { adminAction('toggle-announcement', { id: ann.id }); showToast(ann.active ? 'Announcement hidden' : 'Announcement shown') }}
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${ann.active ? 'bg-gold/10 text-gold hover:bg-gold/20' : 'bg-white/5 text-muted-foreground/40 hover:text-muted-foreground'}`}
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${ann.active ? 'bg-gold/10 text-gold hover:bg-gold/20' : 'bg-surface text-muted-foreground/40 hover:text-muted-foreground'}`}
                         title={ann.active ? 'Hide' : 'Show'}
                       >
                         {ann.active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
@@ -382,7 +382,7 @@ export default function AdminDashboard() {
             exit={{ opacity: 0, y: 20, x: '-50%' }}
             className={`fixed bottom-6 left-1/2 z-[999] flex items-center gap-2 px-5 py-3 rounded-full font-montserrat text-xs font-semibold shadow-lg ${
               toast.type === 'success'
-                ? 'bg-gold text-background'
+                ? 'bg-gold text-on-gold'
                 : 'bg-red-400 text-white'
             }`}
           >

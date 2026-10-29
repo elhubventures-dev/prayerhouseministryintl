@@ -48,8 +48,8 @@ export default function EventsContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative overflow-hidden min-h-[300px]">
                 <img src={featured.image} alt={featured.title} className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-background/50" />
-                <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-background px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
+                <div className="absolute inset-0 bg-navy-dark/50" />
+                <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-on-gold px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
                   🔥 Featured Event
                 </span>
               </div>
@@ -89,8 +89,8 @@ export default function EventsContent() {
               <motion.div key={event.id} variants={fadeUp} whileHover={{ y: -6 }} className="glass-card overflow-hidden group">
                 <div className="aspect-video relative overflow-hidden">
                   <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-background/50" />
-                  <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold/90 text-background px-2.5 py-1 rounded-full font-bold uppercase">{event.type}</span>
+                  <div className="absolute inset-0 bg-navy-dark/50" />
+                  <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold/90 text-on-gold px-2.5 py-1 rounded-full font-bold uppercase">{event.type}</span>
                 </div>
                 <div className="p-6 flex flex-col gap-3">
                   <h3 className="font-playfair text-base text-foreground font-semibold leading-snug group-hover:text-gold-light transition-colors">{event.title}</h3>

@@ -2,6 +2,7 @@ import type { Viewport } from 'next'
 import '../styles/globals.css'
 import PWARegister from '@/components/ui/PWARegister'
 import WhatsAppWidget from '@/components/ui/WhatsAppWidget'
+import ThemeProvider from '@/components/ui/ThemeProvider'
 import GoogleAnalytics from '@/components/seo/GoogleAnalytics'
 import JsonLd from '@/components/seo/JsonLd'
 import { defaultMetadata } from '@/lib/seo'
@@ -21,14 +22,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`scroll-smooth ${cinzel.variable} ${playfair.variable} ${inter.variable} ${montserrat.variable} ${garamond.variable}`}
     >
       <body className={`${inter.className} bg-background text-foreground antialiased`}>
-        <GoogleAnalytics />
-        <JsonLd data={globalGraphSchema()} />
-        {children}
-        <PWARegister />
-        <WhatsAppWidget />
+        <ThemeProvider>
+          <GoogleAnalytics />
+          <JsonLd data={globalGraphSchema()} />
+          {children}
+          <PWARegister />
+          <WhatsAppWidget />
+        </ThemeProvider>
       </body>
     </html>
   )

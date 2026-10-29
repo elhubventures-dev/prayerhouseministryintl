@@ -114,10 +114,10 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-background-alt"
                       style={{ backgroundImage: `url('${sermon.thumbnail}')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-                      <div className="absolute inset-0 bg-background/60" />
+                      <div className="absolute inset-0 bg-navy-dark/60" />
                       <div className="relative z-10 flex flex-col items-center gap-4">
                         <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-gold-lg">
-                          <Play className="w-8 h-8 text-background fill-navy-dark ml-1" />
+                          <Play className="w-8 h-8 text-on-gold fill-navy-dark ml-1" />
                         </div>
                         <p className="font-inter text-muted-foreground text-sm">Video coming soon</p>
                       </div>
@@ -127,7 +127,7 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
                 {/* Series badge + title */}
                 <motion.div variants={fadeUp}>
-                  <span className="font-montserrat text-[11px] bg-gold text-background px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                  <span className="font-montserrat text-[11px] bg-gold text-on-gold px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                     {sermon.series}
                   </span>
                   <h1 className="font-cinzel text-2xl lg:text-3xl text-foreground font-bold mt-4 mb-3 leading-snug">
@@ -165,13 +165,13 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                 </motion.div>
 
                 {/* Share row */}
-                <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2 border-t border-white/5">
+                <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 pt-2 border-t border-border">
                   <span className="font-montserrat text-xs text-muted-foreground/50 uppercase tracking-wider flex items-center gap-1.5">
                     <Share2 className="w-3.5 h-3.5" /> Share this message
                   </span>
                   <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-muted-foreground hover:text-gold transition-colors bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg"
+                    className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-muted-foreground hover:text-gold transition-colors bg-surface border border-border px-3 py-1.5 rounded-lg"
                   >
                     {copied ? <><CheckCheck className="w-3.5 h-3.5 text-gold" /> Copied!</> : <><Copy className="w-3.5 h-3.5" /> Copy Link</>}
                   </button>
@@ -192,14 +192,14 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
 
                 {/* Tabs — Notes / Transcript */}
                 <motion.div variants={fadeUp}>
-                  <div className="flex gap-1 mb-6 bg-white/5 rounded-xl p-1 w-fit">
+                  <div className="flex gap-1 mb-6 bg-surface rounded-xl p-1 w-fit">
                     {(['notes', 'transcript'] as const).map((tab) => (
                       <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
                         className={`font-montserrat text-xs font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 capitalize ${
                           activeTab === tab
-                            ? 'bg-gold text-background'
+                            ? 'bg-gold text-on-gold'
                             : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
@@ -254,7 +254,7 @@ export default function SermonDetailContent({ sermon, slug }: Props) {
                     >
                       <div className="relative w-24 flex-shrink-0 rounded-lg overflow-hidden flex items-center bg-background-alt">
                         <img src={rel.thumbnail} alt={rel.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
-                        <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                           <Play className="w-4 h-4 text-gold fill-gold" />
                         </div>
                       </div>

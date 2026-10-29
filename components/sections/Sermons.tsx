@@ -55,7 +55,7 @@ function PlayButton({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
       whileHover={{ scale: 1.1 }}
       className={`${dims[size]} rounded-full bg-gold flex items-center justify-center shadow-gold cursor-pointer flex-shrink-0`}
     >
-      <Play className={`${iconDims[size]} text-background fill-navy-dark ml-0.5`} />
+      <Play className={`${iconDims[size]} text-on-gold fill-navy-dark ml-0.5`} />
     </motion.div>
   )
 }
@@ -107,15 +107,15 @@ export default function Sermons() {
                     alt={featured.title}
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center">
                     <PlayButton size="lg" />
                   </div>
                   {/* Series badge */}
-                  <span className="absolute top-4 left-4 font-montserrat text-[10px] bg-gold text-background px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                  <span className="absolute top-4 left-4 font-montserrat text-[10px] bg-gold text-on-gold px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                     {featured.series}
                   </span>
                   {/* Featured badge */}
-                  <span className="absolute top-4 right-4 font-montserrat text-[10px] bg-white/10 backdrop-blur text-foreground px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+                  <span className="absolute top-4 right-4 font-montserrat text-[10px] bg-surface backdrop-blur text-foreground px-3 py-1 rounded-full border border-border uppercase tracking-wider">
                     Featured
                   </span>
                 </div>
@@ -172,10 +172,10 @@ export default function Sermons() {
                   style={{ objectPosition: (sermon as { thumbnailPosition?: string }).thumbnailPosition ?? 'center 30%' }}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <PlayButton size="md" />
                 </div>
-                <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-background px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-on-gold px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
                   {sermon.series}
                 </span>
               </div>

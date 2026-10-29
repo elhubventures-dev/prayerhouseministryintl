@@ -76,7 +76,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Enter admin password"
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-10 py-3.5 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                className="w-full bg-surface border border-border rounded-lg pl-10 pr-10 py-3.5 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
               />
               <button
                 type="button"

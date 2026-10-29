@@ -147,7 +147,7 @@ export default function MinistriesContent() {
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
 
               {/* Icon panel */}
-              <div className={`lg:col-span-1 bg-gradient-to-br ${ministry.color} border-r border-white/5 p-10 flex flex-col items-center justify-center gap-4 ${!isEven ? 'lg:order-last lg:border-r-0 lg:border-l border-white/5' : ''}`}>
+              <div className={`lg:col-span-1 bg-gradient-to-br ${ministry.color} border-r border-border p-10 flex flex-col items-center justify-center gap-4 ${!isEven ? 'lg:order-last lg:border-r-0 lg:border-l border-border' : ''}`}>
                 <div className="w-16 h-16 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center shadow-gold">
                   <Icon className="w-8 h-8 text-gold" strokeWidth={1.5} />
                 </div>
@@ -176,7 +176,7 @@ export default function MinistriesContent() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-5 pt-5 border-t border-white/5">
+                    <div className="mt-5 pt-5 border-t border-border">
                       <p className="font-montserrat text-xs text-muted-foreground/50 uppercase tracking-wider mb-1">Overseen By</p>
                       <p className="font-inter text-gold text-sm font-medium">{ministry.leader}</p>
                     </div>

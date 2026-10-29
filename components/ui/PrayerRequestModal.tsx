@@ -93,7 +93,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Enter your name"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                        className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                       />
                     </div>
                   )}
@@ -106,7 +106,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="your@email.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+                      className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
                     />
                     <p className="font-inter text-[11px] text-muted-foreground/70 mt-2">
                       We will send a confirmation to this address. {form.anonymous ? 'It will not be shown to the prayer team.' : ''}
@@ -121,7 +121,7 @@ export default function PrayerRequestModal({ isOpen, onClose }: PrayerRequestMod
                       onChange={(e) => setForm({ ...form, request: e.target.value })}
                       rows={5}
                       placeholder="Share your prayer need with us..."
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
+                      className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none"
                     />
                   </div>
 

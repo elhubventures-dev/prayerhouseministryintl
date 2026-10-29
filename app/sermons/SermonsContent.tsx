@@ -85,7 +85,7 @@ export default function SermonsContent() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search sermons..."
-              className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
+              className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function SermonsContent() {
           <select
             value={selectedSpeaker}
             onChange={(e) => setSelectedSpeaker(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
+            className="bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
           >
             {speakers.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
@@ -102,7 +102,7 @@ export default function SermonsContent() {
           <select
             value={selectedSeries}
             onChange={(e) => setSelectedSeries(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-ivory text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
+            className="bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter focus:outline-none focus:border-gold/50 transition-colors appearance-none cursor-pointer"
           >
             {series.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
@@ -137,15 +137,15 @@ export default function SermonsContent() {
                   {/* Thumbnail */}
                   <div className="relative overflow-hidden aspect-video">
                     <img src={sermon.thumbnail} alt={sermon.title} style={{ objectPosition: (sermon as { thumbnailPosition?: string }).thumbnailPosition ?? 'center 30%' }} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-navy-dark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         className="w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-gold"
                       >
-                        <Play className="w-5 h-5 text-background fill-navy-dark ml-0.5" />
+                        <Play className="w-5 h-5 text-on-gold fill-navy-dark ml-0.5" />
                       </motion.div>
                     </div>
-                    <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-background px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                    <span className="absolute top-3 left-3 font-montserrat text-[10px] bg-gold text-on-gold px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
                       {sermon.series}
                     </span>
                   </div>

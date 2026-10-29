@@ -96,7 +96,7 @@ export default function WeeklyActivities() {
 
                 {/* Featured badge */}
                 {service.featured && (
-                  <span className="absolute top-4 right-4 font-montserrat text-[10px] text-background bg-gold px-2.5 py-1 rounded-full uppercase font-bold tracking-wider">
+                  <span className="absolute top-4 right-4 font-montserrat text-[10px] text-on-gold bg-gold px-2.5 py-1 rounded-full uppercase font-bold tracking-wider">
                     Special
                   </span>
                 )}

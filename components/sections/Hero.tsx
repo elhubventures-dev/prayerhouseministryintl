@@ -34,9 +34,9 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Dark overlay */}
+      {/* Dark overlay — stays dark in both themes so photo hero text stays readable */}
       <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/20 via-navy-dark/50 to-background" />
       {/* Center scrim — keeps hero text readable over the background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_42%,rgba(6,9,26,0.92)_0%,rgba(6,9,26,0.55)_45%,transparent_75%)]" />
 
@@ -74,7 +74,7 @@ export default function Hero() {
           {/* Main headline */}
           <motion.h1
             variants={heroText}
-            className="font-cinzel text-4xl md:text-5xl lg:text-7xl text-foreground leading-[1.15] font-bold drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]"
+            className="font-cinzel text-4xl md:text-5xl lg:text-7xl text-ivory leading-[1.15] font-bold drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]"
           >
             Raising Lives<br />
             <span className="text-gold-gradient">Through Prayer,</span><br />
@@ -87,7 +87,7 @@ export default function Hero() {
           {/* Subtext */}
           <motion.p
             variants={heroText}
-            className="font-playfair text-foreground/90 text-lg md:text-xl italic max-w-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            className="font-playfair text-ivory/90 text-lg md:text-xl italic max-w-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             Experience the power of God's presence at Solution Center.
             Join a community of believers seeking revival, healing, and transformation.
@@ -127,7 +127,7 @@ export default function Hero() {
           {/* Scripture tag */}
           <motion.p
             variants={heroText}
-            className="font-garamond text-muted-foreground/50 text-sm italic mt-4"
+            className="font-garamond text-ivory/50 text-sm italic mt-4"
           >
             "For this house shall be called a house of prayer for all peoples." — Isaiah 56:7
           </motion.p>

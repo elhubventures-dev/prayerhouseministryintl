@@ -55,12 +55,12 @@ export default function WeddingContent() {
                 alt={`${WEDDING.coupleNames} on their wedding day`}
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
                 <p className="font-montserrat text-[10px] uppercase tracking-[0.18em] text-gold mb-1">
                   Holy Matrimony
                 </p>
-                <p className="font-playfair text-xl sm:text-2xl text-foreground font-semibold leading-snug">
+                <p className="font-playfair text-xl sm:text-2xl text-ivory font-semibold leading-snug">
                   {WEDDING.coupleNames}
                 </p>
               </div>
@@ -136,9 +136,9 @@ export default function WeddingContent() {
                   alt={image.caption}
                   className="w-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2 p-4">
+                <div className="absolute inset-0 bg-navy-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2 p-4">
                   <ZoomIn className="w-7 h-7 text-gold" />
-                  <p className="font-inter text-foreground text-xs text-center font-medium leading-snug">
+                  <p className="font-inter text-ivory text-xs text-center font-medium leading-snug">
                     {image.caption}
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export default function WeddingContent() {
         </div>
       </section>
 
-      <section className="py-16 bg-background-alt border-t border-white/5">
+      <section className="py-16 bg-background-alt border-t border-border">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <Heart className="w-8 h-8 text-gold mx-auto mb-4" />
           <h3 className="font-cinzel text-xl sm:text-2xl text-foreground font-bold mb-3">

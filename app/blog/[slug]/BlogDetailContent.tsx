@@ -91,7 +91,7 @@ export default function BlogDetailContent({ post, slug }: { post: Post | undefin
               </motion.h1>
 
               {/* Meta */}
-              <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pb-5 border-b border-white/5">
+              <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pb-5 border-b border-border">
                 <span className="font-inter font-medium text-gold">{post.author}</span>
                 <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-gold/60" /> {formatDate(post.publishedAt)}</span>
                 <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-gold/60" /> {post.estimatedReadingTime} min read</span>
@@ -139,9 +139,9 @@ export default function BlogDetailContent({ post, slug }: { post: Post | undefin
               </motion.div>
 
               {/* Share */}
-              <motion.div variants={fadeUp} className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-3">
+              <motion.div variants={fadeUp} className="pt-6 border-t border-border flex flex-wrap items-center gap-3">
                 <span className="font-montserrat text-xs text-muted-foreground/50 uppercase tracking-wider">Share this article:</span>
-                <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-muted-foreground hover:text-gold transition-colors bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                <button onClick={handleCopy} className="flex items-center gap-1.5 text-xs font-montserrat font-semibold text-muted-foreground hover:text-gold transition-colors bg-surface border border-border px-3 py-1.5 rounded-lg">
                   {copied ? <><CheckCheck className="w-3.5 h-3.5 text-gold" /> Copied!</> : <><Copy className="w-3.5 h-3.5" /> Copy Link</>}
                 </button>
                 <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer"

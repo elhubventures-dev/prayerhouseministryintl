@@ -41,14 +41,14 @@ export default function AnnouncementBanner() {
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 flex-1 min-w-0">
-              <Megaphone className="w-4 h-4 text-background flex-shrink-0" />
-              <p className="font-montserrat text-background text-xs font-semibold truncate">
+              <Megaphone className="w-4 h-4 text-on-gold flex-shrink-0" />
+              <p className="font-montserrat text-on-gold text-xs font-semibold truncate">
                 {announcement.text}
               </p>
               {announcement.link && (
                 <Link
                   href={announcement.link}
-                  className="hidden sm:inline font-montserrat text-xs font-bold text-background-alt underline underline-offset-2 hover:text-background transition-colors flex-shrink-0"
+                  className="hidden sm:inline font-montserrat text-xs font-bold text-navy-dark/70 underline underline-offset-2 hover:text-on-gold transition-colors flex-shrink-0"
                 >
                   {announcement.linkLabel} →
                 </Link>
@@ -57,7 +57,7 @@ export default function AnnouncementBanner() {
             <button
               onClick={dismiss}
               aria-label="Dismiss announcement"
-              className="w-6 h-6 flex items-center justify-center text-background-alt/60 hover:text-background transition-colors flex-shrink-0"
+              className="w-6 h-6 flex items-center justify-center text-navy-dark/60 hover:text-on-gold transition-colors flex-shrink-0"
             >
               <X className="w-4 h-4" />
             </button>

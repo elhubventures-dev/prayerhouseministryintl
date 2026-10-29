@@ -94,8 +94,8 @@ export default function GalleryContent() {
                 onClick={() => setActiveCategory(cat)}
                 className={`font-montserrat text-xs font-semibold px-5 py-2 rounded-full border transition-all duration-200 ${
                   activeCategory === cat
-                    ? 'bg-gold text-background border-gold'
-                    : 'bg-transparent text-muted-foreground border-white/10 hover:border-gold/50 hover:text-gold'
+                    ? 'bg-gold text-on-gold border-gold'
+                    : 'bg-transparent text-muted-foreground border-border hover:border-gold/50 hover:text-gold'
                 }`}
               >
                 {cat}
@@ -132,10 +132,10 @@ export default function GalleryContent() {
                   onClick={() => openLightbox(i)}
                 >
                   <img src={image.src} alt={image.caption} className="w-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2 p-4">
+                  <div className="absolute inset-0 bg-navy-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2 p-4">
                     <ZoomIn className="w-7 h-7 text-gold" />
-                    <p className="font-inter text-foreground text-xs text-center font-medium">{image.caption}</p>
-                    <span className="font-montserrat text-[9px] bg-gold/80 text-background px-2 py-0.5 rounded-full font-bold uppercase">{image.category}</span>
+                    <p className="font-inter text-ivory text-xs text-center font-medium">{image.caption}</p>
+                    <span className="font-montserrat text-[9px] bg-gold/80 text-on-gold px-2 py-0.5 rounded-full font-bold uppercase">{image.category}</span>
                   </div>
                 </motion.div>
               ))}
@@ -168,7 +168,7 @@ export default function GalleryContent() {
                   onChange={(e) => setTestimonyForm({ ...testimonyForm, name: e.target.value })}
                   disabled={testimonySubmitting}
                   placeholder="First name or initials"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
+                  className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
                 />
               </div>
               <div>
@@ -180,7 +180,7 @@ export default function GalleryContent() {
                   onChange={(e) => setTestimonyForm({ ...testimonyForm, email: e.target.value })}
                   disabled={testimonySubmitting}
                   placeholder="your@email.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
+                  className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-60"
                 />
               </div>
               <div>
@@ -193,7 +193,7 @@ export default function GalleryContent() {
                   onChange={(e) => setTestimonyForm({ ...testimonyForm, testimony: e.target.value })}
                   disabled={testimonySubmitting}
                   placeholder="Share what God has done in your life..."
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none disabled:opacity-60"
+                  className="w-full bg-surface border border-border rounded-lg px-4 py-3 text-foreground text-sm font-inter placeholder-silver/30 focus:outline-none focus:border-gold/50 transition-colors resize-none disabled:opacity-60"
                 />
               </div>
               {testimonyError && (

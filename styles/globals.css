@@ -3,12 +3,62 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
+
+  /* Brand (stable) */
   --navy: #0A0F2C;
   --navy-dark: #06091A;
   --gold: #C9A84C;
   --gold-light: #F4A832;
   --ivory: #F5F0E8;
   --silver: #A8A8C0;
+
+  /* Light theme (default :root — next-themes adds .dark when dark) */
+  --background: #F7F4EF;
+  --background-alt: #EEE9E0;
+  --foreground: #0A0F2C;
+  --muted-foreground: #5C5C72;
+  --surface: rgba(10, 15, 44, 0.04);
+  --surface-hover: rgba(201, 168, 76, 0.12);
+  --border: rgba(10, 15, 44, 0.1);
+  --card-bg: #FFFFFF;
+  --card-border: rgba(201, 168, 76, 0.35);
+  --card-shadow: 0 8px 32px rgba(10, 15, 44, 0.08);
+  --card-shadow-hover: 0 16px 48px rgba(10, 15, 44, 0.12), 0 0 30px rgba(201, 168, 76, 0.12);
+  --btn-glass-bg: rgba(255, 255, 255, 0.85);
+  --btn-glass-border: rgba(201, 168, 76, 0.55);
+  --overlay: rgba(6, 9, 26, 0.55);
+  --on-gold: #06091A;
+  --atmos-base: #F7F4EF;
+  --atmos-accent: rgba(18, 24, 74, 0.06);
+  --vignette-edge: rgba(247, 244, 239, 0.85);
+  --scrollbar-track: #EEE9E0;
+  --selection-fg: #0A0F2C;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #06091A;
+  --background-alt: #0A0F2C;
+  --foreground: #F5F0E8;
+  --muted-foreground: #A8A8C0;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(201, 168, 76, 0.15);
+  --border: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(201, 168, 76, 0.2);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 168, 76, 0.15);
+  --btn-glass-bg: rgba(255, 255, 255, 0.06);
+  --btn-glass-border: rgba(201, 168, 76, 0.5);
+  --overlay: rgba(6, 9, 26, 0.7);
+  --on-gold: #06091A;
+  --atmos-base: #06091A;
+  --atmos-accent: rgba(18, 24, 74, 0.8);
+  --vignette-edge: rgba(6, 9, 26, 0.6);
+  --scrollbar-track: #06091A;
+  --selection-fg: #F5F0E8;
 }
 
 * {
@@ -22,10 +72,11 @@ html {
 }
 
 body {
-  background-color: #06091A;
-  color: #F5F0E8;
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: var(--font-inter), 'Inter', sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Scrollbar */
@@ -33,7 +84,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #06091A;
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
   background: #C9A84C;
@@ -43,7 +94,7 @@ body {
 /* Selection */
 ::selection {
   background: rgba(201, 168, 76, 0.3);
-  color: #F5F0E8;
+  color: var(--selection-fg);
 }
 
 @layer components {
@@ -51,10 +102,10 @@ body {
   .glass-card {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(201, 168, 76, 0.2);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--card-shadow);
   }
 
   .glass-card-hover {
@@ -62,7 +113,7 @@ body {
   }
   .glass-card-hover:hover {
     border-color: rgba(201, 168, 76, 0.5);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 168, 76, 0.15);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-6px);
   }
 
@@ -81,8 +132,8 @@ body {
   /* Glass Button */
   .btn-glass {
     @apply font-montserrat font-semibold px-8 py-4 rounded-lg transition-all duration-300;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(201, 168, 76, 0.5);
+    background: var(--btn-glass-bg);
+    border: 1px solid var(--btn-glass-border);
     color: #C9A84C;
     backdrop-filter: blur(10px);
   }
@@ -99,7 +150,7 @@ body {
 
   /* Section Title */
   .section-title {
-    @apply font-cinzel text-3xl md:text-4xl lg:text-5xl text-ivory leading-tight;
+    @apply font-cinzel text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight;
   }
 
   /* Gold Divider */
@@ -126,7 +177,7 @@ body {
 
   /* Nav link */
   .nav-link {
-    @apply font-montserrat text-sm font-medium text-silver transition-colors duration-200 relative;
+    @apply font-montserrat text-sm font-medium text-muted-foreground transition-colors duration-200 relative;
   }
   .nav-link:hover {
     color: #C9A84C;
@@ -169,7 +220,7 @@ select option {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(6, 9, 26, 0.6) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, var(--vignette-edge) 100%);
   pointer-events: none;
 }
 
@@ -177,6 +228,6 @@ select option {
 .atmos-bg {
   background:
     radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(18, 24, 74, 0.8) 0%, transparent 50%),
-    #06091A;
+    radial-gradient(ellipse at 80% 20%, var(--atmos-accent) 0%, transparent 50%),
+    var(--atmos-base);
 }

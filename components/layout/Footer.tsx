@@ -65,7 +65,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-white/5 border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 hover:bg-gold/10 transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-surface border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 hover:bg-gold/10 transition-all duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -80,7 +80,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {serviceSchedule.map((s) => (
-                <li key={s.day} className="border-b border-white/5 pb-3 last:border-0">
+                <li key={s.day} className="border-b border-border pb-3 last:border-0">
                   <p className="font-montserrat text-[11px] text-gold uppercase tracking-wider mb-0.5">
                     {s.day}
                   </p>
@@ -183,7 +183,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-inter text-muted-foreground/50 text-xs text-center md:text-left">
             © {new Date().getFullYear()} Prayer House Ministry International. All rights reserved.

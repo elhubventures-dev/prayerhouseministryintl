@@ -64,8 +64,8 @@ export default function Gallery() {
               onClick={() => setActiveCategory(cat)}
               className={`font-montserrat text-xs font-semibold px-5 py-2 rounded-full border transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-gold text-background border-gold'
-                  : 'bg-transparent text-muted-foreground border-white/10 hover:border-gold/50 hover:text-gold'
+                  ? 'bg-gold text-on-gold border-gold'
+                  : 'bg-transparent text-muted-foreground border-border hover:border-gold/50 hover:text-gold'
               }`}
             >
               {cat}
@@ -96,12 +96,12 @@ export default function Gallery() {
                   className="w-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2">
+                <div className="absolute inset-0 bg-navy-dark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col items-center justify-center gap-2">
                   <ZoomIn className="w-8 h-8 text-gold" />
-                  <p className="font-montserrat text-foreground text-xs text-center px-3 font-medium">{image.caption}</p>
+                  <p className="font-montserrat text-ivory text-xs text-center px-3 font-medium">{image.caption}</p>
                 </div>
                 {/* Category badge */}
-                <span className="absolute top-2 right-2 font-montserrat text-[9px] bg-gold/80 text-background px-2 py-0.5 rounded-full font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="absolute top-2 right-2 font-montserrat text-[9px] bg-gold/80 text-on-gold px-2 py-0.5 rounded-full font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity">
                   {image.category}
                 </span>
               </motion.div>

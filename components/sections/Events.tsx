@@ -62,9 +62,9 @@ export default function Events() {
                 alt={featuredEvent.title}
                 className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/80 lg:from-transparent to-background/20" />
-              <div className="absolute inset-0 bg-background/30" />
-              <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-background px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
+              <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/80 lg:from-transparent to-navy-dark/20" />
+              <div className="absolute inset-0 bg-navy-dark/30" />
+              <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-on-gold px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
                 🔥 Featured Event
               </span>
             </div>

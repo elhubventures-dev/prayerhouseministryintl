@@ -115,8 +115,8 @@ export default function BlogContent() {
               onClick={() => setActiveCategory(cat)}
               className={`font-montserrat text-xs font-semibold px-5 py-2 rounded-full border transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-gold text-background border-gold'
-                  : 'bg-transparent text-muted-foreground border-white/10 hover:border-gold/50 hover:text-gold'
+                  ? 'bg-gold text-on-gold border-gold'
+                  : 'bg-transparent text-muted-foreground border-border hover:border-gold/50 hover:text-gold'
               }`}
             >
               {cat}
@@ -134,8 +134,8 @@ export default function BlogContent() {
             <Link href={`/blog/${featured.slug}`} className="glass-card overflow-hidden grid grid-cols-1 lg:grid-cols-2 group block">
               <div className="relative overflow-hidden min-h-[280px]">
                 <img src={featured.mainImage} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-background/40" />
-                <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-background px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
+                <div className="absolute inset-0 bg-navy-dark/40" />
+                <span className="absolute top-4 left-4 font-montserrat text-[11px] bg-gold text-on-gold px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">
                   ✨ Featured
                 </span>
               </div>
@@ -179,7 +179,7 @@ export default function BlogContent() {
                 <Link href={`/blog/${post.slug}`} className="glass-card overflow-hidden group flex flex-col h-full block">
                   <div className="aspect-video relative overflow-hidden">
                     <img src={post.mainImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-background/30" />
+                    <div className="absolute inset-0 bg-navy-dark/30" />
                   </div>
                   <div className="p-6 flex flex-col gap-3 flex-1">
                     <div className="flex flex-wrap gap-1.5">
@@ -191,7 +191,7 @@ export default function BlogContent() {
                       {post.title}
                     </h3>
                     <p className="font-inter text-muted-foreground/70 text-xs leading-relaxed line-clamp-2">{post.excerpt}</p>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground/50 pt-2 border-t border-white/5">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground/50 pt-2 border-t border-border">
                       <span className="font-inter truncate">{post.author}</span>
                       <span className="flex items-center gap-1 flex-shrink-0"><Clock className="w-3 h-3" /> {post.estimatedReadingTime} min</span>
                     </div>
