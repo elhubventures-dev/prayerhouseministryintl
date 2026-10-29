@@ -19,6 +19,7 @@ const quickLinks = [
   { label: 'FAQ', href: '/faq' },
   { label: 'Glossary', href: '/glossary' },
   { label: 'Photo Gallery', href: '/gallery' },
+  { label: 'Wedding Celebration', href: '/wedding' },
   { label: 'Contact Us', href: '/contact' },
 ]
 

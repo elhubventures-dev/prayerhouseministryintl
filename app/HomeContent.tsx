@@ -10,6 +10,7 @@ import WeeklyActivities from '@/components/sections/WeeklyActivities'
 import Sermons from '@/components/sections/Sermons'
 import Ministries from '@/components/sections/Ministries'
 import Events from '@/components/sections/Events'
+import WeddingTeaser from '@/components/sections/WeddingTeaser'
 import Testimonials from '@/components/sections/Testimonials'
 import Gallery from '@/components/sections/Gallery'
 import Give from '@/components/sections/Give'
@@ -43,6 +44,7 @@ export default function HomeContent() {
         <Sermons />
         <Ministries />
         <Events />
+        <WeddingTeaser />
         <Testimonials />
         <Gallery />
         <Give />

@@ -48,6 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: absoluteUrl('/sermons'), lastModified: now, changeFrequency: 'weekly', priority: 0.95 },
     { url: absoluteUrl('/events'), lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: absoluteUrl('/gallery'), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: absoluteUrl('/wedding'), lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
     { url: absoluteUrl('/contact'), lastModified: now, changeFrequency: 'yearly', priority: 0.8 },
     { url: absoluteUrl('/blog'), lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: absoluteUrl('/faq'), lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

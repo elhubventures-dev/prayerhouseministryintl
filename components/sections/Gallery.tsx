@@ -7,9 +7,11 @@ import { ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 
-const categories = ['All', 'Worship', 'Events', 'Community', 'Outreach']
+const categories = ['All', 'Worship', 'Events', 'Weddings', 'Community', 'Outreach']
 
 const images = [
+  { src: '/images/wedding/wedding-07.jpg', category: 'Weddings', caption: 'Ata & Taku — Holy Matrimony' },
+  { src: '/images/wedding/wedding-03.jpg', category: 'Weddings', caption: 'Wedding vows at Solution Center' },
   { src: '/images/phmi-5.jpeg', category: 'Worship', caption: 'Sunday Prophetic Service' },
   { src: '/images/phmi-6.jpeg', category: 'Events', caption: 'Annual Revival Conference' },
   { src: '/images/phmi-7.jpeg', category: 'Community', caption: 'Community Fellowship' },

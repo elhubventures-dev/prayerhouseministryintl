@@ -38,6 +38,50 @@ export function getLastFridayOfMonth(): Date {
   return lastDay
 }
 
+export function getFirstSundayOfMonth(): Date {
+  const now = new Date()
+  let year = now.getFullYear()
+  let month = now.getMonth()
+
+  let firstSunday = new Date(year, month, 1)
+  while (firstSunday.getDay() !== 0) {
+    firstSunday.setDate(firstSunday.getDate() + 1)
+  }
+  firstSunday.setHours(9, 0, 0, 0) // 9:00 AM
+
+  if (now.getTime() > firstSunday.getTime()) {
+    firstSunday = new Date(year, month + 1, 1)
+    while (firstSunday.getDay() !== 0) {
+      firstSunday.setDate(firstSunday.getDate() + 1)
+    }
+    firstSunday.setHours(9, 0, 0, 0)
+  }
+
+  return firstSunday
+}
+
+export function getLastSundayOfMonth(): Date {
+  const now = new Date()
+  let year = now.getFullYear()
+  let month = now.getMonth()
+
+  let lastSunday = new Date(year, month + 1, 0)
+  while (lastSunday.getDay() !== 0) {
+    lastSunday.setDate(lastSunday.getDate() - 1)
+  }
+  lastSunday.setHours(9, 0, 0, 0) // 9:00 AM
+
+  if (now.getTime() > lastSunday.getTime()) {
+    lastSunday = new Date(year, month + 2, 0)
+    while (lastSunday.getDay() !== 0) {
+      lastSunday.setDate(lastSunday.getDate() - 1)
+    }
+    lastSunday.setHours(9, 0, 0, 0)
+  }
+
+  return lastSunday
+}
+
 const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 
 export function getDynamicEvents() {
@@ -45,6 +89,8 @@ export function getDynamicEvents() {
   const choir = getNextDayOfWeek(6, 16, 0) // Saturday 4:00 PM
   const prophetic = getNextDayOfWeek(0, 9, 0) // Sunday 9:00 AM
   const allNight = getLastFridayOfMonth() // Last Friday 9:00 PM
+  const anointing = getFirstSundayOfMonth() // First Sunday 9:00 AM
+  const holyCommunion = getLastSundayOfMonth() // Last Sunday 9:00 AM
 
   return [
     {
@@ -102,6 +148,34 @@ export function getDynamicEvents() {
       description: 'A night of intense intercession, worship, and breakthrough. Come expecting a miracle.',
       image: '/images/phmi-22.jpeg',
       tags: ['Prayer', 'Special'],
-    }
+    },
+    {
+      id: 'anointing',
+      title: 'Anointing Service',
+      type: 'Monthly Service',
+      dateObj: anointing,
+      month: MONTHS[anointing.getMonth()],
+      day: String(anointing.getDate()).padStart(2, '0'),
+      dates: anointing.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }),
+      time: '9:00 AM',
+      location: 'Solution Center',
+      description: 'A special service of anointing every first Sunday of the month. Come expecting healing, empowerment, and a fresh touch of the Holy Spirit.',
+      image: '/images/anointing-service.jpg',
+      tags: ['Anointing', 'Sunday'],
+    },
+    {
+      id: 'holy-communion',
+      title: 'Holy Communion Service',
+      type: 'Monthly Service',
+      dateObj: holyCommunion,
+      month: MONTHS[holyCommunion.getMonth()],
+      day: String(holyCommunion.getDate()).padStart(2, '0'),
+      dates: holyCommunion.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }),
+      time: '9:00 AM',
+      location: 'Solution Center',
+      description: 'Join us every last Sunday of the month as we partake in the Lord’s Table in remembrance of Christ’s sacrifice.',
+      image: '/images/holy-communion-service.jpg',
+      tags: ['Communion', 'Sunday'],
+    },
   ].sort((a, b) => a.dateObj.getTime() - b.dateObj.getTime())
 }

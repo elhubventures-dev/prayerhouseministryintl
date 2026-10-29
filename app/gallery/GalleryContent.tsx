@@ -4,9 +4,11 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { ZoomIn, X, ChevronLeft, ChevronRight, Send, CheckCircle2, Loader2 } from 'lucide-react'
+import Link from 'next/link'
 import { postForm } from '@/lib/submit-form'
+import { WEDDING, weddingGalleryItems } from '@/lib/wedding'
 
-const categories = ['All', 'Worship', 'Events', 'Community', 'Outreach', 'Leadership']
+const categories = ['All', 'Worship', 'Events', 'Weddings', 'Community', 'Outreach', 'Leadership']
 
 const images = [
   { src: '/images/phmi-21.jpeg', category: 'Worship', caption: 'Sunday Prophetic Service' },
@@ -41,6 +43,7 @@ const images = [
   { src: '/images/phmi-44.jpeg', category: 'Community', caption: 'Fellowship & Prayer' },
   { src: '/images/phmi-45.jpeg', category: 'Outreach', caption: 'Community Impact' },
   { src: '/images/phmi-46.jpeg', category: 'Worship', caption: 'Glory to God' },
+  ...weddingGalleryItems(),
 ]
 
 export default function GalleryContent() {
@@ -83,7 +86,7 @@ export default function GalleryContent() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            className="flex flex-wrap justify-center gap-2 mb-10"
+            className="flex flex-wrap justify-center gap-2 mb-6"
           >
             {categories.map((cat) => (
               <button
@@ -99,6 +102,15 @@ export default function GalleryContent() {
               </button>
             ))}
           </motion.div>
+
+          <p className="text-center mb-8">
+            <Link
+              href={WEDDING.path}
+              className="font-montserrat text-xs text-gold hover:text-gold/80 underline-offset-4 hover:underline transition-colors"
+            >
+              Full wedding story — {WEDDING.coupleNames} →
+            </Link>
+          </p>
 
           {/* Count */}
           <p className="text-center font-inter text-muted-foreground/40 text-xs mb-8">
